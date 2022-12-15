@@ -10,6 +10,8 @@ In addition, we refer to the [[https://www.vasp.at/wiki][Wiki page of VASP]].
 
 An example =bash= script performing all following steps for a periodic BN crystal is available here [[file:../data/run_vasp.sh][here]].
 
+Important note: In order to run =ALGO=CC4S= within =VASP= a further patch is required in addition to the latest =VASP= version (6.3.2). Don't hesitate to contact the cc4s developers.
+
 # Essentially, 
 # 1. Groundstate
 # 2. Virtual orbitals
