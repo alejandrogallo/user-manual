@@ -29,7 +29,9 @@ jobs:
       run: nix-shell config/shell.nix --run 'make'
 
     - name: remove index.org
-      run: rm index.org
+      run: |
+        rm index.org
+        touch build/.nojekyll
 
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@4.1.0
