@@ -14,7 +14,6 @@ RSTFILES = $(patsubst %.org,%.rst,$(ORGFILES))
 ID_LOCATION_FILE = id-locations
 EMACS_SITE = $(EMACS) --load config/site.el
 
-SITEMAPS = algorithms/sitemap.org objects/sitemap.org
 
 TANGLING_FILES = $(shell find . -name '*.org' | xargs grep -H tangle | awk -F: '{print $$1}')
 TANGLING_FILES_DIR = .emacs/tangle
@@ -39,38 +38,21 @@ rst: $(RSTFILES)
 	sed -i "s/\.rst/.html/g" $@
 	sed -i "s/\.org/.html/g" $@
 
-publish: $(ORGFILES) tangle sitemaps
-	$(EMACS) --load config/site.el $(INDEX) -f cc4s/publish-site
-
 tangle: $(TANGLING_FILES_CACHE)
-
-force:
-	touch $(ORGFILES)
-	$(MAKE) publish
 
 refresh:
 	$(EMACS) --load config/site.el $(INDEX) -f package-refresh-contents
 
 clean:
-	rm -r $(BUILD_DIR) $(ID_LOCATION_FILE) sitemap.org .emacs/org-timestamps* \
-		$(SITEMAPS)
+	rm -r $(BUILD_DIR) $(ID_LOCATION_FILE) .emacs/org-timestamps*
 
 clean-emacs:
 	rm -r .emacs
 
-algorithms/sitemap.org: $(shell find algorithms/ | grep -v sitemap.org)
-	./tools/create-sitemap.sh "Algorithm List" algorithms/ > $@
-
-objects/sitemap.org: $(shell find objects/ | grep -v sitemap.org)
-	./tools/create-sitemap.sh "Object List" objects/ > $@
-
-sitemaps: $(SITEMAPS)
-
-
 clean-all: clean clean-emacs
 
 serve:
-	python3 -m http.server $(PORT)
+	python3 -m http.server $(PORT) --directory $(BUILD_DIR)
 
 vim:
 	mkdir -p ~/.vim/ftdetect
@@ -81,8 +63,6 @@ vim:
 				-O ~/.vim/syntax/org.vim
 
 deploy: user-manual
-	rsync --recursive --itemize-changes --delete user-manual $(PATHSVR)
-#	rsync --recursive --itemize-changes --delete data $(PATHSVR)
+	rsync --recursive --itemize-changes --delete $(BUILD_DIR) $(PATHSVR)
 
-.PHONY: sitemaps
-.PHONY: init serve publish tangle refresh clean clean-emacs clean-all force vim
+.PHONY: init serve tangle refresh clean clean-emacs clean-all force vim
