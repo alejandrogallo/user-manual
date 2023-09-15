@@ -28,7 +28,7 @@ all: build/index.html
 
 $(SPHINX):
 	virtualenv $(PYENV)
-	$(PYENV)/bin/pip install sphinx
+	$(PYENV)/bin/pip install sphinx sphinx-press-theme
 
 build/index.html: $(SPHINX) rst
 	$(SPHINX) -b html . $(BUILD_DIR)
