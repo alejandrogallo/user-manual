@@ -2,7 +2,7 @@
 
 * Engine
 ** Introduction
-This manual is written using the [[https://orgmode.org][=org-mode= markup language]].
+This manual is written using the [[https://orgmode.org][org-mode markup language]].
 
 You can find some cheatsheets for org's markup you can checkout
 - https://orgmode.org/quickstart.html

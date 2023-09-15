@@ -71,9 +71,9 @@ The singular value index $F$ is called =AuxiliaryField= index in =Cc4s=,
 as indicated by =type= field in the =dimensions= section of the
 =CoulombVertex= tensor specification.
 The coefficients $U_F^G$ are needed by the
-[[id:FiniteSizeCorrection][=FiniteSizeCorrection=]] algorithm
+[[id:FiniteSizeCorrection][FiniteSizeCorrection]] algorithm
 and they are contained in the object
-[[id:CoulombVertexSingularVectors][=CoulombVertexSingularVectors=]].
+[[id:CoulombVertexSingularVectors][CoulombVertexSingularVectors]].
 For more details, see [cite:@hummel2017low].
 
 An example =CoulombVertex.yaml= file is given below
