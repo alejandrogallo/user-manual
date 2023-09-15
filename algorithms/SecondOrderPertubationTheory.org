@@ -47,7 +47,8 @@ realtime 0.170357500 s
 Two objects of size $\mathcal{O}{(N_\mathrm{o}^2 N_\mathrm{v}^2)}$ are stored in main memory. The computational complexity should be negligible as is of order $\mathcal{O}{(N_o^2 N_v^2)}$.
 
 * Theory
-The implemented expression assumes Hartree--Fock one-electron energies and can be found in Ref.[[cite:&Moller]].
+The implemented expression assumes Hartree--Fock one-electron energies
+and can be found in Ref. [cite:@Moller].
 
 * Literature
-bibliography:../group.bib
+#+print_bibliography:

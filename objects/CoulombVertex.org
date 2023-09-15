@@ -8,9 +8,11 @@
 The =CoulombVertex= $\Gamma^q_{rF}$
 is a resolution-of-identiy decomposition of the
 electron repulsion integrals of the form
-\begin{equation}
+
+$$
   V^{pq}_{sr} = \sum_F {\Gamma^\ast}^{pF}_s \Gamma^q_{rF},
-\end{equation}
+$$
+
 where ${\Gamma^\ast}^{pF}_s = \overline{\Gamma^s_{pF}}$ denotes the
 conjugate transpose.
 For periodic systems it is computed from the Fourier transform of the
@@ -35,12 +37,12 @@ and can be read into =Cc4s= using the [[id:Read][Read]] algorithm.
 For periodic systems the =CoulombVertex= $\Gamma^q_{rF}$ is computed from
 the Fourier transform $\tilde\Gamma^q_{rG}$ of the
 right vertex of the Coulomb interaction
-\begin{equation}
+$$
   \tilde\Gamma^q_{rG}
   = \int_\Omega dr\, \sqrt{w_G} \sqrt{\frac{4\pi}{\mathbf{G}^2}}\,
     e^{-i \mathbf{r}\cdot \mathbf{G}}\,
     {\psi^\ast}^q(\mathbf{r})\, \psi_r(\mathbf{r}),
-\end{equation}
+$$
 where $\mathbf{G}$ denotes the momentum vector associated to the momentum
 index $G$ and where the indices $q$ and $r$ refer to the outgoing
 and incoming states at the right interaction vertex, respectively.
@@ -49,9 +51,9 @@ and of the Coulomb kernel $4\pi/\mathbf{G}^2$
 are contained in the above definition, such that
 the desired resolution-of-identity factorization of of the
 electron repulsion integrals holds
-\begin{equation}
+$$
   V^{pq}_{sr} = \sum_G {\tilde\Gamma^\ast}^{pG}_s \tilde\Gamma^q_{rG}.
-\end{equation}
+$$
 
 To reduce the size of the employed =CoulombVertex= while minimizing the
 error of the above factorization, the
@@ -62,9 +64,9 @@ considered.
 The =CoulombVertex= used by =Cc4s= is finally defined using only
 the $N_\mathrm{F}$ largest singular values $\Sigma^F_F$ and their respective
 left singular vectors $U^F_G$
-\begin{equation}
+$$
 \Gamma^q_{rF} = \sum_G {U^\ast}^G_F \tilde\Gamma^q_{qG}.
-\end{equation}
+$$
 The singular value index $F$ is called =AuxiliaryField= index in =Cc4s=,
 as indicated by =type= field in the =dimensions= section of the
 =CoulombVertex= tensor specification.
@@ -72,7 +74,7 @@ The coefficients $U_F^G$ are needed by the
 [[id:FiniteSizeCorrection][=FiniteSizeCorrection=]] algorithm
 and they are contained in the object
 [[id:CoulombVertexSingularVectors][=CoulombVertexSingularVectors=]].
-For more details, see cite:hummel2017low.
+For more details, see [cite:@hummel2017low].
 
 An example =CoulombVertex.yaml= file is given below
 
@@ -95,6 +97,6 @@ metaData:
 #+end_src
 
 * Literature
-bibliography:../group.bib
+#+print_bibliography:
 
 

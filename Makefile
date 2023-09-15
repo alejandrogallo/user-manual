@@ -1,4 +1,5 @@
 -include config.mk
+PYENV = env
 BUILD_DIR = user-manual/
 PATHSVR=/var/www/manuals.cc4s.org
 
@@ -7,8 +8,10 @@ PORT = 8888
 EMACS_BIN ?= emacs
 EMACS = $(EMACS_BIN) -Q --batch
 INDEX = index.org
-ORGFILES = $(shell find . -name '*.org')
+ORGFILES = $(shell find . -name '*.org' | grep -v '.emacs')
+RSTFILES = $(patsubst %.org,%.rst,$(ORGFILES))
 ID_LOCATION_FILE = id-locations
+EMACS_SITE = $(EMACS) --load config/site.el
 
 SITEMAPS = algorithms/sitemap.org objects/sitemap.org
 
@@ -18,6 +21,22 @@ TANGLING_FILES_CACHE = $(patsubst %,$(TANGLING_FILES_DIR)/%,$(TANGLING_FILES))
 $(TANGLING_FILES_DIR)/%: %
 	mkdir -p $(@D)
 	$(EMACS) $< -f org-babel-tangle && touch $@
+
+.PHONY: rst all
+all: build/index.html
+
+$(PYENV)/bin/sphinx-build:
+	python3 $(PYENV)
+	$(PYENV)/bin/sphinx-build install sphinx
+
+build/index.html: $(PYENV)/bin/sphinx-build rst
+	$(PYENV)/bin/sphinx-build -b html . build
+
+rst: $(RSTFILES)
+%.rst: %.org
+	$(EMACS_SITE) $< -f org-rst-export-to-rst
+	sed -i "s/\.rst/.html/g" $@
+	sed -i "s/\.org/.html/g" $@
 
 publish: $(ORGFILES) tangle sitemaps
 	$(EMACS) --load config/site.el $(INDEX) -f cc4s/publish-site

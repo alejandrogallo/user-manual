@@ -25,13 +25,13 @@ The following authors have contributed to developing the methods and code implem
 
 A paper containing more inforamtion about the implemented algorithms will be published soon.
 For the time being we recommend referring to following articles if appropriate
-- Auxiliary-field representation: cite:&hummel2017low
-- Finite-size error corrections: cite:&liao2016communication cite:&gruber2018applying
-- Basis-set error corrections: cite:&FocalPointAppIrmler2021
+- Auxiliary-field representation: [cite:@hummel2017low]
+- Finite-size error corrections: [cite:@liao2016communication] [cite:@gruber2018applying]
+- Basis-set error corrections: [cite:@FocalPointAppIrmler2021]
 \\
 
 * Literature
 #+OPTIONS: num:nil
-bibliography:../group.bib
+#+print_bibliography:
 
 

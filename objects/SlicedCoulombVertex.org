@@ -31,9 +31,9 @@ by restricting the outgoing (upstairs) states of the entire Coulomb
 Vertex to hole states $i$ while
 restricting the incoming (downstairs) states
 to particle states $a$:
-\begin{equation}
+$$
   \Gamma^i_{aF}: \varepsilon_i < \varepsilon_\mathrm{F}<\varepsilon_a
-\end{equation}
+$$
 The index order in =cc4s= is identical to the index order of the entire
 Coulomb Vertex. For the above example it is =Gamma[Fia]=.
 Note that all indices start with 0, thus the particle indices
@@ -44,6 +44,6 @@ where $N_\mathrm{p}$ denotes the total number of closed-shell
 orbitals and $N_\mathrm{v}$ denotes the number of virtual orbitals.
 
 * Literature
-bibliography:../group.bib
+#+print_bibliography:
 
 

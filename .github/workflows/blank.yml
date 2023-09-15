@@ -26,8 +26,8 @@ jobs:
         nix_path: nixpkgs=channel:nixos-unstable
 
     - name: Build site
-      run: nix-shell config/shell.nix --run 'make publish'
-      
+      run: nix-shell config/shell.nix --run 'make'
+
     - name: remove index.org
       run: rm index.org
 
@@ -35,4 +35,4 @@ jobs:
       uses: JamesIves/github-pages-deploy-action@4.1.0
       with:
          branch: gh-pages
-         folder: user-manual
+         folder: build

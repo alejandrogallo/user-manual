@@ -7,13 +7,13 @@
 
 * Brief description
 
-\begin{equation}
+$$
 \langle pq \mid \delta(r_{12}) \mid rs \rangle
   = \int \int d\mathbf{r}_1 d\mathbf{r}_2
     \psi_p^*(\mathbf{r}_1) \psi_q^*(\mathbf{r}_2)
     \delta(r_{12})
     \psi_r (\mathbf{r}_1) \psi_s (\mathbf{r}_2)
-\end{equation}
+$$
 
 with the one-dimensional Dirac delta function $\delta(r)$ and the
 interelectronic distance
@@ -29,6 +29,6 @@ and =DeltaIntegralsHH=
 
 
 * Literature
-bibliography:../group.bib
+#+print_bibliography:
 
 

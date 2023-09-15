@@ -44,6 +44,6 @@ The last three lines correspond to the reciprocal lattice vectors
 (including the factor $2\pi$).
 
 * Literature
-bibliography:../group.bib
+#+print_bibliography:
 
 

@@ -1,14 +1,28 @@
 #+title: Cc4s User Documentation
+#+options: toc:nil
 
-# #+begin_center
-# The following sections explain everything from
-# downloading the code to running calculations.
-# #+end_center
+#+begin_export rst
+.. toctree::
+   :maxdepth: 1
+   :glob:
+
+   gettingstarted/gettingstarted
+   algorithms/index
+   objects/index
+   interfaces/*
+   tutorials/*
+   what/*
+   performance/*
+   contact/contact
+   how-to-write
+#+end_export
+
 * What is Cc4s?
 - [[file:./what/what.org][About the code]]
 
 * How to get started?
 - [[file:./gettingstarted/gettingstarted.org][Download, compile and run tests]]
+ 
 
 * How to run Cc4s calculations?
 

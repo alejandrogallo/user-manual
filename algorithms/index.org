@@ -1,0 +1,10 @@
+#+title: Algorithms
+#+options: toc:nil
+
+#+begin_export rst
+.. toctree::
+   :glob:
+   :maxdepth: 1
+
+   *
+#+end_export

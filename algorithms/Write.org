@@ -65,7 +65,7 @@ realtime 0.011545188 s
 
 ** Sample =yaml= output
 
-#+begin_src
+#+begin_src yaml
 floatingPointOperations: 0
 flops: 0
 in:
@@ -88,6 +88,6 @@ realtime: 0.011545188
 #+end_src
 
 * Literature
-bibliography:../group.bib
+#+print_bibliography:
 
 

@@ -10,12 +10,12 @@
 singles $t_i^a$ and the doubles $t_{ij}^{ab}$ amplitudes, that solve
 the employed coupled-cluster amplitude equation.
 The canonical closed-shell coupled-cluster correlation energy is given by
-\begin{equation}
+$$
   E_\mathrm{cc}
   = \frac12 \sum_{abij}
     \left(t^{ab}_{ij} + t^a_i t^b_j\right)
     \left(2V^{ij}_{ab} - V^{ji}_{ab}\right).
-\end{equation}
+$$
 Note, that the closed-shell doubles amplitudes are symmetric with respect
 to interchanging left and right inidices $t^{ab}_{ij}=t^{ba}_{ji}$.
 
@@ -23,9 +23,9 @@ to interchanging left and right inidices $t^{ab}_{ij}=t^{ba}_{ji}$.
 
 The =Amplitudes= parametrize the correlated wave function $|\Psi\rangle$
 using the coupled-cluster Ansatz
-\begin{equation}
+$$
   | \Psi \rangle = e^{\hat T} | \Phi \rangle,
-\end{equation}
+$$
 where $|\Phi\rangle$ denotes the single Hartree--Fock slater determinant.
 The cluster operator $\hat T = \hat T_1 + \hat T_2 + \ldots$ is
 expanded in increasing number of excitation levels. The single and
@@ -43,6 +43,6 @@ algorithm by solving the amplitude equation of the employed
 coupled-cluster method, described therein.
 
 * Literature
-bibliography:../group.bib
+#+print_bibliography:
 
 

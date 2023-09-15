@@ -39,6 +39,6 @@ metaData:
 
 
 * Literature
-bibliography:../group.bib
+#+print_bibliography:
 
 
