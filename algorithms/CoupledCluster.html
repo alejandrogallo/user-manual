@@ -189,56 +189,56 @@
           <div class="content" role="main" v-pre>
             
   <section id="coupledcluster">
-<h1><a class="toc-backref" href="#id11" role="doc-backlink">CoupledCluster</a><a class="headerlink" href="#coupledcluster" title="Link to this heading">¶</a></h1>
+<h1><a class="toc-backref" href="#id13" role="doc-backlink">CoupledCluster</a><a class="headerlink" href="#coupledcluster" title="Link to this heading">¶</a></h1>
 <nav class="contents" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#coupledcluster" id="id11">CoupledCluster</a></p>
+<li><p><a class="reference internal" href="#coupledcluster" id="id13">CoupledCluster</a></p>
 <ul>
-<li><p><a class="reference internal" href="#brief-description" id="id12">1 Brief description</a></p></li>
-<li><p><a class="reference internal" href="#algorithm-call" id="id13">2 Algorithm call</a></p></li>
-<li><p><a class="reference internal" href="#algorithm-input" id="id14">3 Algorithm input</a></p>
+<li><p><a class="reference internal" href="#brief-description" id="id14">1 Brief description</a></p></li>
+<li><p><a class="reference internal" href="#algorithm-call" id="id15">2 Algorithm call</a></p></li>
+<li><p><a class="reference internal" href="#algorithm-input" id="id16">3 Algorithm input</a></p>
 <ul>
-<li><p><a class="reference internal" href="#method" id="id15">3.1 method</a></p></li>
-<li><p><a class="reference internal" href="#linearzied" id="id16">3.2 linearzied</a></p></li>
-<li><p><a class="reference internal" href="#integralsslicesize" id="id17">3.3 integralsSliceSize</a></p></li>
-<li><p><a class="reference internal" href="#maxiterations" id="id18">3.4 maxIterations</a></p></li>
-<li><p><a class="reference internal" href="#energyconvergence" id="id19">3.5 energyConvergence</a></p></li>
-<li><p><a class="reference internal" href="#amplitudesconvergence" id="id20">3.6 amplitudesConvergence</a></p></li>
-<li><p><a class="reference internal" href="#initialamplitudes" id="id21">3.7 initialAmplitudes</a></p></li>
-<li><p><a class="reference internal" href="#mixer" id="id22">3.8 mixer</a></p>
+<li><p><a class="reference internal" href="#method" id="id17">3.1 method</a></p></li>
+<li><p><a class="reference internal" href="#linearzied" id="id18">3.2 linearzied</a></p></li>
+<li><p><a class="reference internal" href="#integralsslicesize" id="id19">3.3 integralsSliceSize</a></p></li>
+<li><p><a class="reference internal" href="#maxiterations" id="id20">3.4 maxIterations</a></p></li>
+<li><p><a class="reference internal" href="#energyconvergence" id="id21">3.5 energyConvergence</a></p></li>
+<li><p><a class="reference internal" href="#amplitudesconvergence" id="id22">3.6 amplitudesConvergence</a></p></li>
+<li><p><a class="reference internal" href="#initialamplitudes" id="id23">3.7 initialAmplitudes</a></p></li>
+<li><p><a class="reference internal" href="#mixer" id="id24">3.8 mixer</a></p>
 <ul>
-<li><p><a class="reference internal" href="#diismixer" id="id23">3.8.1 DiisMixer</a></p></li>
-<li><p><a class="reference internal" href="#linearmixer" id="id24">3.8.2 LinearMixer</a></p></li>
+<li><p><a class="reference internal" href="#diismixer" id="id25">3.8.1 DiisMixer</a></p></li>
+<li><p><a class="reference internal" href="#linearmixer" id="id26">3.8.2 LinearMixer</a></p></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#algorithm-output" id="id25">4 Algorithm output</a></p>
+<li><p><a class="reference internal" href="#algorithm-output" id="id27">4 Algorithm output</a></p>
 <ul>
-<li><p><a class="reference internal" href="#sample-stdout" id="id26">4.1 Sample <code class="docutils literal notranslate"><span class="pre">stdout</span></code></a></p></li>
+<li><p><a class="reference internal" href="#sample-stdout" id="id28">4.1 Sample <code class="docutils literal notranslate"><span class="pre">stdout</span></code></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#sample-yaml-output" id="id27">5 Sample <code class="docutils literal notranslate"><span class="pre">yaml</span></code> output</a></p></li>
-<li><p><a class="reference internal" href="#computational-complexity" id="id28">6 Computational complexity</a></p></li>
-<li><p><a class="reference internal" href="#theory" id="id29">7 Theory</a></p>
+<li><p><a class="reference internal" href="#sample-yaml-output" id="id29">5 Sample <code class="docutils literal notranslate"><span class="pre">yaml</span></code> output</a></p></li>
+<li><p><a class="reference internal" href="#computational-complexity" id="id30">6 Computational complexity</a></p></li>
+<li><p><a class="reference internal" href="#theory" id="id31">7 Theory</a></p>
 <ul>
-<li><p><a class="reference internal" href="#coupled-cluster-singles-doubles-ccsd" id="id30">7.1 Coupled-Cluster Singles Doubles (<code class="docutils literal notranslate"><span class="pre">Ccsd</span></code>)</a></p></li>
-<li><p><a class="reference internal" href="#direct-ring-couple-cluster-doubles-drccd" id="id31">7.2 Direct-Ring Couple-Cluster Doubles (<code class="docutils literal notranslate"><span class="pre">Drccd</span></code>)</a></p></li>
+<li><p><a class="reference internal" href="#coupled-cluster-singles-doubles-ccsd" id="id32">7.1 Coupled-Cluster Singles Doubles (<code class="docutils literal notranslate"><span class="pre">Ccsd</span></code>)</a></p></li>
+<li><p><a class="reference internal" href="#direct-ring-couple-cluster-doubles-drccd" id="id33">7.2 Direct-Ring Couple-Cluster Doubles (<code class="docutils literal notranslate"><span class="pre">Drccd</span></code>)</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#literature" id="id32">8 Literature</a></p></li>
+<li><p><a class="reference internal" href="#literature" id="id34">8 Literature</a></p></li>
 </ul>
 </li>
 </ul>
 </nav>
 <section id="brief-description">
-<h2><a class="toc-backref" href="#id12" role="doc-backlink">1 Brief description</a><a class="headerlink" href="#brief-description" title="Link to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id14" role="doc-backlink">1 Brief description</a><a class="headerlink" href="#brief-description" title="Link to this heading">¶</a></h2>
 <p>This algorithm solves the CCSD amplitude equations using the Coulomb integrals
 and Hartree–Fock eigenenergies.</p>
 </section>
 <section id="algorithm-call">
-<h2><a class="toc-backref" href="#id13" role="doc-backlink">2 Algorithm call</a><a class="headerlink" href="#algorithm-call" title="Link to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id15" role="doc-backlink">2 Algorithm call</a><a class="headerlink" href="#algorithm-call" title="Link to this heading">¶</a></h2>
 <p>A typical input file snippet to call the <code class="docutils literal notranslate"><span class="pre">CoupledCluster</span></code> algorithm is given below.</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CoupledCluster</span>
 <span class="w">  </span><span class="nt">in</span><span class="p">:</span>
@@ -263,12 +263,12 @@ and Hartree–Fock eigenenergies.</p>
 </div>
 </section>
 <section id="algorithm-input">
-<h2><a class="toc-backref" href="#id14" role="doc-backlink">3 Algorithm input</a><a class="headerlink" href="#algorithm-input" title="Link to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id16" role="doc-backlink">3 Algorithm input</a><a class="headerlink" href="#algorithm-input" title="Link to this heading">¶</a></h2>
 <section id="method">
-<span id="id1"></span><h3><a class="toc-backref" href="#id15" role="doc-backlink">3.1 method</a><a class="headerlink" href="#method" title="Link to this heading">¶</a></h3>
+<span id="id1"></span><h3><a class="toc-backref" href="#id17" role="doc-backlink">3.1 method</a><a class="headerlink" href="#method" title="Link to this heading">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">method</span></code> specifies which approximation of the coupled-cluster
-<code class="docutils literal notranslate"><span class="pre">`Amplitudes</span></code> &lt;../objects/Amplitudes.html&gt;`_ should be used. See the
-<code class="docutils literal notranslate"><span class="pre">`Amplitudes</span></code> &lt;../objects/Amplitudes.html&gt;`_ for the specification of
+<a class="reference external" href="../objects/Amplitudes.html">Amplitudes</a> should be used. See the
+<a class="reference external" href="../objects/Amplitudes.html">Amplitudes</a> for the specification of
 each approximation.
 The currently available approximations are:</p>
 <dl class="simple">
@@ -289,7 +289,7 @@ with the Second Order Screened Exchange (SOSEX) correction
 </dl>
 </section>
 <section id="linearzied">
-<span id="linearized"></span><h3><a class="toc-backref" href="#id16" role="doc-backlink">3.2 linearzied</a><a class="headerlink" href="#linearzied" title="Link to this heading">¶</a></h3>
+<span id="linearized"></span><h3><a class="toc-backref" href="#id18" role="doc-backlink">3.2 linearzied</a><a class="headerlink" href="#linearzied" title="Link to this heading">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">linearized</span></code> A non-zero value indicates that the linearized
 coupled-cluster amplitude equations should be solved, rather
 than the fully non-linear ones.
@@ -298,14 +298,14 @@ Note: currently only <code class="docutils literal notranslate"><span class="pre
 amplitude equations.</p>
 </section>
 <section id="integralsslicesize">
-<span id="id2"></span><h3><a class="toc-backref" href="#id17" role="doc-backlink">3.3 integralsSliceSize</a><a class="headerlink" href="#integralsslicesize" title="Link to this heading">¶</a></h3>
+<span id="id3"></span><h3><a class="toc-backref" href="#id19" role="doc-backlink">3.3 integralsSliceSize</a><a class="headerlink" href="#integralsslicesize" title="Link to this heading">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">integralsSliceSize</span></code> controls the slice size of the <span class="math notranslate nohighlight">\(V_{cd}^{ab}\)</span> integrals, which are computed on-the-fly to
 reduce the memory footprint. The integer value specified for <code class="docutils literal notranslate"><span class="pre">integralsSliceSize</span></code>  refers to the dimension size
 used for the <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> index. We recommend setting <code class="docutils literal notranslate"><span class="pre">integralsSliceSize:</span> <span class="pre">100</span></code> to balance
 computational efficency with memory usage. Smaller/larger values reduce/increase the memory footprint.</p>
 </section>
 <section id="maxiterations">
-<span id="id3"></span><h3><a class="toc-backref" href="#id18" role="doc-backlink">3.4 maxIterations</a><a class="headerlink" href="#maxiterations" title="Link to this heading">¶</a></h3>
+<span id="id4"></span><h3><a class="toc-backref" href="#id20" role="doc-backlink">3.4 maxIterations</a><a class="headerlink" href="#maxiterations" title="Link to this heading">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">maxIterations</span></code> controls the maximum number of iterations allowed to solve the  <span class="math notranslate nohighlight">\(t_{ij}^{ab}\)</span> and <span class="math notranslate nohighlight">\(t_i^a\)</span> amplitude equations.
 If convergence of the energy and residual vectors within the specified thresholds is achieved using fewer iterations
 than <code class="docutils literal notranslate"><span class="pre">maxIterations</span></code>, the algorithm was successfull and will stop.
@@ -314,27 +314,27 @@ successful and will stop. We recommend to set <code class="docutils literal notr
 thresholds.</p>
 </section>
 <section id="energyconvergence">
-<span id="id4"></span><h3><a class="toc-backref" href="#id19" role="doc-backlink">3.5 energyConvergence</a><a class="headerlink" href="#energyconvergence" title="Link to this heading">¶</a></h3>
+<span id="id5"></span><h3><a class="toc-backref" href="#id21" role="doc-backlink">3.5 energyConvergence</a><a class="headerlink" href="#energyconvergence" title="Link to this heading">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">energyConvergence</span></code> specifies the convergence threshold for the correlation energy.
 If <code class="docutils literal notranslate"><span class="pre">energyConvergence</span></code> and <code class="docutils literal notranslate"><span class="pre">amplitudesConvergence</span></code> is achieved, the iterative solution was successful and the algorithm will stop.</p>
 </section>
 <section id="amplitudesconvergence">
-<span id="id5"></span><h3><a class="toc-backref" href="#id20" role="doc-backlink">3.6 amplitudesConvergence</a><a class="headerlink" href="#amplitudesconvergence" title="Link to this heading">¶</a></h3>
+<span id="id6"></span><h3><a class="toc-backref" href="#id22" role="doc-backlink">3.6 amplitudesConvergence</a><a class="headerlink" href="#amplitudesconvergence" title="Link to this heading">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">amplitudesConvergence</span></code> specifies the convergence threshold for the residual vector of the singles and doubles amplitude equations.
 If <code class="docutils literal notranslate"><span class="pre">energyConvergence</span></code> and <code class="docutils literal notranslate"><span class="pre">amplitudesConvergence</span></code> is achieved, the iterative solution was successful and the algorithm will stop.</p>
 </section>
 <section id="initialamplitudes">
-<span id="initialamplitude"></span><h3><a class="toc-backref" href="#id21" role="doc-backlink">3.7 initialAmplitudes</a><a class="headerlink" href="#initialamplitudes" title="Link to this heading">¶</a></h3>
+<span id="initialamplitude"></span><h3><a class="toc-backref" href="#id23" role="doc-backlink">3.7 initialAmplitudes</a><a class="headerlink" href="#initialamplitudes" title="Link to this heading">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">initialAmplitudes</span></code> specifies amplitudes from a precedent calculations. This allows restarting a self consistent calculation from a former checkpoint.</p>
 </section>
 <section id="mixer">
-<span id="id6"></span><h3><a class="toc-backref" href="#id22" role="doc-backlink">3.8 mixer</a><a class="headerlink" href="#mixer" title="Link to this heading">¶</a></h3>
+<span id="id7"></span><h3><a class="toc-backref" href="#id24" role="doc-backlink">3.8 mixer</a><a class="headerlink" href="#mixer" title="Link to this heading">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">mixer</span></code> specifies mixer-specific parameters used to solve the amplitude equations iteratively.
 The direct inversion iterative subspace (Diis) algorithm is the default algorithm used to mix amplitude guesses from previous
 iterations to improve the guess for the next iteration.
 <code class="docutils literal notranslate"><span class="pre">mixer:</span> <span class="pre">type</span></code> can currently be set to <code class="docutils literal notranslate"><span class="pre">\*DiisMixer</span></code> or <code class="docutils literal notranslate"><span class="pre">\*LinearMixer</span></code>.</p>
 <section id="diismixer">
-<h4><a class="toc-backref" href="#id23" role="doc-backlink">3.8.1 DiisMixer</a><a class="headerlink" href="#diismixer" title="Link to this heading">¶</a></h4>
+<h4><a class="toc-backref" href="#id25" role="doc-backlink">3.8.1 DiisMixer</a><a class="headerlink" href="#diismixer" title="Link to this heading">¶</a></h4>
 <p>For <code class="docutils literal notranslate"><span class="pre">mixer:</span> <span class="pre">type:</span> <span class="pre">DissMixer</span></code>, it is possible to specify <code class="docutils literal notranslate"><span class="pre">mixer:</span> <span class="pre">maxResidua</span></code>, which controls the number of residual
 vectors used by the Diis mixer.
 We recommend to set the maximum number of residual vectors used in the <code class="docutils literal notranslate"><span class="pre">DiisMixer</span></code> to <code class="docutils literal notranslate"><span class="pre">5</span></code>.
@@ -347,7 +347,7 @@ More residual vectors result in a larger memory footprint.</p>
 </div>
 </section>
 <section id="linearmixer">
-<h4><a class="toc-backref" href="#id24" role="doc-backlink">3.8.2 LinearMixer</a><a class="headerlink" href="#linearmixer" title="Link to this heading">¶</a></h4>
+<h4><a class="toc-backref" href="#id26" role="doc-backlink">3.8.2 LinearMixer</a><a class="headerlink" href="#linearmixer" title="Link to this heading">¶</a></h4>
 <p>For <code class="docutils literal notranslate"><span class="pre">mixer:</span> <span class="pre">type:</span> <span class="pre">LinearMixer</span></code> it is possible to specify <code class="docutils literal notranslate"><span class="pre">mixer:</span> <span class="pre">ratio</span></code>, which controls the mixing ratio used
 to update the new guess of the amplitudes based on estimates from the previous and current iteration.
 The <code class="docutils literal notranslate"><span class="pre">LinearMixer</span></code> exhibits the smallest possible memory footprint from all currently available mixers,
@@ -363,13 +363,13 @@ We recommend to set <code class="docutils literal notranslate"><span class="pre"
 </section>
 </section>
 <section id="algorithm-output">
-<h2><a class="toc-backref" href="#id25" role="doc-backlink">4 Algorithm output</a><a class="headerlink" href="#algorithm-output" title="Link to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id27" role="doc-backlink">4 Algorithm output</a><a class="headerlink" href="#algorithm-output" title="Link to this heading">¶</a></h2>
 <p>The output of the <strong>CoupledCluster</strong> algorithm includes <code class="docutils literal notranslate"><span class="pre">energy</span></code> and <code class="docutils literal notranslate"><span class="pre">amplitudes</span></code> . The <code class="docutils literal notranslate"><span class="pre">amplitudes</span></code> output contains
 the converged singles and doubles amplitude tensors. The amplitudes can be used as input for algorithms
 that estimate the finite simulation cell size error (<strong>FiniteSizeCorrection</strong>)
 and the basis set incompleteness errors (<strong>BasisSetCorrection</strong>).</p>
 <section id="sample-stdout">
-<h3><a class="toc-backref" href="#id26" role="doc-backlink">4.1 Sample <code class="docutils literal notranslate"><span class="pre">stdout</span></code></a><a class="headerlink" href="#sample-stdout" title="Link to this heading">¶</a></h3>
+<h3><a class="toc-backref" href="#id28" role="doc-backlink">4.1 Sample <code class="docutils literal notranslate"><span class="pre">stdout</span></code></a><a class="headerlink" href="#sample-stdout" title="Link to this heading">¶</a></h3>
 <p>Below an example standard output stream is shown for a successful <strong>CoupledCluster</strong> algorithm run.</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>step:<span class="w"> </span><span class="m">6</span>,<span class="w"> </span>CoupledCluster
 Using<span class="w"> </span>method<span class="w"> </span>Ccsd.<span class="w"> </span>integralsSliceSize:<span class="w"> </span><span class="m">100</span>
@@ -401,7 +401,7 @@ realtime<span class="w"> </span><span class="m">9</span>.189542891<span class="w
 </section>
 </section>
 <section id="sample-yaml-output">
-<h2><a class="toc-backref" href="#id27" role="doc-backlink">5 Sample <code class="docutils literal notranslate"><span class="pre">yaml</span></code> output</a><a class="headerlink" href="#sample-yaml-output" title="Link to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id29" role="doc-backlink">5 Sample <code class="docutils literal notranslate"><span class="pre">yaml</span></code> output</a><a class="headerlink" href="#sample-yaml-output" title="Link to this heading">¶</a></h2>
 <p>Below an example <code class="docutils literal notranslate"><span class="pre">yaml</span></code> output stream is shown for a successful <strong>CoupledCluster</strong> algorithm run.</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CoupledCluster</span>
 <span class="nt">out</span><span class="p">:</span>
@@ -418,7 +418,7 @@ realtime<span class="w"> </span><span class="m">9</span>.189542891<span class="w
 </div>
 </section>
 <section id="computational-complexity">
-<h2><a class="toc-backref" href="#id28" role="doc-backlink">6 Computational complexity</a><a class="headerlink" href="#computational-complexity" title="Link to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id30" role="doc-backlink">6 Computational complexity</a><a class="headerlink" href="#computational-complexity" title="Link to this heading">¶</a></h2>
 <p>This section explains computational or memory footprints
 for the various methods implemented in <strong>CoupledCluster</strong>
 <a class="reference internal" href="#method">method</a>.</p>
@@ -448,7 +448,7 @@ scales as <span class="math notranslate nohighlight">\(\mathcal O(N_\mathrm{o}^2
 </dl>
 </section>
 <section id="theory">
-<h2><a class="toc-backref" href="#id29" role="doc-backlink">7 Theory</a><a class="headerlink" href="#theory" title="Link to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id31" role="doc-backlink">7 Theory</a><a class="headerlink" href="#theory" title="Link to this heading">¶</a></h2>
 <p>Coupled-cluster employs the exponential Ansatz for the correlated wave function</p>
 <div class="math notranslate nohighlight" id="equation-algorithms-coupledcluster-0">
 <span class="eqno">(1)<a class="headerlink" href="#equation-algorithms-coupledcluster-0" title="Link to this equation">¶</a></span>\[\begin{equation}
@@ -473,11 +473,11 @@ on <span class="math notranslate nohighlight">\(\langle \Phi|e^{-\hat T}\)</span
 The resulting over-determined set of equations is truncated at the
 same level as the cluster-operator <span class="math notranslate nohighlight">\(\hat T\)</span>, giving as many equations
 as there are coefficients in <span class="math notranslate nohighlight">\(\hat T\)</span>.
-The <code class="docutils literal notranslate"><span class="pre">Amplitudes</span></code> are generated by the <code class="docutils literal notranslate"><span class="pre">`CoupledCluster</span></code> &lt;CoupledCluster.html&gt;`_
+The <code class="docutils literal notranslate"><span class="pre">Amplitudes</span></code> are generated by the <a class="reference external" href="CoupledCluster.html">CoupledCluster</a>
 algorithm by solving the amplitude equation of the employed
 coupled-cluster method, described below:</p>
 <section id="coupled-cluster-singles-doubles-ccsd">
-<h3><a class="toc-backref" href="#id30" role="doc-backlink">7.1 Coupled-Cluster Singles Doubles (<code class="docutils literal notranslate"><span class="pre">Ccsd</span></code>)</a><a class="headerlink" href="#coupled-cluster-singles-doubles-ccsd" title="Link to this heading">¶</a></h3>
+<h3><a class="toc-backref" href="#id32" role="doc-backlink">7.1 Coupled-Cluster Singles Doubles (<code class="docutils literal notranslate"><span class="pre">Ccsd</span></code>)</a><a class="headerlink" href="#coupled-cluster-singles-doubles-ccsd" title="Link to this heading">¶</a></h3>
 <p>The cluster-operator is truncated containing only single and double
 excitations. The projections on the singly and doubly excited
 slater-determinants <span class="math notranslate nohighlight">\(\langle \Phi^a_i|\)</span> and <span class="math notranslate nohighlight">\(\langle \Phi^{ab}_{ij}|\)</span> give</p>
@@ -496,7 +496,7 @@ a text-book introduction of the original works of
 (Coester, F. and Kümmel, H., 1960) and (Čížek, Jirí, 1969).</p>
 </section>
 <section id="direct-ring-couple-cluster-doubles-drccd">
-<h3><a class="toc-backref" href="#id31" role="doc-backlink">7.2 Direct-Ring Couple-Cluster Doubles (<code class="docutils literal notranslate"><span class="pre">Drccd</span></code>)</a><a class="headerlink" href="#direct-ring-couple-cluster-doubles-drccd" title="Link to this heading">¶</a></h3>
+<h3><a class="toc-backref" href="#id33" role="doc-backlink">7.2 Direct-Ring Couple-Cluster Doubles (<code class="docutils literal notranslate"><span class="pre">Drccd</span></code>)</a><a class="headerlink" href="#direct-ring-couple-cluster-doubles-drccd" title="Link to this heading">¶</a></h3>
 <p>This method uses only the double
 excitation part of the cluster-operator. From
 the full doubles amplitude equations in Eq. (ref{eqn:t2}) only
@@ -530,9 +530,9 @@ original work on the RPA.</p>
 </section>
 </section>
 <section id="literature">
-<h2><a class="toc-backref" href="#id32" role="doc-backlink">8 Literature</a><a class="headerlink" href="#literature" title="Link to this heading">¶</a></h2>
-<p>Chen, Guo P. and Agee, Matthew M. and Furche, Filipp  ( 2018 ). * Performance and Scope of Perturbative Corrections to Random-Phase Approximation Energies <a href="#id7"><span class="problematic" id="id8">*</span></a>,  J. Chem. Theory Comput. .</p>
-<p>Furche, Filipp  ( 2008 ). * Developing the random phase approximation into a practical post-Kohn\textendash{}Sham correlation model <a href="#id9"><span class="problematic" id="id10">*</span></a>,  J. Chem. Phys. .</p>
+<h2><a class="toc-backref" href="#id34" role="doc-backlink">8 Literature</a><a class="headerlink" href="#literature" title="Link to this heading">¶</a></h2>
+<p>Chen, Guo P. and Agee, Matthew M. and Furche, Filipp  ( 2018 ). * Performance and Scope of Perturbative Corrections to Random-Phase Approximation Energies <a href="#id9"><span class="problematic" id="id10">*</span></a>,  J. Chem. Theory Comput. .</p>
+<p>Furche, Filipp  ( 2008 ). * Developing the random phase approximation into a practical post-Kohn\textendash{}Sham correlation model <a href="#id11"><span class="problematic" id="id12">*</span></a>,  J. Chem. Phys. .</p>
 <p>Bartlett, R.J. and Musiał, Monika (2007). <em>{Coupled-cluster theory in quantum chemistry}</em>, Rev. Mod. Phys..</p>
 <p>Coester, F. and Kümmel, H. (1960). <em>Short-range correlations in nuclear wave functions</em>, Nucl. Phys..</p>
 <p>Freeman, David (1977). <em>Coupled-cluster expansion applied to the electron gas: {Inclusion} of ring and exchange effects</em>, Physical Review B.</p>
