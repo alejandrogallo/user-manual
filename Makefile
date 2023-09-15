@@ -1,6 +1,7 @@
 -include config.mk
 PYENV = env
-BUILD_DIR = user-manual/
+SPHINX = $(PYENV)/bin/sphinx-build
+BUILD_DIR = build
 PATHSVR=/var/www/manuals.cc4s.org
 
 PORT = 8888
@@ -25,12 +26,12 @@ $(TANGLING_FILES_DIR)/%: %
 .PHONY: rst all
 all: build/index.html
 
-$(PYENV)/bin/sphinx-build:
-	python3 $(PYENV)
-	$(PYENV)/bin/sphinx-build install sphinx
+$(SPHINX):
+	virtualenv $(PYENV)
+	$(PYENV)/bin/pip install sphinx
 
-build/index.html: $(PYENV)/bin/sphinx-build rst
-	$(PYENV)/bin/sphinx-build -b html . build
+build/index.html: $(SPHINX) rst
+	$(SPHINX) -b html . $(BUILD_DIR)
 
 rst: $(RSTFILES)
 %.rst: %.org
