@@ -1,0 +1,24 @@
+==============
+About the code
+==============
+
+
+.. contents::
+
+Cc4s is a **high-performance** open-source coupled cluster simulation code.
+
+The coupled cluster method is used as a so-called post Hartree-Fock method for
+solving the electronic Schrödinger equation (`wikipedia <https://en.wikipedia.html/wiki/Coupled_cluster>`_).
+
+The main application of cc4s is to study the electronic properties of
+solid-state systems.
+Solving the coupled cluster equations for these systems is
+computationally extremely demanding.
+Therefore we make use of state-of-the-art high-performance libraries
+such as `CTF <https://github.com/cyclops-community/ctf>`_, an efficient parallel tensor contraction engine,
+and leverage computational paradigms such as MPI
+and OpenMP based parallelization.
+
+In general terms, ``cc4s`` takes as input a reference wavefunction
+together with a description of the Coulomb integrals.
+Currently, interfaces are available for the codes `VASP <https://vasp.at>`_ and `FHI-AIMS <https://fhi-aims.html/>`_.

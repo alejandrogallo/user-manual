@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html  lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+      <title>PerturbativeTriples</title>
+    
+          <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../_static/theme.css " type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="../_static/theme-vendors.js"></script> -->
+      <script src="../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../genindex.html" />
+  <link rel="search" title="Search" href="../search.html" />
+  <link rel="next" title="Read" href="Read.html" />
+  <link rel="prev" title="FiniteSizeCorrection" href="FiniteSizeCorrection.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../index.html" class="home-link">
+    
+      <span class="site-name">CC4S</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Quick search</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Search" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#cc4s-user-documentation">cc4s user documentation</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../gettingstarted/gettingstarted.html" class="reference internal ">Getting Started</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="index.html" class="reference internal ">Algorithms</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../objects/index.html" class="reference internal ">Objects</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../interfaces/vasp.html" class="reference internal ">Description of VASP interface to Cc4s</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../tutorials/Rbn_tutorial.html" class="reference internal ">How to run Cc4s calculations?</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../what/what.html" class="reference internal ">About the code</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../performance/performance.html" class="reference internal ">Performance and compute resources</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../contact/contact.html" class="reference internal ">Contact</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../how-to-write.html" class="reference internal ">How To Write</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="index.html">Algorithms</a> &raquo;</li>
+    
+    <li>PerturbativeTriples</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="FiniteSizeCorrection.html"
+       title="previous chapter">← FiniteSizeCorrection</a>
+  </li>
+  <li class="next">
+    <a href="Read.html"
+       title="next chapter">Read →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <section id="perturbativetriples">
+<h1><a class="toc-backref" href="#id1" role="doc-backlink">PerturbativeTriples</a><a class="headerlink" href="#perturbativetriples" title="Link to this heading">¶</a></h1>
+<nav class="contents" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#perturbativetriples" id="id1">PerturbativeTriples</a></p>
+<ul>
+<li><p><a class="reference internal" href="#brief-description" id="id2">1 Brief description</a></p></li>
+<li><p><a class="reference internal" href="#algorithm-call" id="id3">2 Algorithm call</a></p></li>
+<li><p><a class="reference internal" href="#algorithm-input" id="id4">3 Algorithm input</a></p></li>
+<li><p><a class="reference internal" href="#algorithm-output" id="id5">4 Algorithm output</a></p>
+<ul>
+<li><p><a class="reference internal" href="#sample-stdout" id="id6">4.1 Sample <code class="docutils literal notranslate"><span class="pre">stdout</span></code></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#sample-yaml-output" id="id7">5 Sample <code class="docutils literal notranslate"><span class="pre">yaml</span></code> output</a></p></li>
+<li><p><a class="reference internal" href="#computational-complexity" id="id8">6 Computational complexity</a></p></li>
+<li><p><a class="reference internal" href="#theory" id="id9">7 Theory</a></p></li>
+<li><p><a class="reference internal" href="#reference-implementation" id="id10">8 Reference implementation</a></p></li>
+<li><p><a class="reference internal" href="#literature" id="id11">9 Literature</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<section id="brief-description">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">1 Brief description</a><a class="headerlink" href="#brief-description" title="Link to this heading">¶</a></h2>
+<p>Evaluates the (T) contribution.</p>
+</section>
+<section id="algorithm-call">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">2 Algorithm call</a><a class="headerlink" href="#algorithm-call" title="Link to this heading">¶</a></h2>
+<p>A typical input file snippet to call the <code class="docutils literal notranslate"><span class="pre">PerturbativeTriples</span></code> algorithm is given below.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PerturbativeTriples</span>
+<span class="w">  </span><span class="nt">in</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">coulombIntegrals</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CoulombIntegrals</span>
+<span class="w">    </span><span class="nt">amplitudes</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Amplitudes</span>
+<span class="w">    </span><span class="nt">slicedEigenEnergies</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EigenEnergies</span>
+<span class="w">    </span><span class="nt">mp2PairEnergies</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Mp2PairEnergies</span>
+<span class="w">  </span><span class="nt">out</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">{}</span>
+</pre></div>
+</div>
+</section>
+<section id="algorithm-input">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">3 Algorithm input</a><a class="headerlink" href="#algorithm-input" title="Link to this heading">¶</a></h2>
+</section>
+<section id="algorithm-output">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">4 Algorithm output</a><a class="headerlink" href="#algorithm-output" title="Link to this heading">¶</a></h2>
+<section id="sample-stdout">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">4.1 Sample <code class="docutils literal notranslate"><span class="pre">stdout</span></code></a><a class="headerlink" href="#sample-stdout" title="Link to this heading">¶</a></h3>
+<p>Below an example standard output stream is shown for a successful <code class="docutils literal notranslate"><span class="pre">PerturbativeTriples</span></code> algorithm run.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>step:<span class="w"> </span><span class="m">7</span>,<span class="w"> </span>PerturbativeTriples
+Progress<span class="o">(</span>%<span class="o">)</span><span class="w">  </span>time<span class="o">(</span>s<span class="o">)</span><span class="w">   </span>GFLOP/s
+<span class="m">1</span><span class="w">            </span><span class="m">0</span><span class="w">         </span><span class="m">4</span>.187
+<span class="m">10</span><span class="w">           </span><span class="m">0</span><span class="w">         </span><span class="m">5</span>.657
+<span class="m">20</span><span class="w">           </span><span class="m">0</span><span class="w">         </span><span class="m">5</span>.789
+<span class="m">30</span><span class="w">           </span><span class="m">0</span><span class="w">         </span><span class="m">5</span>.919
+<span class="m">40</span><span class="w">           </span><span class="m">0</span><span class="w">         </span><span class="m">5</span>.916
+<span class="m">50</span><span class="w">           </span><span class="m">0</span><span class="w">         </span><span class="m">5</span>.938
+<span class="m">60</span><span class="w">           </span><span class="m">0</span><span class="w">         </span><span class="m">5</span>.913
+<span class="m">70</span><span class="w">           </span><span class="m">0</span><span class="w">         </span><span class="m">5</span>.877
+<span class="m">80</span><span class="w">           </span><span class="m">0</span><span class="w">         </span><span class="m">5</span>.850
+<span class="m">90</span><span class="w">           </span><span class="m">0</span><span class="w">         </span><span class="m">5</span>.857
+<span class="m">100</span><span class="w">          </span><span class="m">0</span><span class="w">         </span><span class="m">5</span>.845
+<span class="o">(</span>T<span class="o">)</span><span class="w"> </span>correlation<span class="w"> </span>energy:<span class="w">      </span>-0.822530510989498
+realtime<span class="w"> </span><span class="m">2</span>.592587863<span class="w"> </span>s
+--
+</pre></div>
+</div>
+</section>
+</section>
+<section id="sample-yaml-output">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">5 Sample <code class="docutils literal notranslate"><span class="pre">yaml</span></code> output</a><a class="headerlink" href="#sample-yaml-output" title="Link to this heading">¶</a></h2>
+<p>Below an example <code class="docutils literal notranslate"><span class="pre">yaml</span></code> output stream is shown for a successful <code class="docutils literal notranslate"><span class="pre">PerturbativeTriples</span></code> algorithm run.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">floatingPointOperations</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">11703705600</span>
+<span class="nt">flops</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">729564426.2969619</span>
+<span class="nt">in</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">amplitudes</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0x24cd038</span>
+<span class="w">  </span><span class="nt">coulombIntegrals</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0x247f2b8</span>
+<span class="w">  </span><span class="nt">slicedEigenEnergies</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0x2487f38</span>
+<span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PerturbativeTriples</span>
+<span class="nt">out</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">energy</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">correlation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">-0.82253051098949848</span>
+<span class="w">    </span><span class="nt">unit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.036749322175638782</span>
+<span class="nt">realtime</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2.592587863</span>
+</pre></div>
+</div>
+</section>
+<section id="computational-complexity">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">6 Computational complexity</a><a class="headerlink" href="#computational-complexity" title="Link to this heading">¶</a></h2>
+<p>The computational cost is <span class="math notranslate nohighlight">\(\mathcal{O}{(N_o^3 N_v^3(N_o+N_v))}\)</span> with <span class="math notranslate nohighlight">\(N_o\)</span> and
+<span class="math notranslate nohighlight">\(N_v\)</span> being the number of occupied and virtual orbitals, respectively. The memory
+footprint is mainly determined by the storage of the PPPH-integral, which is of
+size <span class="math notranslate nohighlight">\(\mathcal{O}{N_o N_v^3}\)</span>.</p>
+</section>
+<section id="theory">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">7 Theory</a><a class="headerlink" href="#theory" title="Link to this heading">¶</a></h2>
+<p>The implemented expressions of (T) correspond to those from Ref. (Krishnan Raghavachari and Gary W. Trucks and John A. Pople and Martin Head-Gordon, 1989). For more details see Ref. (Bartlett, R.J. and Musiał, Monika, 2007) and references therin.</p>
+</section>
+<section id="reference-implementation">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">8 Reference implementation</a><a class="headerlink" href="#reference-implementation" title="Link to this heading">¶</a></h2>
+<p>In addition to the <code class="docutils literal notranslate"><span class="pre">PerturbativeTriples</span></code> algorithm, there is also a slower
+reference implementation called <code class="docutils literal notranslate"><span class="pre">PerturbativeTriplesReference</span></code> which
+is used in the same way as <code class="docutils literal notranslate"><span class="pre">PerturbativeTriples</span></code>.
+To use it, you should just change the name <code class="docutils literal notranslate"><span class="pre">PerturbativeTriples</span></code> by <code class="docutils literal notranslate"><span class="pre">PerturbativeTriplesReference</span></code>.</p>
+</section>
+<section id="literature">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">9 Literature</a><a class="headerlink" href="#literature" title="Link to this heading">¶</a></h2>
+<p>Bartlett, R.J. and Musiał, Monika (2007). <em>{Coupled-cluster theory in quantum chemistry}</em>, Rev. Mod. Phys..</p>
+<p>Krishnan Raghavachari and Gary W. Trucks and John A. Pople and Martin Head-Gordon (1989). <em>A fifth-order perturbation comparison of electron correlation theories</em>, Chemical Physics Letters.</p>
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="FiniteSizeCorrection.html"
+       title="previous chapter">← FiniteSizeCorrection</a>
+  </li>
+  <li class="next">
+    <a href="Read.html"
+       title="next chapter">Read →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 1980, CC4S Developers.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 7.2.6 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.8.0.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>

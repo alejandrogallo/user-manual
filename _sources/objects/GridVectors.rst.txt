@@ -1,0 +1,53 @@
+===========
+GridVectors
+===========
+
+
+.. contents::
+
+
+
+1 Brief description
+-------------------
+
+The ``GridVectors`` object contains the grid vectors of the employed plane-wave
+basis set :math:`\{ G_1, ...,G_n \}`.
+The set of grid vectors needs to be provided by an interfaced electronic structure theory package
+and can be read in using the `Read <../algorithms/Read.html>`_ algorithm.
+
+.. code:: yaml
+
+    - name: Read
+      in:
+        fileName: "GridVectors.yaml"
+      out:
+        tensor: GridVectors
+
+2 Specification
+---------------
+
+An example ``GridVectors.yaml`` file is given below.
+
+.. code:: yaml
+
+    version: 100
+    type: Tensor
+    scalarType: Real64
+    dimensions:
+      - length: 3
+        type: Vector
+      - length:    819
+        type: Momentum
+    elements:
+      type: TextFile
+    unit: 0.529177249       # =(Bohr^-1/Angstrom^-1)
+    metaData:
+      Gi: [ 0.252561935025589E+01, 0.000000000000000E+00, 0.000000000000000E+00]
+      Gj: [ 0.000000000000000E+00, 0.145816657115789E+01,-0.324282236706067E+00]
+      Gk: [ 0.000000000000000E+00, 0.000000000000000E+00, 0.972847656107296E+00]
+
+The last three lines correspond to the reciprocal lattice vectors
+(including the factor :math:`2\pi`).
+
+3 Literature
+------------

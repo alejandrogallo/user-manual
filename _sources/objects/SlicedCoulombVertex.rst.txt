@@ -1,0 +1,57 @@
+===================
+SlicedCoulombVertex
+===================
+
+
+.. contents::
+
+
+
+1 Brief description
+-------------------
+
+``SlicedCoulombVertex`` is a set of Coulomb vertices, sliced
+into particle and hole index channels:
+:math:`\{ \Gamma^i_{jF}, \Gamma_i^{aF}, \Gamma_a^{iF}, \Gamma_a^{bF}\}`.
+The ``SlicedCoulombVertex`` is used to compute the different types of two-electron
+integrals, such as :math:`V_{ij}^{ab}=\sum_F{\Gamma^\ast}^{aF}_i\Gamma^b_{jF}`.
+It can be generated from
+the entire `CoulombVertex <CoulombVertex.html>`_
+:math:`\Gamma^q_{rF}` using the
+`SliceOperator <../algorithms/SliceOperator.html>`_ algorithm:
+
+.. code:: yaml
+
+    - name: SliceOperator
+      in:
+        slicedEigenEnergies: EigenEnergies
+        operator: CoulombVertex
+      out:
+        slicedOperator: SlicedCoulombVertex
+
+2 Specification
+---------------
+
+The hole-particle slice :math:`\Gamma^i_{aF}` is for instance found
+by restricting the outgoing (upstairs) states of the entire Coulomb
+Vertex to hole states :math:`i` while
+restricting the incoming (downstairs) states
+to particle states :math:`a`:
+
+
+.. math::
+
+    \Gamma^i_{aF}: \varepsilon_i < \varepsilon_\mathrm{F}<\varepsilon_a
+
+
+The index order in ``cc4s`` is identical to the index order of the entire
+Coulomb Vertex. For the above example it is ``Gamma[Fia]``.
+Note that all indices start with 0, thus the particle indices
+:math:`a=0\ldots N_\mathrm{v}-1`
+refer to the state indices
+:math:`p=N_\mathrm{p}-N_\mathrm{v} \ldots N_\mathrm{p}-1`,
+where :math:`N_\mathrm{p}` denotes the total number of closed-shell
+orbitals and :math:`N_\mathrm{v}` denotes the number of virtual orbitals.
+
+3 Literature
+------------

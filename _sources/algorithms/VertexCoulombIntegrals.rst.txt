@@ -1,0 +1,96 @@
+======================
+VertexCoulombIntegrals
+======================
+
+
+.. contents::
+
+
+
+1 Brief description
+-------------------
+
+``VertexCoulombIntegrals`` prepares a recipe needed for the evaluation of Coulomb integrals.
+
+2 Algorithm call
+----------------
+
+A typical input file snippet to call the ``VertexCoulombIntegrals`` algorithm is given below.
+
+.. code:: yaml
+
+    - name: VertexCoulombIntegrals
+      in:
+        slicedCoulombVertex: CoulombVertex
+      out:
+        coulombIntegrals: CoulombIntegrals
+
+3 Algorithm input
+-----------------
+
+.. table:: Input keywords
+    :name: focalpoint-input-table
+
+    +-------------------------+-------+
+    | Keyword                 | Value |
+    +=========================+=======+
+    | ``slicedCoulombVertex`` | \     |
+    +-------------------------+-------+
+
+4 Algorithm output
+------------------
+
+.. table::
+
+    +----------------------+-------+
+    | Keyword              | Value |
+    +======================+=======+
+    | ``coulombIntegrals`` | \     |
+    +----------------------+-------+
+
+4.1 Sample ``stdout``
+~~~~~~~~~~~~~~~~~~~~~
+
+A sample output of this algorithm reads
+
+.. code:: sh
+
+    step: 8, VertexCoulombIntegrals
+    number of field variables NF: 2092
+    realtime 0.001249174 s
+
+4.2 Sample ``yaml`` output
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+A sample ``yaml`` output of this algorithm reads
+
+.. code:: yaml
+
+    floatingPointOperations: 0
+    flops: 0
+    in:
+      slicedCoulombVertex: 0x24aee28
+    name: VertexCoulombIntegrals
+    out:
+      coulombIntegrals: 0x247f2b8
+    realtime: 0.001078910
+
+5 Computational complexity
+--------------------------
+
+Note that the ``VertexCoulombIntegrals`` algorithm merely defines a recipe to perform the computation of all integrals. The integrals will only be computed once
+their numerical values are needed. Certain types of Coulomb integrals; for example, :math:`V_{cd}^{ab}` will potentially never be computed if not needed by a later
+algorithm. In this manner potential memory bottle-necks are avoided.
+
+6 Theory
+--------
+
+Coulomb integrals are evaluated using the following expression.
+
+
+.. math::
+
+    V^{pq}_{sr} = \sum_{G} {\Gamma^\ast}^{pG}_s \Gamma^q_{rG}
+
+7 Literature
+------------

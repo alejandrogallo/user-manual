@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html  lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+      <title>How To Write</title>
+    
+          <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="_static/theme.css " type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="_static/theme-vendors.js"></script> -->
+      <script src="_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="genindex.html" />
+  <link rel="search" title="Search" href="search.html" />
+  <link rel="prev" title="Contact" href="contact/contact.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="index.html" class="home-link">
+    
+      <span class="site-name">CC4S</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Quick search</span>
+    <div class="searchformwrapper">
+      <form class="search" action="search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Search" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="index.html#cc4s-user-documentation">cc4s user documentation</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="gettingstarted/gettingstarted.html" class="reference internal ">Getting Started</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="algorithms/index.html" class="reference internal ">Algorithms</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="objects/index.html" class="reference internal ">Objects</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="interfaces/vasp.html" class="reference internal ">Description of VASP interface to Cc4s</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="tutorials/Rbn_tutorial.html" class="reference internal ">How to run Cc4s calculations?</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="what/what.html" class="reference internal ">About the code</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="performance/performance.html" class="reference internal ">Performance and compute resources</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="contact/contact.html" class="reference internal ">Contact</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 current">
+            
+              <a href="#" class="reference internal current">How To Write</a>
+            
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#engine" class="reference internal">1 Engine</a></li>
+                
+                  <li class="toctree-l2"><a href="#test-locally" class="reference internal">2 Test locally</a></li>
+                
+                  <li class="toctree-l2"><a href="#conventions" class="reference internal">3 Conventions</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+    
+    <li>How To Write</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="contact/contact.html"
+       title="previous chapter">← Contact</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <section id="how-to-write">
+<h1><a class="toc-backref" href="#id2" role="doc-backlink">How To Write</a><a class="headerlink" href="#how-to-write" title="Link to this heading">¶</a></h1>
+<nav class="contents" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#how-to-write" id="id2">How To Write</a></p>
+<ul>
+<li><p><a class="reference internal" href="#engine" id="id3">1 Engine</a></p>
+<ul>
+<li><p><a class="reference internal" href="#introduction" id="id4">1.1 Introduction</a></p>
+<ul>
+<li><p><a class="reference internal" href="#installing-a-minimal-emacs-version-locally" id="id5">1.1.1 Installing a minimal emacs version locally</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#math" id="id6">1.2 Math</a></p></li>
+<li><p><a class="reference internal" href="#links" id="id7">1.3 Links</a></p></li>
+<li><p><a class="reference internal" href="#bibliography" id="id8">1.4 Bibliography</a></p>
+<ul>
+<li><p><a class="reference internal" href="#literature" id="id9">1.4.1 Literature</a></p></li>
+<li><p><a class="reference internal" href="#more-information" id="id10">1.4.2 More information</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#src-blocks" id="id11">1.5 Src blocks</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#test-locally" id="id12">2 Test locally</a></p></li>
+<li><p><a class="reference internal" href="#conventions" id="id13">3 Conventions</a></p>
+<ul>
+<li><p><a class="reference internal" href="#how-to-document-an-object" id="id14">3.1 How to document an Object</a></p></li>
+<li><p><a class="reference internal" href="#how-to-document-an-algorithm" id="id15">3.2 How to document an Algorithm</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+<section id="engine">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">1 Engine</a><a class="headerlink" href="#engine" title="Link to this heading">¶</a></h2>
+<section id="introduction">
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">1.1 Introduction</a><a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h3>
+<p>This manual is written using the <code class="docutils literal notranslate"><span class="pre">`org-mode</span></code> markup language &lt;<a class="reference external" href="https://orgmode.html">https://orgmode.html</a>&gt;`_.</p>
+<p>You can find some cheatsheets for org’s markup you can checkout</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://orgmode.html/quickstart.html">https://orgmode.html/quickstart.html</a></p></li>
+<li><p><a class="reference external" href="http://xahlee.info/emacs/emacs/emacs_org_markup.html">http://xahlee.info/emacs/emacs/emacs_org_markup.html</a></p></li>
+</ul>
+<p>Additionally, org-mode’s manual is found <a class="reference external" href="https://orgmode.html/manual/">here</a>
+and a <strong>compact guide</strong> is found <a class="reference external" href="https://orgmode.html/guide/index.html">here</a>.</p>
+<p>Please notice that for this manual to build you will need
+a recent version of emacs, at least newer than <strong>Emacs 27</strong>.
+You probably can install it from <a class="reference external" href="https://snapcraft.io/emacs">the snapstore</a> if you are using
+a supported distribution.</p>
+<section id="installing-a-minimal-emacs-version-locally">
+<h4><a class="toc-backref" href="#id5" role="doc-backlink">1.1.1 Installing a minimal emacs version locally</a><a class="headerlink" href="#installing-a-minimal-emacs-version-locally" title="Link to this heading">¶</a></h4>
+<p>In case you are having some problems installing emacs
+and you just want to get a minimal emacs version to build the pages,
+consider adapting this script</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span><span class="w"> </span>-eu
+
+<span class="nv">url</span><span class="o">=</span><span class="s2">&quot;https://github.com/emacs-mirror/emacs/archive/refs/tags/emacs-28.0.90.tar.gz&quot;</span>
+
+mkdir<span class="w"> </span>-p<span class="w"> </span>./emacs
+wget<span class="w"> </span><span class="nv">$url</span><span class="w"> </span>-O<span class="w"> </span>-<span class="w"> </span><span class="p">|</span><span class="w"> </span>gunzip<span class="w"> </span><span class="p">|</span><span class="w">  </span>tar<span class="w"> </span>xvf<span class="w"> </span>-<span class="w"> </span>-C<span class="w"> </span>./emacs<span class="w"> </span>--strip-components<span class="o">=</span><span class="m">1</span>
+
+sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span><span class="se">\</span>
+<span class="w">     </span>libxml2-dev<span class="w"> </span><span class="se">\</span>
+<span class="w">     </span>gnutls-dev
+
+<span class="nb">cd</span><span class="w"> </span>./emacs
+
+./autogen.sh
+./configure<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--with-x-toolkit<span class="o">=</span>no<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--with-xml2<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--with-xpm<span class="o">=</span>ifavailable<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--with-gif<span class="o">=</span>ifavailable<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--with-tiff<span class="o">=</span>ifavailable<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--with-gnutls<span class="o">=</span>ifavailable
+
+make<span class="w"> </span>-j
+</pre></div>
+</div>
+<p>This script installs on a debian-based system the library <code class="docutils literal notranslate"><span class="pre">xml2</span></code> and <code class="docutils literal notranslate"><span class="pre">gnutls</span></code>
+and downloads and builds emacs 28 in the current directory.</p>
+<p>You can use this emacs binary by writing a <code class="docutils literal notranslate"><span class="pre">config.mk</span></code> file with the following contents</p>
+<div class="highlight-make notranslate"><div class="highlight"><pre><span></span><span class="nv">EMACS_BIN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>./emacs/src/emacs
+</pre></div>
+</div>
+</section>
+</section>
+<section id="math">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">1.2 Math</a><a class="headerlink" href="#math" title="Link to this heading">¶</a></h3>
+<p>Just use latex as if you were in latex</p>
+<div class="math notranslate nohighlight" id="equation-how-to-write-0">
+<span class="eqno">(1)<a class="headerlink" href="#equation-how-to-write-0" title="Link to this equation">¶</a></span>\[\int \sum\]</div>
+<p>and you can also use equations</p>
+<div class="math notranslate nohighlight" id="equation-how-to-write-1">
+<span class="eqno">(2)<a class="headerlink" href="#equation-how-to-write-1" title="Link to this equation">¶</a></span>\[\label{eqseq}
+\hat{H} \psi = E \psi\]</div>
+<p>and references work too ref{eqseq}.</p>
+</section>
+<section id="links">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">1.3 Links</a><a class="headerlink" href="#links" title="Link to this heading">¶</a></h3>
+<p>org-mode has several types of links.</p>
+<p>The equivalent to tex’s</p>
+<div class="highlight-tex notranslate"><div class="highlight"><pre><span></span><span class="k">\section</span><span class="nb">{</span>My section<span class="nb">}</span>
+<span class="k">\label</span><span class="nb">{</span>sec-my-section<span class="nb">}</span>
+
+My section~<span class="k">\ref</span><span class="nb">{</span>sec-my-section<span class="nb">}</span>
+</pre></div>
+</div>
+<p>is</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*</span> <span class="n">My</span> <span class="n">section</span>
+<span class="p">:</span><span class="n">PROPERTIES</span><span class="p">:</span>
+<span class="p">:</span><span class="n">CUSTOM_ID</span><span class="p">:</span> <span class="n">sec</span><span class="o">-</span><span class="n">my</span><span class="o">-</span><span class="n">section</span>
+<span class="p">:</span><span class="n">END</span><span class="p">:</span>
+
+<span class="n">My</span> <span class="n">section</span> <span class="p">[[</span><span class="c1">#sec-my-section]]</span>
+<span class="c1"># or using org-ref&#39;s syntax</span>
+<span class="n">My</span> <span class="n">section</span> <span class="p">[[</span><span class="n">ref</span><span class="p">:</span><span class="n">sec</span><span class="o">-</span><span class="n">my</span><span class="o">-</span><span class="n">section</span><span class="p">]]</span>
+</pre></div>
+</div>
+<p>Checkout some other example in the
+<a class="reference external" href="https://orgmode.html/guide/Hyperlinks.html#Hyperlinks">Hyperlinks (Org Mode Compact Guide)</a> page.</p>
+<p>Some important examples for us are</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="n">file</span><span class="p">:</span><span class="n">algorithms</span><span class="o">/</span><span class="n">CoupledCluster</span><span class="o">/</span><span class="n">CoupledCluster</span><span class="o">.</span><span class="n">html</span><span class="p">::</span><span class="c1">#maxiterations][maxIterations keyword]]</span>
+</pre></div>
+</div>
+<p>which links the heading <code class="docutils literal notranslate"><span class="pre">maxiterations</span></code> in the file <code class="docutils literal notranslate"><span class="pre">CoupledCluster/CoupledCluster.html</span></code>
+and gets rendered as <a class="reference external" href="algorithms/CoupledCluster/CoupledCluster.html">maxIterations keyword</a>.</p>
+</section>
+<section id="bibliography">
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">1.4 Bibliography</a><a class="headerlink" href="#bibliography" title="Link to this heading">¶</a></h3>
+<p>In order to use a bibtex file in a page,
+you have to add it with the</p>
+<div class="highlight-org notranslate"><div class="highlight"><pre><span></span>bibliography:group.bib
+# or
+bibliography:./path-to-your-bib-file.bib,other-file.bib
+</pre></div>
+</div>
+<p>and add citations like <code class="docutils literal notranslate"><span class="pre">cite:&amp;yourcite</span></code>, for instance
+(Al-Hamdani, Yasmine S and Rossi, Mariana and Alfe, Dario and Tsatsoulis, Theodoros and Ramberger, Benjamin and Brandenburg, J Gerit and Zen, Andrea and Kresse, Georg and Grüneis, Andreas and Tkatchenko, Alexandre and others, 2017, Grüneis, Andreas and Hirata, So and Ohnishi, Yu-ya and Ten-no, Seiichiro, 2017).</p>
+<p>Here an example of the rendered bibliography of the citations made up here.</p>
+<section id="literature">
+<h4><a class="toc-backref" href="#id9" role="doc-backlink">1.4.1 Literature</a><a class="headerlink" href="#literature" title="Link to this heading">¶</a></h4>
+<p>Al-Hamdani, Yasmine S and Rossi, Mariana and Alfe, Dario and Tsatsoulis, Theodoros and Ramberger, Benjamin and Brandenburg, J Gerit and Zen, Andrea and Kresse, Georg and Grüneis, Andreas and Tkatchenko, Alexandre and others (2017). <em>Properties of the water to boron nitride interaction: from zero to two dimensions with benchmark accuracy</em>, The Journal of Chemical Physics.</p>
+<p>Grüneis, Andreas and Hirata, So and Ohnishi, Yu-ya and Ten-no, Seiichiro (2017). <em>Perspective: Explicitly correlated electronic structure theory for complex systems</em>, The Journal of Chemical Physics.</p>
+</section>
+<section id="more-information">
+<h4><a class="toc-backref" href="#id10" role="doc-backlink">1.4.2 More information</a><a class="headerlink" href="#more-information" title="Link to this heading">¶</a></h4>
+<p>You can find more information in videos like <a class="reference external" href="https://www.youtube.com/watch?v=3u6eTSzHT6s">this</a> by the
+<a class="reference external" href="https://github.com/jkitchin/org-ref">org-ref</a> author.</p>
+</section>
+</section>
+<section id="src-blocks">
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">1.5 Src blocks</a><a class="headerlink" href="#src-blocks" title="Link to this heading">¶</a></h3>
+<p>If you want to write some code blocks, the equivalent of markdown’s</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="sb">```python</span>
+<span class="k">def</span> <span class="nf">fun</span><span class="p">():</span>
+  <span class="k">pass</span>
+<span class="sb">```</span>
+</pre></div>
+</div>
+<p>in org is</p>
+<div class="highlight-org notranslate"><div class="highlight"><pre><span></span>#+begin_src python
+def fun():
+    pass
+#+end_src
+</pre></div>
+</div>
+<p>and it renders like:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fun</span><span class="p">():</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="test-locally">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">2 Test locally</a><a class="headerlink" href="#test-locally" title="Link to this heading">¶</a></h2>
+<p>To build locally just make</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>publish
+</pre></div>
+</div>
+<p>You can also serve the pages to simulate how they will be deployed
+using</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>serve
+</pre></div>
+</div>
+<p>and open the url in your browser <a class="reference external" href="http://127.0.0.1:8888">http://127.0.0.1:8888</a>.</p>
+<p>You can also combine both by doing</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>publish<span class="w"> </span>serve
+</pre></div>
+</div>
+<p>periodically and refreshing your browser.</p>
+</section>
+<section id="conventions">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">3 Conventions</a><a class="headerlink" href="#conventions" title="Link to this heading">¶</a></h2>
+<section id="how-to-document-an-object">
+<h3><a class="toc-backref" href="#id14" role="doc-backlink">3.1 How to document an Object</a><a class="headerlink" href="#how-to-document-an-object" title="Link to this heading">¶</a></h3>
+<p>In order to document an object, the following sections have to appear:</p>
+<dl class="simple">
+<dt>Brief description</dt><dd><p>A brief description of what the object is and what it is commonly used for.
+Some further discussion of the object can be added here, for instance
+an example of an algorithm call to create the object or links to relevant
+algorithms.</p>
+</dd>
+<dt>Specification <code class="docutils literal notranslate"><span class="pre">[Optional]</span></code></dt><dd><p>In the case of objects with a clear <code class="docutils literal notranslate"><span class="pre">yaml</span></code> specification, this should be explicitly
+provided here, see for instance the <code class="docutils literal notranslate"><span class="pre">yaml</span></code> specification of
+<a class="reference external" href="objects/GridVectors.html">GridVectors</a>.</p>
+</dd>
+<dt>Literature <code class="docutils literal notranslate"><span class="pre">[Optional]</span></code></dt><dd><p>If in the previous sections a literature citation has been used, then add this section
+to list the references.</p>
+</dd>
+</dl>
+</section>
+<section id="how-to-document-an-algorithm">
+<h3><a class="toc-backref" href="#id15" role="doc-backlink">3.2 How to document an Algorithm</a><a class="headerlink" href="#how-to-document-an-algorithm" title="Link to this heading">¶</a></h3>
+<p>The following sections have to be provided:</p>
+<dl>
+<dt>Brief description</dt><dd><p>A very brief description of what the algorithm is doing when called.
+Limit this description to a couple of lines.</p>
+</dd>
+<dt>Algorithm call</dt><dd><p>An example of an algorithm call in <code class="docutils literal notranslate"><span class="pre">yaml</span></code> format.
+Optional parameters should have the following format in the sample</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># keyName: valueName    # optional</span>
+</pre></div>
+</div>
+<p>For instance for <a class="reference external" href="algorithms/PerturbativeTriples.html">PerturbativeTriples</a></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PerturbativeTriples</span>
+<span class="w">  </span><span class="nt">in</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">coulombIntegrals</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CoulombIntegrals</span>
+<span class="w">    </span><span class="nt">amplitudes</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Amplitudes</span>
+<span class="w">    </span><span class="nt">slicedEigenEnergies</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EigenEnergies</span>
+<span class="w">    </span><span class="c1"># mp2PairEnergies: Mp2PairEnergies            # optional</span>
+<span class="w">  </span><span class="nt">out</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">{}</span>
+</pre></div>
+</div>
+</dd>
+<dt>Algorithm input</dt><dd><p>Explanation of the inputs of the Algorithm.
+It should contain a table with two columns, <strong>Keyword</strong> and <strong>Value</strong>,
+e.g.</p>
+<p>Optional inputs should be followed by an <em>optional</em> marker.
+The value field should be always a link to a detailed description
+of the input. If the value should be a commonly used object,
+it should be an <code class="docutils literal notranslate"><span class="pre">id:</span></code> like link to the corresponding object.
+Otherwise it can link to a section in the same document.</p>
+</dd>
+<dt>Algorithm output</dt><dd><p>This section should include:</p>
+<ul class="simple">
+<li><p>A table with the same format as for the input parameters for
+the output parameters.</p></li>
+<li><p>A section with a sample <code class="docutils literal notranslate"><span class="pre">stdout</span></code> output of a succesful run
+of the algorithm</p></li>
+<li><p>A section with the <strong>relevant</strong> <code class="docutils literal notranslate"><span class="pre">yaml</span></code> output of the algorithm.
+I.e., timings and flop count and so on needn’t be included.</p></li>
+</ul>
+</dd>
+<dt>Computational complexity <code class="docutils literal notranslate"><span class="pre">[Optional]</span></code></dt><dd><p>A discussion of the computational of the algorithm and some methods
+developed for it.</p>
+</dd>
+<dt>Theory <code class="docutils literal notranslate"><span class="pre">[Optional]</span></code></dt><dd><p>A quick description of the theoretical background.
+If the method is well-known, refer to relevant articles.</p>
+</dd>
+<dt>Literature <code class="docutils literal notranslate"><span class="pre">[Optional]</span></code></dt><dd><p>If in the previous sections a literature citation has been used, then add this section
+to list the references.</p>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="contact/contact.html"
+       title="previous chapter">← Contact</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 1980, CC4S Developers.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 7.2.6 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.8.0.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>

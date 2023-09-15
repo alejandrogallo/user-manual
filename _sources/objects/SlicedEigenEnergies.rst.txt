@@ -1,0 +1,23 @@
+===================
+SlicedEigenEnergies
+===================
+
+
+.. contents::
+
+
+
+1 Brief description
+-------------------
+
+``SlicedEigenEnergies`` are the one-electron Hartree--Fock energies :math:`\varepsilon_p`,
+partinioned into hole states :math:`i` and particle states :math:`a`, where
+:math:`\varepsilon_i<\varepsilon_\mathrm{F}` and
+:math:`\varepsilon_\mathrm{F}<\varepsilon_a`.
+The Fermi energy :math:`\varepsilon_\mathrm{F}` is specified in the ``metaData``
+section of the ``EigenEnergies``.
+This partitioning is done by the
+`DefineHolesAndParticles <../algorithms/DefineHolesAndParticles.html>`_ algorithm.
+
+2 Literature
+------------

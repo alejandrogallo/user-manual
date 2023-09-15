@@ -1,0 +1,68 @@
+=============================
+SecondOrderPerturbationTheory
+=============================
+
+
+.. contents::
+
+
+
+1 Example ``Cc4s`` input
+------------------------
+
+A typical input file snippet to call the ``SecondOrderPerturbationTheory`` algorithm is given below.
+
+.. code:: yaml
+
+    - name: SecondOrderPerturbationTheory
+      in:
+        coulombIntegrals: CoulombIntegrals
+        slicedEigenEnergies: EigenEnergies
+      out:
+        energy:
+
+2 Input Description
+-------------------
+
+.. table:: Input keywords for PerturbativeTriples
+
+    +-------------------------+----------------------------------------------------------------------+---------+
+    | Input Keyword           | Description                                                          | Default |
+    +=========================+======================================================================+=========+
+    | ``coulombIntegrals``    | `Coulomb Integrals <../objects/CoulombIntegrals.html>`_               | \       |
+    +-------------------------+----------------------------------------------------------------------+---------+
+    | ``slicedEigenEnergies`` | `Sliced one-electron energies <../objects/SlicedEigenEnergies.html>`_ | \       |
+    +-------------------------+----------------------------------------------------------------------+---------+
+
+3 Output
+--------
+
+Below an example standard output stream is shown for a successful ``SecondOrderPerturbationTheory`` algorithm run
+
+
+.. code:: sh
+
+    step: 9, SecondOrderPerturbationTheory
+    Contracting second order energy...
+    correlation energy: -24.3605
+      singles:  0
+      direct:   -35.3032
+      exchange: 10.9427
+    realtime 0.170357500 s
+    --
+
+4 Computational Complexity and memory footprint
+-----------------------------------------------
+
+Two objects of size :math:`\mathcal{O}{(N_\mathrm{o}^2 N_\mathrm{v}^2)}` are stored in main memory. The computational complexity should be negligible as is of order :math:`\mathcal{O}{(N_o^2 N_v^2)}`.
+
+5 Theory
+--------
+
+The implemented expression assumes Hartree--Fock one-electron energies
+and can be found in Ref. (Moller, C and Plesset, MS, 1934).
+
+6 Literature
+------------
+
+Moller, C and Plesset, MS (1934). *Note on an approximation treatment for many-electron systems*, Phys. Rev..

@@ -1,0 +1,426 @@
+==============
+CoupledCluster
+==============
+
+
+.. contents::
+
+
+
+1 Brief description
+-------------------
+
+This algorithm solves the CCSD amplitude equations using the Coulomb integrals
+and Hartree--Fock eigenenergies.
+
+2 Algorithm call
+----------------
+
+A typical input file snippet to call the ``CoupledCluster`` algorithm is given below.
+
+.. code:: yaml
+
+    - name: CoupledCluster
+      in:
+        method: Ccsd
+        integralsSliceSize: 100
+        slicedEigenEnergies: EigenEnergies
+        coulombIntegrals: CoulombIntegrals
+        slicedCoulombVertex: CoulombVertex
+        maxIterations: 20
+        energyConvergence: 1.0E-4
+        amplitudesConvergence: 1.0E-4
+        mixer:
+          type: DiisMixer
+          maxResidua: 5
+        #or for instance a linear mixer
+        #mixer:
+        #  type: LinearMixer
+        #  ratio: 1.0
+      out:
+        amplitudes: Amplitudes
+
+3 Algorithm input
+-----------------
+
+.. table:: Input keywords
+    :name: ccsd-input-table
+
+    +---------------------------+---------------------------------------------------------------------------+
+    | Keyword                   | Value                                                                     |
+    +===========================+===========================================================================+
+    | ``method``                | `method`_                                                                 |
+    +---------------------------+---------------------------------------------------------------------------+
+    | ``linearized``            | `linearized`_                                                             |
+    +---------------------------+---------------------------------------------------------------------------+
+    | ``integralsSliceSize``    | `integralsslicesize`_                                                     |
+    +---------------------------+---------------------------------------------------------------------------+
+    | ``slicedEigenEnergies``   | `Sliced one-electron energies <../objects/SlicedEigenEnergies.html>`_      |
+    +---------------------------+---------------------------------------------------------------------------+
+    | ``coulombIntegrals``      | `Coulomb Integrals <../objects/CoulombIntegrals.html>`_                    |
+    +---------------------------+---------------------------------------------------------------------------+
+    | ``slicedCoulombVertex``   | `Sliced Coulomb vertex <../objects/SlicedCoulombVertex.html>`_             |
+    +---------------------------+---------------------------------------------------------------------------+
+    | ``maxIterations``         | `maxiterations`_                                                          |
+    +---------------------------+---------------------------------------------------------------------------+
+    | ``energyConvergence``     | `energyconvergence`_                                                      |
+    +---------------------------+---------------------------------------------------------------------------+
+    | ``amplitudesConvergence`` | `amplitudesconvergence`_                                                  |
+    +---------------------------+---------------------------------------------------------------------------+
+    | ``mixer``                 | `mixer`_                                                                  |
+    +---------------------------+---------------------------------------------------------------------------+
+    | ``initialAmplitudes``     | `initial Amplitudes to begin the iterations <../objects/Amplitudes.html>`_ |
+    +---------------------------+---------------------------------------------------------------------------+
+
+.. _method:
+
+3.1 method
+~~~~~~~~~~
+
+``method`` specifies which approximation of the coupled-cluster
+```Amplitudes`` <../objects/Amplitudes.html>`_ should be used. See the
+```Amplitudes`` <../objects/Amplitudes.html>`_ for the specification of
+each approximation.
+The currently available approximations are:
+
+``Ccsd``
+    Coupled Cluster singles and doubles. See (Bartlett, R.J. and Musiał, Monika, 2007) and references therin.
+
+``CcsdReference``
+    Canonical and unoptimized version of the ``Ccsd`` algorithm.
+    This algorithm has the same inputs as ``Ccsd`` with the exception that the
+    arguments
+    `integralsslicesize`_ and
+    `slicedCoulombVertex <../objects/SlicedCoulombVertex.html>`_ and
+    are ignored.
+
+``Drccd``
+    Unoptimized implementation of Direct-Ring Coupled Cluster
+    singles and doubles giving the Random Phase Approximation (RPA)
+    with the Second Order Screened Exchange (SOSEX) correction
+    (Freeman, David, 1977, Grüneis, Andreas and Marsman, Martijn and Harl, Judith and Schimka, Laurids and Kresse, Georg, 2009).
+
+.. _linearized:
+
+3.2 linearzied
+~~~~~~~~~~~~~~
+
+``linearized`` A non-zero value indicates that the linearized
+coupled-cluster amplitude equations should be solved, rather
+than the fully non-linear ones.
+The default is ``linearized: 0``.
+Note: currently only ``method: Drccd`` supports linearized
+amplitude equations.
+
+.. _integralsslicesize:
+
+3.3 integralsSliceSize
+~~~~~~~~~~~~~~~~~~~~~~
+
+``integralsSliceSize`` controls the slice size of the :math:`V_{cd}^{ab}` integrals, which are computed on-the-fly to
+reduce the memory footprint. The integer value specified for ``integralsSliceSize``  refers to the dimension size
+used for the :math:`a` and :math:`b` index. We recommend setting ``integralsSliceSize: 100`` to balance
+computational efficency with memory usage. Smaller/larger values reduce/increase the memory footprint.
+
+.. _maxiterations:
+
+3.4 maxIterations
+~~~~~~~~~~~~~~~~~
+
+``maxIterations`` controls the maximum number of iterations allowed to solve the  :math:`t_{ij}^{ab}` and :math:`t_i^a` amplitude equations.
+If convergence of the energy and residual vectors within the specified thresholds is achieved using fewer iterations
+than ``maxIterations``, the algorithm was successfull and will stop.
+If ``maxIterations`` is reached without achieving ``energyConvergence`` and ``amplitudesConvergence`` , the algorithm was not
+successful and will stop. We recommend to set ``maxIterations: 20``, which is ususally enough to achieve reasonable convergence
+thresholds.
+
+.. _energyconvergence:
+
+3.5 energyConvergence
+~~~~~~~~~~~~~~~~~~~~~
+
+``energyConvergence`` specifies the convergence threshold for the correlation energy.
+If ``energyConvergence`` and ``amplitudesConvergence`` is achieved, the iterative solution was successful and the algorithm will stop.
+
+.. _amplitudesconvergence:
+
+3.6 amplitudesConvergence
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+``amplitudesConvergence`` specifies the convergence threshold for the residual vector of the singles and doubles amplitude equations.
+If ``energyConvergence`` and ``amplitudesConvergence`` is achieved, the iterative solution was successful and the algorithm will stop.
+
+.. _initialAmplitude:
+
+3.7 initialAmplitudes
+~~~~~~~~~~~~~~~~~~~~~
+
+``initialAmplitudes`` specifies amplitudes from a precedent calculations. This allows restarting a self consistent calculation from a former checkpoint.
+
+.. _mixer:
+
+3.8 mixer
+~~~~~~~~~
+
+``mixer`` specifies mixer-specific parameters used to solve the amplitude equations iteratively.
+The direct inversion iterative subspace (Diis) algorithm is the default algorithm used to mix amplitude guesses from previous
+iterations to improve the guess for the next iteration.
+``mixer: type`` can currently be set to ``\*DiisMixer`` or ``\*LinearMixer``.
+
+3.8.1 DiisMixer
+^^^^^^^^^^^^^^^
+
+For ``mixer: type: DissMixer``, it is possible to specify ``mixer: maxResidua``, which controls the number of residual
+vectors used by the Diis mixer.
+We recommend to set the maximum number of residual vectors used in the ``DiisMixer`` to ``5``.
+More residual vectors result in a larger memory footprint.
+
+Example
+
+.. code:: yaml
+
+    mixer:
+      type: DiisMixer
+      maxResidua: 5
+
+3.8.2 LinearMixer
+^^^^^^^^^^^^^^^^^
+
+For ``mixer: type: LinearMixer`` it is possible to specify ``mixer: ratio``, which controls the mixing ratio used
+to update the new guess of the amplitudes based on estimates from the previous and current iteration.
+The ``LinearMixer`` exhibits the smallest possible memory footprint from all currently available mixers,
+keeping two sets of amplitudes in memory at once only.
+We recommend to set ``mixer: ratio: 1.0``. Smaller ratios result in a slower but perhaps more stable convergence.
+
+Example
+
+.. code:: yaml
+    :name: linear-mixer-example
+
+    mixer:
+      type: LinearMixer
+      ratio: 1.0
+
+4 Algorithm output
+------------------
+
+.. table:: Output keywords for CoupledCluster
+    :name: ccsd-output-table
+
+    +----------------+-------------------------------------------+
+    | Keyword        | Value                                     |
+    +================+===========================================+
+    | ``amplitudes`` | `Amplitudes <../objects/Amplitudes.html>`_ |
+    +----------------+-------------------------------------------+
+
+The output of the **CoupledCluster** algorithm includes ``energy`` and ``amplitudes`` . The ``amplitudes`` output contains
+the converged singles and doubles amplitude tensors. The amplitudes can be used as input for algorithms
+that estimate the finite simulation cell size error (**FiniteSizeCorrection**)
+and the basis set incompleteness errors (**BasisSetCorrection**).
+
+4.1 Sample ``stdout``
+~~~~~~~~~~~~~~~~~~~~~
+
+Below an example standard output stream is shown for a successful **CoupledCluster** algorithm run.
+
+.. code:: sh
+
+    step: 6, CoupledCluster
+    Using method Ccsd. integralsSliceSize: 100
+    Using mixer DiisMixer. maxResidua: 5
+    Maximum number of iterations: 30
+    Unless reaching energy convergence dE: 1e-05
+    and amplitudes convergence dR: 1e-05
+    Iter         Energy         dE           dR         time   GF/s/core
+       1  -2.43605043e+01  -2.4361e+01   4.3924e-01      0.5    1.0
+       2  -2.47577534e+01  -3.9725e-01   7.4733e-02      0.8    4.8
+       3  -2.53776918e+01  -6.1994e-01   1.8674e-02      0.7    5.4
+       4  -2.54455925e+01  -6.7901e-02   6.4132e-03      0.7    5.5
+       5  -2.54445080e+01   1.0845e-03   2.2120e-03      0.7    5.4
+       6  -2.54458312e+01  -1.3232e-03   1.0304e-03      0.7    5.4
+       7  -2.54448941e+01   9.3705e-04   5.0727e-04      0.7    5.4
+       8  -2.54452894e+01  -3.9521e-04   1.9694e-04      0.7    5.4
+       9  -2.54454262e+01  -1.3682e-04   7.7180e-05      0.7    5.4
+      10  -2.54455328e+01  -1.0663e-04   3.0247e-05      0.7    5.4
+      11  -2.54455929e+01  -6.0110e-05   1.1758e-05      0.7    5.4
+      12  -2.54456151e+01  -2.2218e-05   5.0053e-06      0.7    5.4
+      13  -2.54456249e+01  -9.7454e-06   2.2689e-06      0.7    5.4
+
+    Ccsd correlation energy:          -25.4456248862
+    2nd-order correlation energy:     -24.3605043096
+    realtime 9.189542891 s
+    --
+
+5 Sample ``yaml`` output
+------------------------
+
+Below an example ``yaml`` output stream is shown for a successful **CoupledCluster** algorithm run.
+
+.. code:: yaml
+
+    name: CoupledCluster
+    out:
+      amplitudes: 0x26e4758
+      convergenceReached: 1
+      energy:
+        correlation: -25.445624886202758
+        direct: -38.822491455744313
+        exchange: 13.376866569541555
+        secondOrder: -24.360504309639897
+        unit: 0.036749322175638782
+    realtime: 9.189542891
+
+6 Computational complexity
+--------------------------
+
+This section explains computational or memory footprints
+for the various methods implemented in **CoupledCluster**
+`method`_.
+
+``Ccsd``
+    The computational bottle neck of a typical Ccsd calculation originates
+    from the following contraction, which is
+    part of the doubles amplitude equations: :math:`V_{cd}^{ab} t_{ij}^{cd}`.
+    The computational cost for evaluating this expression scales
+    as :math:`\mathcal{O}(N_{\rm o}^2 N_{\rm v}^4)`. To avoid a memory
+    footprint of :math:`\mathcal{O}(N_{\rm v}^4)` in storing
+    :math:`V_{cd}^{ab}`, slices :math:`V_{cd}^{xy}` are computed on-the-fly and used
+    in the contraction, reducing the corresponding memory footprint to
+    :math:`\mathcal{O}(N_{\rm v}^2 N_{\rm s}^2)`,
+    where :math:`N_{\rm s}` is controlled using
+    the ``integralsSliceSize`` keyword.
+
+    We note that required storage of a set of doubles amplitudes adds
+    substantially to the memory footprint in Ccsd calculations.
+    The Diis algorithm requires the storage of both doubles residua and amplitudes
+    ``maxResidua`` times. We recommend to choose the
+    type of mixer and its parameters carefully to reduce the memory
+    footprint if necessary.
+
+``Drccd``
+    The computational complexity is :math:`\mathcal O(N_\mathrm{o}^3N_\mathrm{v}^3)`.
+    The implementation is not optimized for large systems. The memory requirement
+    scales as :math:`\mathcal O(N_\mathrm{o}^2 N_\mathrm{v}^2)` 
+
+7 Theory
+--------
+
+Coupled-cluster employs the exponential Ansatz for the correlated wave function
+
+.. math::
+
+    \begin{equation}
+      | \Psi \rangle = e^{\hat T} | \Phi \rangle,
+    \end{equation}
+
+where :math:`|\Phi\rangle` denotes the single Hartree--Fock slater determinant.
+The cluster operator :math:`\hat T = \hat T_1 + \hat T_2 + \ldots` is
+expanded in increasing number of excitation levels. The single and
+double exciation parts of the cluster operator are given by
+
+.. math::
+
+    \begin{eqnarray}
+      \hat T_1 = \sum_{ai} t^a_i \hat\tau^a_i, \\
+      \hat T_2 = \sum_{abij} t^{ab}_{ij} \hat\tau^{ab}_{ij},
+    \end{eqnarray}
+
+where :math:`\hat \tau^{a\ldots}_{i\ldots} = \hat c^\dagger_a\ldots \hat c_i\ldots`
+denotes the exciation operator.
+The coefficients :math:`t^a_i`, :math:`t^{ab}_{ij}`, :math:`\ldots` are called coupled-cluster
+``Amplitudes``.
+They are found by projecting the stationary Schrödinger equation for the
+coupled-cluster Ansatz :math:`E|\Psi\rangle = \hat H|\Psi\rangle`
+on :math:`\langle \Phi|e^{-\hat T}`.
+The resulting over-determined set of equations is truncated at the
+same level as the cluster-operator :math:`\hat T`, giving as many equations
+as there are coefficients in :math:`\hat T`.
+The ``Amplitudes`` are generated by the ```CoupledCluster`` <CoupledCluster.html>`_
+algorithm by solving the amplitude equation of the employed
+coupled-cluster method, described below:
+
+7.1 Coupled-Cluster Singles Doubles (``Ccsd``)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The cluster-operator is truncated containing only single and double
+excitations. The projections on the singly and doubly excited
+slater-determinants :math:`\langle \Phi^a_i|` and :math:`\langle \Phi^{ab}_{ij}|` give
+
+.. math::
+
+    \begin{align}
+      \big\langle \Phi^{a}_{i} \big| e^{-\hat T} \hat H e^{\hat T}
+        \big| \Phi \big\rangle &= 0 \quad \forall ai, \\
+      \label{eqn:t2}
+      \big\langle \Phi^{ab}_{ij} \big| e^{-\hat T} \hat H e^{\hat T}
+        \big| \Phi \big\rangle &= 0 \quad \forall abij.
+    \end{align}
+
+The above equations expand to a finite set of a few dozens of, in general,
+non-linear algebraic contractions of :math:`t^a_i` and :math:`t^{ab}_{ij}` with
+:math:`\varepsilon_p` and :math:`V^{pq}_{sr}`. See (Shavitt, Isaiah and Bartlett, Rodney J, 2009) for
+a text-book introduction of the original works of
+(Coester, F. and Kümmel, H., 1960) and (Čížek, Jirí, 1969).
+
+7.2 Direct-Ring Couple-Cluster Doubles (``Drccd``)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This method uses only the double
+excitation part of the cluster-operator. From
+the full doubles amplitude equations in Eq. (\ref{eqn:t2}) only
+those contractions are considered where pairs of particle and hole
+contractions originate from a common vertex and terminate in another
+common vertex,
+forming direct-rings in the diagrammatic notation.
+Only five terms remain in a canonical calculation and they read
+
+.. math::
+
+    \begin{equation}
+      \Delta^{ab}_{ij} t^{ab}_{ij}
+      + V^{ab}_{ij}
+      + V^{kb}_{cj} t^{ac}_{ik}
+      + V^{al}_{id} t^{db}_{lj}
+      + V^{kl}_{cd} t^{ac}_{ik} t^{db}_{lj} = 0 \quad \forall abij,
+    \end{equation}
+
+with
+:math:`\Delta^{ab}_{ij} = \varepsilon_a+\varepsilon_b-\varepsilon_i-\varepsilon_j`
+and where a sum over all indices that occurr only on the left-hand-side
+is implied. These terms are the dominant terms of coupled-cluster singles
+doubles in the hight-density limit (Gell-Mann, Murray and Brueckner, Keith A., 1957).
+The direct correlation contribution of the ``Drccd`` method
+:math:`\sum_{abij} 2t^{ab}_{ij}V^{ij}_{ab}` gives the Random Phase Approximation (RPA),
+the remaining exchange contribution is often termed Second Order
+Screened Exchange (SOSEX) correction
+(Freeman, David, 1977, Grüneis, Andreas and Marsman, Martijn and Harl, Judith and Schimka, Laurids and Kresse, Georg, 2009).
+See ( Furche, Filipp ,  2008 ,  Chen, Guo P. and Agee, Matthew M. and Furche, Filipp ,  2018 ) for a review on the RPA and its corrections,
+as well as (Macke, W., 1950, Pines, David and Bohm, David, 1952) for the
+original work on the RPA.
+
+We recommend the following review article and references therein to get started with coupled-cluster theory (Bartlett, R.J. and Musiał, Monika, 2007).
+
+8 Literature
+------------
+
+Chen, Guo P. and Agee, Matthew M. and Furche, Filipp  ( 2018 ). * Performance and Scope of Perturbative Corrections to Random-Phase Approximation Energies *,  J. Chem. Theory Comput. .
+
+Furche, Filipp  ( 2008 ). * Developing the random phase approximation into a practical post-Kohn\\textendash{}Sham correlation model *,  J. Chem. Phys. .
+
+Bartlett, R.J. and Musiał, Monika (2007). *{Coupled-cluster theory in quantum chemistry}*, Rev. Mod. Phys..
+
+Coester, F. and Kümmel, H. (1960). *Short-range correlations in nuclear wave functions*, Nucl. Phys..
+
+Freeman, David (1977). *Coupled-cluster expansion applied to the electron gas: {Inclusion} of ring and exchange effects*, Physical Review B.
+
+Gell-Mann, Murray and Brueckner, Keith A. (1957). *Correlation {Energy} of an {Electron} {Gas} at {High} {Density}*, Phys. Rev..
+
+Grüneis, Andreas and Marsman, Martijn and Harl, Judith and Schimka, Laurids and Kresse, Georg (2009). *Making the random phase approximation to electronic correlation accurate*, J. Chem. Phys..
+
+Macke, W. (1950). *Über die {Wechselwirkungen} im {Fermi}-{Gas}, {Polarisationserscheinungen}, {Correlationsenergie}, {Elektronenkondensation}*, Z. Naturforsch..
+
+Pines, David and Bohm, David (1952). *A {Collective} {Description} of {Electron} {Interactions}: {II}. {Collective} vs {Individual} {Particle} {Aspects} of the {Interactions}*, Phys. Rev..
+
+Shavitt, Isaiah and Bartlett, Rodney J (2009). *Many-body methods in chemistry and physics: {MBPT} and coupled-cluster theory*, Cambridge University Press.
+
+Čížek, Jirí (1969). *On the {Use} of the {Cluster} {Expansion} and the {Technique} of {Diagrams} in {Calculations} of {Correlation} {Effects} in {Atoms} and {Molecules}*, John Wiley \\& Sons, Inc..

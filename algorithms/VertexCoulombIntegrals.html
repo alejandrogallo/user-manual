@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html  lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+      <title>VertexCoulombIntegrals</title>
+    
+          <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../_static/theme.css " type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="../_static/theme-vendors.js"></script> -->
+      <script src="../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../genindex.html" />
+  <link rel="search" title="Search" href="../search.html" />
+  <link rel="next" title="Write" href="Write.html" />
+  <link rel="prev" title="SliceOperator" href="SliceOperator.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../index.html" class="home-link">
+    
+      <span class="site-name">CC4S</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Quick search</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Search" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#cc4s-user-documentation">cc4s user documentation</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../gettingstarted/gettingstarted.html" class="reference internal ">Getting Started</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="index.html" class="reference internal ">Algorithms</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../objects/index.html" class="reference internal ">Objects</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../interfaces/vasp.html" class="reference internal ">Description of VASP interface to Cc4s</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../tutorials/Rbn_tutorial.html" class="reference internal ">How to run Cc4s calculations?</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../what/what.html" class="reference internal ">About the code</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../performance/performance.html" class="reference internal ">Performance and compute resources</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../contact/contact.html" class="reference internal ">Contact</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../how-to-write.html" class="reference internal ">How To Write</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="index.html">Algorithms</a> &raquo;</li>
+    
+    <li>VertexCoulombIntegrals</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="SliceOperator.html"
+       title="previous chapter">← SliceOperator</a>
+  </li>
+  <li class="next">
+    <a href="Write.html"
+       title="next chapter">Write →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <section id="vertexcoulombintegrals">
+<h1><a class="toc-backref" href="#id1" role="doc-backlink">VertexCoulombIntegrals</a><a class="headerlink" href="#vertexcoulombintegrals" title="Link to this heading">¶</a></h1>
+<nav class="contents" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#vertexcoulombintegrals" id="id1">VertexCoulombIntegrals</a></p>
+<ul>
+<li><p><a class="reference internal" href="#brief-description" id="id2">1 Brief description</a></p></li>
+<li><p><a class="reference internal" href="#algorithm-call" id="id3">2 Algorithm call</a></p></li>
+<li><p><a class="reference internal" href="#algorithm-input" id="id4">3 Algorithm input</a></p></li>
+<li><p><a class="reference internal" href="#algorithm-output" id="id5">4 Algorithm output</a></p>
+<ul>
+<li><p><a class="reference internal" href="#sample-stdout" id="id6">4.1 Sample <code class="docutils literal notranslate"><span class="pre">stdout</span></code></a></p></li>
+<li><p><a class="reference internal" href="#sample-yaml-output" id="id7">4.2 Sample <code class="docutils literal notranslate"><span class="pre">yaml</span></code> output</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#computational-complexity" id="id8">5 Computational complexity</a></p></li>
+<li><p><a class="reference internal" href="#theory" id="id9">6 Theory</a></p></li>
+<li><p><a class="reference internal" href="#literature" id="id10">7 Literature</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<section id="brief-description">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">1 Brief description</a><a class="headerlink" href="#brief-description" title="Link to this heading">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">VertexCoulombIntegrals</span></code> prepares a recipe needed for the evaluation of Coulomb integrals.</p>
+</section>
+<section id="algorithm-call">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">2 Algorithm call</a><a class="headerlink" href="#algorithm-call" title="Link to this heading">¶</a></h2>
+<p>A typical input file snippet to call the <code class="docutils literal notranslate"><span class="pre">VertexCoulombIntegrals</span></code> algorithm is given below.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">VertexCoulombIntegrals</span>
+<span class="w">  </span><span class="nt">in</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">slicedCoulombVertex</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CoulombVertex</span>
+<span class="w">  </span><span class="nt">out</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">coulombIntegrals</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CoulombIntegrals</span>
+</pre></div>
+</div>
+</section>
+<section id="algorithm-input">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">3 Algorithm input</a><a class="headerlink" href="#algorithm-input" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default" id="focalpoint-input-table">
+<caption><span class="caption-text">Input keywords</span><a class="headerlink" href="#focalpoint-input-table" title="Link to this table">¶</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Keyword</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">slicedCoulombVertex</span></code></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="algorithm-output">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">4 Algorithm output</a><a class="headerlink" href="#algorithm-output" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Keyword</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">coulombIntegrals</span></code></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<section id="sample-stdout">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">4.1 Sample <code class="docutils literal notranslate"><span class="pre">stdout</span></code></a><a class="headerlink" href="#sample-stdout" title="Link to this heading">¶</a></h3>
+<p>A sample output of this algorithm reads</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>step:<span class="w"> </span><span class="m">8</span>,<span class="w"> </span>VertexCoulombIntegrals
+number<span class="w"> </span>of<span class="w"> </span>field<span class="w"> </span>variables<span class="w"> </span>NF:<span class="w"> </span><span class="m">2092</span>
+realtime<span class="w"> </span><span class="m">0</span>.001249174<span class="w"> </span>s
+</pre></div>
+</div>
+</section>
+<section id="sample-yaml-output">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">4.2 Sample <code class="docutils literal notranslate"><span class="pre">yaml</span></code> output</a><a class="headerlink" href="#sample-yaml-output" title="Link to this heading">¶</a></h3>
+<p>A sample <code class="docutils literal notranslate"><span class="pre">yaml</span></code> output of this algorithm reads</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">floatingPointOperations</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
+<span class="nt">flops</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
+<span class="nt">in</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">slicedCoulombVertex</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0x24aee28</span>
+<span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">VertexCoulombIntegrals</span>
+<span class="nt">out</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">coulombIntegrals</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0x247f2b8</span>
+<span class="nt">realtime</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.001078910</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="computational-complexity">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">5 Computational complexity</a><a class="headerlink" href="#computational-complexity" title="Link to this heading">¶</a></h2>
+<p>Note that the <code class="docutils literal notranslate"><span class="pre">VertexCoulombIntegrals</span></code> algorithm merely defines a recipe to perform the computation of all integrals. The integrals will only be computed once
+their numerical values are needed. Certain types of Coulomb integrals; for example, <span class="math notranslate nohighlight">\(V_{cd}^{ab}\)</span> will potentially never be computed if not needed by a later
+algorithm. In this manner potential memory bottle-necks are avoided.</p>
+</section>
+<section id="theory">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">6 Theory</a><a class="headerlink" href="#theory" title="Link to this heading">¶</a></h2>
+<p>Coulomb integrals are evaluated using the following expression.</p>
+<div class="math notranslate nohighlight" id="equation-algorithms-vertexcoulombintegrals-0">
+<span class="eqno">(1)<a class="headerlink" href="#equation-algorithms-vertexcoulombintegrals-0" title="Link to this equation">¶</a></span>\[V^{pq}_{sr} = \sum_{G} {\Gamma^\ast}^{pG}_s \Gamma^q_{rG}\]</div>
+</section>
+<section id="literature">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">7 Literature</a><a class="headerlink" href="#literature" title="Link to this heading">¶</a></h2>
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="SliceOperator.html"
+       title="previous chapter">← SliceOperator</a>
+  </li>
+  <li class="next">
+    <a href="Write.html"
+       title="next chapter">Write →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 1980, CC4S Developers.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 7.2.6 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.8.0.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>

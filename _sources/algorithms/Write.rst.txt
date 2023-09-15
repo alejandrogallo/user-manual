@@ -1,0 +1,104 @@
+=====
+Write
+=====
+
+
+.. contents::
+
+
+
+1 Brief description
+-------------------
+
+``Write`` writes a cc4s tensor or set of tensors.
+
+2 Algorithm call
+----------------
+
+A typical input file snippet to call the `Write <Write.html>`_
+algorithm is given below.
+
+.. code:: yaml
+
+    - name: Write
+      in:
+        fileName: "StructureFactor.yaml"
+        source: SF
+      out: {}
+
+3 Algorithm input
+-----------------
+
+.. table::
+    :name: reader-input-table
+
+    +--------------+-----------+
+    | Keyword      | Value     |
+    +==============+===========+
+    | ``fileName`` | `what`_   |
+    +--------------+-----------+
+    | ``source``   | `data`_   |
+    +--------------+-----------+
+    | ``binary``   | `binary`_ |
+    +--------------+-----------+
+
+.. _what:
+
+3.1 what
+~~~~~~~~
+
+Defines the yaml file name where the tensor or sets of tensors are written to.
+
+.. _data:
+
+3.2 data
+~~~~~~~~
+
+Defines the tensor or sets of tensors that should be written to disk.
+
+.. _binary:
+
+3.3 binary
+~~~~~~~~~~
+
+Pseudo-boolean (i.e. use 0 or 1) flag determines writing a text- or binary-file.
+
+3.4 Sample ``stdout``
+~~~~~~~~~~~~~~~~~~~~~
+
+A typical output of this algorithm reads
+
+.. code:: sh
+
+    step: 11, Write
+    Writing to text file StructureFactor.elements
+    realtime 0.011545188 s
+    --
+
+3.5 Sample ``yaml`` output
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: yaml
+
+    floatingPointOperations: 0
+    flops: 0
+    in:
+      binary: 0
+      fileName: StructureFactor.yaml
+      source: 0x2f315f8
+    name: Write
+    out:
+      persitentSource:
+        dimensions:
+          0:
+            length: 819
+        elements:
+          type: TextFile
+        scalarType: Real64
+        type: Tensor
+        unit: 1
+        version: 100
+    realtime: 0.011545188
+
+4 Literature
+------------

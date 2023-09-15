@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html  lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+      <title>How to run Cc4s calculations?</title>
+    
+          <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../_static/theme.css " type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="../_static/theme-vendors.js"></script> -->
+      <script src="../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../genindex.html" />
+  <link rel="search" title="Search" href="../search.html" />
+  <link rel="next" title="About the code" href="../what/what.html" />
+  <link rel="prev" title="Description of VASP interface to Cc4s" href="../interfaces/vasp.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../index.html" class="home-link">
+    
+      <span class="site-name">CC4S</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Quick search</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Search" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#cc4s-user-documentation">cc4s user documentation</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../gettingstarted/gettingstarted.html" class="reference internal ">Getting Started</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../algorithms/index.html" class="reference internal ">Algorithms</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../objects/index.html" class="reference internal ">Objects</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../interfaces/vasp.html" class="reference internal ">Description of VASP interface to Cc4s</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 current">
+            
+              <a href="#" class="reference internal current">How to run Cc4s calculations?</a>
+            
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#step-1-coupled-cluster-singles-and-doubles-theory-calculations" class="reference internal">Step 1: Coupled cluster singles and doubles theory calculations</a></li>
+                
+                  <li class="toctree-l2"><a href="#step-2-perturbative-triples-calculations" class="reference internal">Step 2: Perturbative triples calculations</a></li>
+                
+                  <li class="toctree-l2"><a href="#step-3-basis-set-incompleteness-error-correction" class="reference internal">Step 3: Basis-set incompleteness error correction</a></li>
+                
+                  <li class="toctree-l2"><a href="#step-4-finite-size-correction" class="reference internal">Step 4: Finite-size correction</a></li>
+                
+                  <li class="toctree-l2"><a href="#final-energy" class="reference internal">Final energy</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../what/what.html" class="reference internal ">About the code</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../performance/performance.html" class="reference internal ">Performance and compute resources</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../contact/contact.html" class="reference internal ">Contact</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../how-to-write.html" class="reference internal ">How To Write</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+    <li>How to run Cc4s calculations?</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="../interfaces/vasp.html"
+       title="previous chapter">← Description of VASP interface to Cc4s</a>
+  </li>
+  <li class="next">
+    <a href="../what/what.html"
+       title="next chapter">About the code →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <section id="how-to-run-cc4s-calculations">
+<h1><a class="toc-backref" href="#id11" role="doc-backlink">How to run Cc4s calculations?</a><a class="headerlink" href="#how-to-run-cc4s-calculations" title="Link to this heading">¶</a></h1>
+<nav class="contents" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#how-to-run-cc4s-calculations" id="id11">How to run Cc4s calculations?</a></p>
+<ul>
+<li><p><a class="reference internal" href="#step-1-coupled-cluster-singles-and-doubles-theory-calculations" id="id12"><strong>Step 1</strong>: Coupled cluster singles and doubles theory calculations</a></p></li>
+<li><p><a class="reference internal" href="#step-2-perturbative-triples-calculations" id="id13"><strong>Step 2</strong>: Perturbative triples calculations</a></p></li>
+<li><p><a class="reference internal" href="#step-3-basis-set-incompleteness-error-correction" id="id14"><strong>Step 3</strong>: Basis-set incompleteness error correction</a></p></li>
+<li><p><a class="reference internal" href="#step-4-finite-size-correction" id="id15"><strong>Step 4</strong>: Finite-size correction</a></p></li>
+<li><p><a class="reference internal" href="#final-energy" id="id16"><strong>Final energy</strong></a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<p>In this tutorial we explain all steps necessary to perform a  <code class="docutils literal notranslate"><span class="pre">Cc4s</span></code> calculation
+on the level of CCSD(T) theory for a simple test system.
+The test system corresponds to a periodic rhomobohedral boron nitride crystal.
+All required <code class="docutils literal notranslate"><span class="pre">Cc4s</span></code> input files have been created using the <code class="docutils literal notranslate"><span class="pre">VASP</span></code> interface.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Cc4s</span></code> calculations are controlled by a YAML input file, which is called <code class="docutils literal notranslate"><span class="pre">cc4s.in</span></code> in the present tutorial.
+This input file consists of a list of calls to algorithms with input arguments and output objects.
+Here, we will walk you through all employed algorithms used to compute the CCSD(T) correlation energy.
+However, if you want to skip the detailed  explanations below and proceed directly to performing
+CCSD(T) calculations, you might as well download the complete <code class="docutils literal notranslate"><span class="pre">cc4s.in</span></code> file <a class="reference external" href="../data/cc4s.in">here</a>.</p>
+<p>The following files are needed to reproduce all calculations of this tutorial.</p>
+<ul class="simple">
+<li><p>A working binary of <code class="docutils literal notranslate"><span class="pre">Cc4s</span></code> obtained by <a class="reference external" href="../gettingstarted/gettingstarted.html">compiling the code</a></p></li>
+<li><p>A set of input files generated by the <code class="docutils literal notranslate"><span class="pre">VASP</span></code> <a class="reference external" href="../interfaces/vasp.html">interface</a> that are part of the tests included in the <code class="docutils literal notranslate"><span class="pre">Cc4s</span></code> package</p>
+<ul>
+<li><p><a class="reference external" href="../objects/EigenEnergies.html">Eigenenergies</a> (<span class="math notranslate nohighlight">\(\epsilon_{p}\)</span>) : <code class="docutils literal notranslate"><span class="pre">EigenEnergies.yaml</span></code>, <code class="docutils literal notranslate"><span class="pre">EigenEnergies.elements</span></code></p></li>
+<li><p><a class="reference external" href="../objects/CoulombVertex.html">CoulombVertex</a> (<span class="math notranslate nohighlight">\(\Gamma^{pG}_{q}\)</span>) :  <code class="docutils literal notranslate"><span class="pre">CoulombVertex.yaml</span></code>, <code class="docutils literal notranslate"><span class="pre">CoulombVertex.elements</span></code></p></li>
+<li><p><a class="reference external" href="../objects/GridVectors.html">GridVectors</a> (<span class="math notranslate nohighlight">\(\vec G\)</span>) : <code class="docutils literal notranslate"><span class="pre">GridVectors.yaml</span></code>, <code class="docutils literal notranslate"><span class="pre">GridVectors.elements</span></code></p></li>
+<li><p><a class="reference external" href="../objects/CoulombPotential.html">CoulombPotential</a> (<span class="math notranslate nohighlight">\(V(\vec G)\)</span>) : <code class="docutils literal notranslate"><span class="pre">CoulombPotential.yaml</span></code>, <code class="docutils literal notranslate"><span class="pre">CoulombPotential.elements</span></code></p></li>
+<li><p><a class="reference external" href="../objects/DeltaIntegrals.html">DeltaIntegrals</a> (<span class="math notranslate nohighlight">\(\delta^{ab}_{ij}\)</span>) : <code class="docutils literal notranslate"><span class="pre">DeltaPPHH.yaml</span></code>, <code class="docutils literal notranslate"><span class="pre">DeltaPPHH.elements</span></code></p></li>
+<li><p><a class="reference external" href="../objects/DeltaIntegrals.html">DeltaIntegrals</a> (<span class="math notranslate nohighlight">\(\delta_{ij}\)</span>) : <code class="docutils literal notranslate"><span class="pre">DeltaHH.yaml</span></code>, <code class="docutils literal notranslate"><span class="pre">DeltaHH.elements</span></code></p></li>
+<li><p><a class="reference external" href="../objects/CoulombVertexSingularVectors.html">CoulombVertexSingularVetors</a> (<span class="math notranslate nohighlight">\(U_{G}^{F}\)</span>) : <code class="docutils literal notranslate"><span class="pre">CoulombVertexSingularVectors.yaml</span></code>, <code class="docutils literal notranslate"><span class="pre">CoulombVertexSingularVectors.elements</span></code></p></li>
+<li><p><a class="reference external" href="../objects/Mp2PairEnergies.html">Mp2PairEnergies</a> (<span class="math notranslate nohighlight">\(\epsilon_{ij}\)</span>) : <code class="docutils literal notranslate"><span class="pre">Mp2PairEnergies.yaml</span></code>, <code class="docutils literal notranslate"><span class="pre">Mp2PairEnergies.elements</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">State.yaml</span></code>, <code class="docutils literal notranslate"><span class="pre">Momentum.yaml</span></code> and <code class="docutils literal notranslate"><span class="pre">AuxiliaryField.yaml</span></code></p></li>
+</ul>
+</li>
+</ul>
+<p>For the following example we assume that all input files listed above and the <code class="docutils literal notranslate"><span class="pre">cc4s.in</span></code> file
+are located in the same directory.
+The <code class="docutils literal notranslate"><span class="pre">cc4s.in</span></code> YAML input file is described in the following section in detail.</p>
+<section id="step-1-coupled-cluster-singles-and-doubles-theory-calculations">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink"><strong>Step 1</strong>: Coupled cluster singles and doubles theory calculations</a><a class="headerlink" href="#step-1-coupled-cluster-singles-and-doubles-theory-calculations" title="Link to this heading">¶</a></h2>
+<p>We start this tutorial by taking the first steps in <code class="docutils literal notranslate"><span class="pre">Cc4s</span></code> needed to compute the CCSD correlation energy.
+For this purpose essential data files have to be read from disk using the <code class="docutils literal notranslate"><span class="pre">Read</span></code> algorithm.
+This aglorithm can be executed employing the following  <code class="docutils literal notranslate"><span class="pre">cc4s.in</span></code> YAML input which controls <code class="docutils literal notranslate"><span class="pre">Cc4s</span></code></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Read</span>
+<span class="w">  </span><span class="nt">in</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">fileName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;CoulombVertex.yaml&quot;</span>
+<span class="w">  </span><span class="nt">out</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">destination</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CoulombVertex</span>
+</pre></div>
+</div>
+<p>The above call to the <a class="reference external" href="../algorithms/Read.html">Read</a> algorithm reads the
+<strong>CoulombVertex.yaml</strong> file that contains all meta-information associated with the
+<code class="docutils literal notranslate"><span class="pre">`CoulombVertex</span></code> &lt;../objects/CoulombVertex.html&gt;`_ tensor in a human-readable format.
+<code class="docutils literal notranslate"><span class="pre">Cc4s</span></code> will read all numerical data belonging to
+the corresponding <code class="docutils literal notranslate"><span class="pre">`CoulombVertex</span></code> &lt;../objects/CoulombVertex.html&gt;`_ tensor from the <strong>CoulombVertex.elements</strong> binary file stored on disk.
+The output of <a class="reference external" href="../algorithms/Read.html">Read</a> algorithm is the <code class="docutils literal notranslate"><span class="pre">`CoulombVertex</span></code> &lt;../objects/CoulombVertex.html&gt;`_ tensor object, which can
+be used as input for all subsequent <code class="docutils literal notranslate"><span class="pre">Cc4s</span></code> algorithms.</p>
+<p>In addition, we use <code class="docutils literal notranslate"><span class="pre">Cc4s</span></code> to read the <strong>EigenEnergies.yaml</strong> and
+<strong>EigenEnergies.elements</strong> files by including the following <a class="reference external" href="../algorithms/Read.html">Read</a> call in <code class="docutils literal notranslate"><span class="pre">cc4s.in</span></code></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Read</span>
+<span class="w">  </span><span class="nt">in</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">fileName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;EigenEnergies.yaml&quot;</span>
+<span class="w">  </span><span class="nt">out</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">destination</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EigenEnergies</span>
+</pre></div>
+</div>
+<p>In the following step we include two further algorithm calls that are necessary
+to process the <code class="docutils literal notranslate"><span class="pre">`CoulombVertex</span></code> &lt;../objects/CoulombVertex.html&gt;`_ and <a class="reference external" href="../objects/EigenEnergies.html">EigenEnergies</a>
+tensors in <code class="docutils literal notranslate"><span class="pre">Cc4s</span></code> and prepare them for coupled-cluster calculations. To this end the <code class="docutils literal notranslate"><span class="pre">cc4s.in</span></code> file calls the
+<a class="reference external" href="../algorithms/DefineHolesAndParticles.html">DefineHolesAndParticles</a> and
+<a class="reference external" href="../algorithms/SliceOperator.html">SliceOperator</a> algorithms as described below</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DefineHolesAndParticles</span>
+<span class="w">  </span><span class="nt">in</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">eigenEnergies</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EigenEnergies</span>
+<span class="w">  </span><span class="nt">out</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">slicedEigenEnergies</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EigenEnergies</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SliceOperator</span>
+<span class="w">  </span><span class="nt">in</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">slicedEigenEnergies</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EigenEnergies</span>
+<span class="w">    </span><span class="nt">operator</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CoulombVertex</span>
+<span class="w">  </span><span class="nt">out</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">slicedOperator</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CoulombVertex</span>
+</pre></div>
+</div>
+<p>Note that the above algorithms overwrite the original tensors stored in
+<code class="docutils literal notranslate"><span class="pre">`CoulombVertex</span></code> &lt;../objects/CoulombVertex.html&gt;`_ and <a class="reference external" href="../objects/EigenEnergies.html">EigenEnergies</a>,
+turning them into objects corresponding to sets of tensors with partitioned orbital indices, respectively.
+In particular, all state indices have been partitioned to refer to particle or hole states; for example,
+<span class="math notranslate nohighlight">\(\epsilon_q \rightarrow \{\epsilon_a, \epsilon_i\}\)</span>.
+Using these outputs, we call the <a class="reference external" href="../algorithms/VertexCoulombIntegrals.html">VertexCoulombIntegrals</a>
+algorithm by including the following paragraph in the  <code class="docutils literal notranslate"><span class="pre">cc4s.in</span></code> file</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">VertexCoulombIntegrals</span>
+<span class="w">  </span><span class="nt">in</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">slicedCoulombVertex</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CoulombVertex</span>
+<span class="w">  </span><span class="nt">out</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">coulombIntegrals</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CoulombIntegrals</span>
+</pre></div>
+</div>
+<p>The <a class="reference external" href="../algorithms/VertexCoulombIntegrals.html">VertexCoulombIntegrals</a> algorithm generates the <a class="reference external" href="../objects/CoulombIntegrals.html">CoulombIntegrals</a> as output, which serve as input to the
+<a class="reference external" href="../algorithms/CoupledCluster.html">CoupledCluster</a> algorithm and is called using the following code block in  <code class="docutils literal notranslate"><span class="pre">cc4s.in</span></code></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CoupledCluster</span>
+<span class="w">  </span><span class="nt">in</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">method</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Ccsd</span>
+<span class="w">    </span><span class="nt">integralsSliceSize</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100</span>
+<span class="w">    </span><span class="nt">slicedEigenEnergies</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EigenEnergies</span>
+<span class="w">    </span><span class="nt">coulombIntegrals</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CoulombIntegrals</span>
+<span class="w">    </span><span class="nt">slicedCoulombVertex</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CoulombVertex</span>
+<span class="w">    </span><span class="nt">maxIterations</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30</span>
+<span class="w">    </span><span class="nt">energyConvergence</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.0E-5</span>
+<span class="w">    </span><span class="nt">amplitudesConvergence</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.0E-5</span>
+<span class="w">    </span><span class="nt">mixer</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DiisMixer</span>
+<span class="w">      </span><span class="nt">maxResidua</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
+<span class="w">  </span><span class="nt">out</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">amplitudes</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Amplitudes</span>
+</pre></div>
+</div>
+<p>If all code blocks given above are included in the <code class="docutils literal notranslate"><span class="pre">cc4s.in</span></code> file and all other prerequisites are fulfilled,
+<code class="docutils literal notranslate"><span class="pre">Cc4s</span></code> can be called by typing the following command in the terminal:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mpirun<span class="w"> </span>-np<span class="w"> </span><span class="m">48</span><span class="w"> </span>Cc4s<span class="w"> </span>-i<span class="w"> </span>cc4s.in
+</pre></div>
+</div>
+<p>In the present example we run the calculations in parallel using 48 compute cores.</p>
+<p>If all algorithms work successfully, the following output stream will appear on the terminal</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="w">                </span>__<span class="w"> </span>__
+<span class="w">     </span>__________/<span class="w"> </span>//<span class="w"> </span>/<span class="w"> </span>_____
+<span class="w">    </span>/<span class="w"> </span>___/<span class="w"> </span>___/<span class="w"> </span>//<span class="w"> </span>/_/<span class="w"> </span>___/
+<span class="w">   </span>/<span class="w"> </span>/__/<span class="w"> </span>/__/__<span class="w">  </span>__<span class="o">(</span>__<span class="w">  </span><span class="o">)</span>
+<span class="w">   </span><span class="se">\_</span>__/<span class="se">\_</span>__/<span class="w">  </span>/_/<span class="w"> </span>/____/
+<span class="w">  </span>Coupled<span class="w"> </span>Cluster<span class="w"> </span><span class="k">for</span><span class="w"> </span>Solids
+
+version:<span class="w"> </span>heads/develop-0-g5339629,<span class="w"> </span>date:<span class="w"> </span>Tue<span class="w"> </span>Feb<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">16</span>:44:23<span class="w"> </span><span class="m">2022</span><span class="w"> </span>+0100
+build<span class="w"> </span>date:<span class="w"> </span>Feb<span class="w">  </span><span class="m">1</span><span class="w"> </span><span class="m">2022</span><span class="w"> </span><span class="m">17</span>:42:37
+compiler:<span class="w"> </span>icc<span class="w"> </span><span class="o">(</span>ICC<span class="o">)</span><span class="w"> </span><span class="m">19</span>.1.0.166<span class="w"> </span><span class="m">20191121</span>
+total<span class="w"> </span>processes:<span class="w"> </span><span class="m">48</span>
+calculation<span class="w"> </span>started<span class="w"> </span>on:<span class="w"> </span>Mon<span class="w"> </span>Feb<span class="w">  </span><span class="m">7</span><span class="w"> </span><span class="m">09</span>:46:22<span class="w"> </span><span class="m">2022</span>
+
+
+execution<span class="w"> </span>plan<span class="w"> </span>read,<span class="w"> </span>steps:<span class="w"> </span><span class="m">6</span>
+
+step:<span class="w"> </span><span class="m">1</span>,<span class="w"> </span>Read
+Reading<span class="w"> </span>from<span class="w"> </span>binary<span class="w"> </span>file<span class="w"> </span>CoulombVertex.elements
+realtime<span class="w"> </span><span class="m">0</span>.117790191<span class="w"> </span>s
+--
+step:<span class="w"> </span><span class="m">2</span>,<span class="w"> </span>Read
+Reading<span class="w"> </span>from<span class="w"> </span>text<span class="w"> </span>file<span class="w"> </span>EigenEnergies.elements
+realtime<span class="w"> </span><span class="m">0</span>.003308821<span class="w"> </span>s
+--
+step:<span class="w"> </span><span class="m">3</span>,<span class="w"> </span>DefineHolesAndParticles
+number<span class="w"> </span>of<span class="w"> </span>holes<span class="w">     </span>No:<span class="w"> </span><span class="m">16</span>
+number<span class="w"> </span>of<span class="w"> </span>particles<span class="w"> </span>Nv:<span class="w"> </span><span class="m">80</span>
+number<span class="w"> </span>of<span class="w"> </span>states<span class="w">    </span>Np:<span class="w"> </span><span class="m">96</span>
+realtime<span class="w"> </span><span class="m">0</span>.001116923<span class="w"> </span>s
+--
+step:<span class="w"> </span><span class="m">4</span>,<span class="w"> </span>SliceOperator
+Slicing<span class="w"> </span>CoulombVertex.elements<span class="w"> </span>into<span class="w"> </span>holes<span class="w"> </span>and<span class="w"> </span>particles.
+realtime<span class="w"> </span><span class="m">0</span>.002643576<span class="w"> </span>s
+--
+step:<span class="w"> </span><span class="m">5</span>,<span class="w"> </span>VertexCoulombIntegrals
+Using<span class="w"> </span>real<span class="w"> </span>Coulomb<span class="w"> </span>integrals
+number<span class="w"> </span>of<span class="w"> </span>field<span class="w"> </span>variables<span class="w"> </span>NF:<span class="w"> </span><span class="m">356</span>
+realtime<span class="w"> </span><span class="m">0</span>.001467920<span class="w"> </span>s
+--
+step:<span class="w"> </span><span class="m">6</span>,<span class="w"> </span>CoupledCluster
+Using<span class="w"> </span>method<span class="w"> </span>Ccsd.<span class="w"> </span>integralsSliceSize:<span class="w"> </span><span class="m">100</span>
+Using<span class="w"> </span>mixer<span class="w"> </span>DiisMixer.<span class="w"> </span>maxResidua:<span class="w"> </span><span class="m">5</span>
+Maximum<span class="w"> </span>number<span class="w"> </span>of<span class="w"> </span>iterations:<span class="w"> </span><span class="m">30</span>
+Unless<span class="w"> </span>reaching<span class="w"> </span>energy<span class="w"> </span>convergence<span class="w"> </span>dE:<span class="w"> </span>1e-05
+and<span class="w"> </span>amplitudes<span class="w"> </span>convergence<span class="w"> </span>dR:<span class="w"> </span>1e-05
+Iter<span class="w">         </span>Energy<span class="w">         </span>dE<span class="w">           </span>dR<span class="w">         </span><span class="nb">time</span><span class="w">   </span>GF/s/core
+<span class="w">   </span><span class="m">1</span><span class="w">  </span>-2.43605043e+01<span class="w">  </span>-2.4361e+01<span class="w">   </span><span class="m">4</span>.3924e-01<span class="w">      </span><span class="m">0</span>.1<span class="w">    </span><span class="m">4</span>.2
+<span class="w">   </span><span class="m">2</span><span class="w">  </span>-2.47577534e+01<span class="w">  </span>-3.9725e-01<span class="w">   </span><span class="m">7</span>.4733e-02<span class="w">      </span><span class="m">0</span>.8<span class="w">    </span><span class="m">4</span>.9
+<span class="w">   </span><span class="m">3</span><span class="w">  </span>-2.53776918e+01<span class="w">  </span>-6.1994e-01<span class="w">   </span><span class="m">1</span>.8674e-02<span class="w">      </span><span class="m">0</span>.7<span class="w">    </span><span class="m">5</span>.5
+<span class="w">   </span><span class="m">4</span><span class="w">  </span>-2.54455925e+01<span class="w">  </span>-6.7901e-02<span class="w">   </span><span class="m">6</span>.4132e-03<span class="w">      </span><span class="m">0</span>.7<span class="w">    </span><span class="m">5</span>.5
+<span class="w">   </span><span class="m">5</span><span class="w">  </span>-2.54445080e+01<span class="w">   </span><span class="m">1</span>.0845e-03<span class="w">   </span><span class="m">2</span>.2120e-03<span class="w">      </span><span class="m">0</span>.7<span class="w">    </span><span class="m">5</span>.4
+<span class="w">   </span><span class="m">6</span><span class="w">  </span>-2.54458312e+01<span class="w">  </span>-1.3232e-03<span class="w">   </span><span class="m">1</span>.0304e-03<span class="w">      </span><span class="m">0</span>.7<span class="w">    </span><span class="m">5</span>.4
+<span class="w">   </span><span class="m">7</span><span class="w">  </span>-2.54448941e+01<span class="w">   </span><span class="m">9</span>.3705e-04<span class="w">   </span><span class="m">5</span>.0727e-04<span class="w">      </span><span class="m">0</span>.7<span class="w">    </span><span class="m">5</span>.4
+<span class="w">   </span><span class="m">8</span><span class="w">  </span>-2.54452894e+01<span class="w">  </span>-3.9521e-04<span class="w">   </span><span class="m">1</span>.9694e-04<span class="w">      </span><span class="m">0</span>.7<span class="w">    </span><span class="m">5</span>.4
+<span class="w">   </span><span class="m">9</span><span class="w">  </span>-2.54454262e+01<span class="w">  </span>-1.3682e-04<span class="w">   </span><span class="m">7</span>.7180e-05<span class="w">      </span><span class="m">0</span>.7<span class="w">    </span><span class="m">5</span>.4
+<span class="w">  </span><span class="m">10</span><span class="w">  </span>-2.54455328e+01<span class="w">  </span>-1.0663e-04<span class="w">   </span><span class="m">3</span>.0247e-05<span class="w">      </span><span class="m">0</span>.7<span class="w">    </span><span class="m">5</span>.5
+<span class="w">  </span><span class="m">11</span><span class="w">  </span>-2.54455929e+01<span class="w">  </span>-6.0110e-05<span class="w">   </span><span class="m">1</span>.1758e-05<span class="w">      </span><span class="m">0</span>.7<span class="w">    </span><span class="m">5</span>.4
+<span class="w">  </span><span class="m">12</span><span class="w">  </span>-2.54456151e+01<span class="w">  </span>-2.2218e-05<span class="w">   </span><span class="m">5</span>.0053e-06<span class="w">      </span><span class="m">0</span>.7<span class="w">    </span><span class="m">5</span>.5
+<span class="w">  </span><span class="m">13</span><span class="w">  </span>-2.54456249e+01<span class="w">  </span>-9.7454e-06<span class="w">   </span><span class="m">2</span>.2689e-06<span class="w">      </span><span class="m">0</span>.7<span class="w">    </span><span class="m">5</span>.4
+
+Ccsd<span class="w"> </span>correlation<span class="w"> </span>energy:<span class="w">          </span>-25.4456248862
+2nd-order<span class="w"> </span>correlation<span class="w"> </span>energy:<span class="w">     </span>-24.3605043096
+realtime<span class="w"> </span><span class="m">8</span>.742863556<span class="w"> </span>s
+--
+total<span class="w"> </span>realtime:<span class="w"> </span><span class="m">8</span>.873855540<span class="w"> </span>s
+total<span class="w"> </span>operations:<span class="w"> </span><span class="m">2267</span>.4<span class="w"> </span>GFLOPS,<span class="w"> </span>speed:<span class="w"> </span><span class="m">5</span>.3<span class="w"> </span>GFLOPS/s/core
+</pre></div>
+</div>
+<p>The CCSD correlation energy can either be extracted
+directly from the standard output stream or the <code class="docutils literal notranslate"><span class="pre">cc4s.out.yaml</span></code> YAML file, which contains additional information as well
+as the correlation energy. The corresponding block of <code class="docutils literal notranslate"><span class="pre">cc4s.out.yaml</span></code> reads</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CoupledCluster</span>
+<span class="nt">out</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">amplitudes</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0x1ad98b8</span>
+<span class="w">  </span><span class="nt">convergenceReached</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">  </span><span class="nt">energy</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">correlation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">-25.445624886202758</span>
+<span class="w">    </span><span class="nt">direct</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">-38.822491455744313</span>
+<span class="w">    </span><span class="nt">exchange</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">13.376866569541555</span>
+<span class="w">    </span><span class="nt">secondOrder</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">-24.360504309639897</span>
+<span class="w">    </span><span class="nt">unit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.036749322175638754</span>
+<span class="nt">realtime</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8.742863556</span>
+</pre></div>
+</div>
+<p>Note that the energies are given in units of eV for the present system. The energy units are defined by
+input files and always correspond to eV in the case of input files generated by <code class="docutils literal notranslate"><span class="pre">VASP</span></code>.</p>
+</section>
+<section id="step-2-perturbative-triples-calculations">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink"><strong>Step 2</strong>: Perturbative triples calculations</a><a class="headerlink" href="#step-2-perturbative-triples-calculations" title="Link to this heading">¶</a></h2>
+<p>We now proceed with the CCSD(T) energy calculation and seek to compute the (T) contribution,
+which has to be added to the CCSD correlation energy contribution estimated in the
+previous section.</p>
+<p>The <a class="reference external" href="../algorithms/PerturbativeTriples.html">PerturbativeTriples</a> algorithm computes the (T)
+correlation energy contribution and is called from the <code class="docutils literal notranslate"><span class="pre">cc4s.in</span></code> file in the following manner</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PerturbativeTriples</span>
+<span class="w">  </span><span class="nt">in</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">slicedEigenEnergies</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EigenEnergies</span>
+<span class="w">    </span><span class="nt">amplitudes</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Amplitudes</span>
+<span class="w">    </span><span class="nt">coulombIntegrals</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CoulombIntegrals</span>
+<span class="w">  </span><span class="nt">out</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">{}</span>
+</pre></div>
+</div>
+<p>Note that the  <a class="reference external" href="../algorithms/PerturbativeTriples.html">PerturbativeTriples</a> algorithm depends on <a class="reference external" href="../objects/Amplitudes.html">Amplitudes</a>
+as input argument which has been computed above using the
+<a class="reference external" href="../algorithms/CoupledCluster.html">CoupledCluster</a> algorithm.
+If we append the above code block to the <code class="docutils literal notranslate"><span class="pre">cc4s.in</span></code> file described in the previous section and run <code class="docutils literal notranslate"><span class="pre">Cc4s</span></code>,
+the following additional standard output stream should appear.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>step:<span class="w"> </span><span class="m">7</span>,<span class="w"> </span>PerturbativeTriples
+Progress<span class="o">(</span>%<span class="o">)</span><span class="w">  </span>time<span class="o">(</span>s<span class="o">)</span><span class="w">   </span>GFLOP/s
+<span class="m">1</span><span class="w">            </span><span class="m">0</span><span class="w">         </span><span class="m">4</span>.269
+<span class="m">10</span><span class="w">           </span><span class="m">0</span><span class="w">         </span><span class="m">5</span>.763
+<span class="m">20</span><span class="w">           </span><span class="m">0</span><span class="w">         </span><span class="m">5</span>.887
+<span class="m">30</span><span class="w">           </span><span class="m">0</span><span class="w">         </span><span class="m">6</span>.017
+<span class="m">40</span><span class="w">           </span><span class="m">0</span><span class="w">         </span><span class="m">6</span>.018
+<span class="m">50</span><span class="w">           </span><span class="m">0</span><span class="w">         </span><span class="m">6</span>.034
+<span class="m">60</span><span class="w">           </span><span class="m">0</span><span class="w">         </span><span class="m">6</span>.035
+<span class="m">70</span><span class="w">           </span><span class="m">0</span><span class="w">         </span><span class="m">6</span>.029
+<span class="m">80</span><span class="w">           </span><span class="m">0</span><span class="w">         </span><span class="m">6</span>.004
+<span class="m">90</span><span class="w">           </span><span class="m">0</span><span class="w">         </span><span class="m">6</span>.011
+<span class="m">100</span><span class="w">          </span><span class="m">0</span><span class="w">         </span><span class="m">5</span>.986
+<span class="o">(</span>T<span class="o">)</span><span class="w"> </span>correlation<span class="w"> </span>energy:<span class="w">      </span>-0.822530510989498
+realtime<span class="w"> </span><span class="m">2</span>.547204125<span class="w"> </span>s
+--
+</pre></div>
+</div>
+<p>The (T) correlation energy contribution can either be extracted
+directly from the standard output stream or the <code class="docutils literal notranslate"><span class="pre">cc4s.out.yaml</span></code> YAML file, which contains additional information as well
+as the correlation energy contribution. The corresponding block of <code class="docutils literal notranslate"><span class="pre">cc4s.out.yaml</span></code> reads</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PerturbativeTriples</span>
+<span class="nt">out</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">energy</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">correlation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">-0.82253051098949848</span>
+<span class="w">    </span><span class="nt">unit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.036749322175638782</span>
+<span class="nt">realtime</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2.547204125</span>
+</pre></div>
+</div>
+</section>
+<section id="step-3-basis-set-incompleteness-error-correction">
+<h2><a class="toc-backref" href="#id14" role="doc-backlink"><strong>Step 3</strong>: Basis-set incompleteness error correction</a><a class="headerlink" href="#step-3-basis-set-incompleteness-error-correction" title="Link to this heading">¶</a></h2>
+<p>We note that in the present case, the CCSD correlation energy is computed using a set of truncated
+approximate natural orbitals. Increasing this basis set size yields correlation energies that
+converge only slowly to the complete basis set limit. <code class="docutils literal notranslate"><span class="pre">Cc4s</span></code> includes an algorithm that can compute
+a basis-set incompleteness error (BSIE) correction, yielding significantly more rapidly convergent correlation
+energies with respect to the number virtual orbitals.</p>
+<p>The <a class="reference external" href="../algorithms/BasisSetCorrection.html">BasisSetCorrection</a> computes a BSIE correction for
+CCSD theory and requires a set of additional input files that are also provided using the <code class="docutils literal notranslate"><span class="pre">VASP</span></code> interface.
+Reading the corresponding input files and calling the
+<a class="reference external" href="../algorithms/BasisSetCorrection.html">BasisSetCorrection</a> algorithm is achieved using the
+following code block in <code class="docutils literal notranslate"><span class="pre">cc4s.in</span></code></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Read</span>
+<span class="w">  </span><span class="nt">in</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">fileName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;DeltaIntegralsHH.yaml&quot;</span>
+<span class="w">  </span><span class="nt">out</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">destination</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Nij</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Read</span>
+<span class="w">  </span><span class="nt">in</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">fileName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;DeltaIntegralsPPHH.yaml&quot;</span>
+<span class="w">  </span><span class="nt">out</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">destination</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DeltaIntegrals</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Read</span>
+<span class="w">  </span><span class="nt">in</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">fileName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Mp2PairEnergies.yaml&quot;</span>
+<span class="w">  </span><span class="nt">out</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">destination</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Mp2PairEnergies</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">BasisSetCorrection</span>
+<span class="w">  </span><span class="nt">in</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">slicedEigenEnergies</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EigenEnergies</span>
+<span class="w">    </span><span class="nt">amplitudes</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Amplitudes</span>
+<span class="w">    </span><span class="nt">coulombIntegrals</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CoulombIntegrals</span>
+<span class="w">    </span><span class="nt">mp2PairEnergies</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Mp2PairEnergies</span>
+<span class="w">    </span><span class="nt">deltaIntegralsHH</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Nij</span>
+<span class="w">    </span><span class="nt">deltaIntegralsPPHH</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DeltaIntegrals</span>
+<span class="w">  </span><span class="nt">out</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">{}</span>
+</pre></div>
+</div>
+<p>Appending the code block above to the <code class="docutils literal notranslate"><span class="pre">cc4s.in</span></code> file described in all previous sections and running <code class="docutils literal notranslate"><span class="pre">Cc4s</span></code>,
+yields the following additional standard output stream.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>step:<span class="w"> </span><span class="m">8</span>,<span class="w"> </span>Read
+Reading<span class="w"> </span>from<span class="w"> </span>binary<span class="w"> </span>file<span class="w"> </span>DeltaIntegralsHH.elements
+realtime<span class="w"> </span><span class="m">0</span>.008716583<span class="w"> </span>s
+--
+step:<span class="w"> </span><span class="m">9</span>,<span class="w"> </span>Read
+Reading<span class="w"> </span>from<span class="w"> </span>binary<span class="w"> </span>file<span class="w"> </span>DeltaIntegralsPPHH.elements
+realtime<span class="w"> </span><span class="m">0</span>.034012456<span class="w"> </span>s
+--
+step:<span class="w"> </span><span class="m">10</span>,<span class="w"> </span>Read
+Reading<span class="w"> </span>from<span class="w"> </span>text<span class="w"> </span>file<span class="w"> </span>Mp2PairEnergies.elements
+realtime<span class="w"> </span><span class="m">0</span>.002247945<span class="w"> </span>s
+--
+step:<span class="w"> </span><span class="m">11</span>,<span class="w"> </span>BasisSetCorrection
+Ccsd-Bsie<span class="w"> </span>energy<span class="w"> </span>correction:<span class="w">      </span>-5.2998024502
+realtime<span class="w"> </span><span class="m">0</span>.079391342<span class="w"> </span>s
+--
+</pre></div>
+</div>
+<p>The BSIE correction can either be extracted
+directly from the standard output stream or the <code class="docutils literal notranslate"><span class="pre">cc4s.out.yaml</span></code> file, which contains additional information as well
+as the correction. The corresponding block of <code class="docutils literal notranslate"><span class="pre">cc4s.out.yaml</span></code> reads</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">BasisSetCorrection</span>
+<span class="nt">out</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">energy</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">correction</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">-5.2998024502064709</span>
+<span class="w">    </span><span class="nt">pplCorrection</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.2013851788124801</span>
+<span class="w">    </span><span class="nt">secondOrderCorrection</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">-6.5011876290189505</span>
+<span class="w">    </span><span class="nt">uncorrectedCorrelation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">-25.445624886202786</span>
+<span class="w">    </span><span class="nt">unit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.036749322175638782</span>
+<span class="nt">realtime</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.079391342</span>
+</pre></div>
+</div>
+</section>
+<section id="step-4-finite-size-correction">
+<h2><a class="toc-backref" href="#id15" role="doc-backlink"><strong>Step 4</strong>: Finite-size correction</a><a class="headerlink" href="#step-4-finite-size-correction" title="Link to this heading">¶</a></h2>
+<p>In the present example the CCSD correlation energy is computed for a finite periodic simulation cell.
+Increasing the size of the employed periodic simulation cell
+yields correlation energies per atom that converge only slowly to the thermodynamic limit.
+<code class="docutils literal notranslate"><span class="pre">Cc4s</span></code> includes an algorithm that can compute
+a finite-size error correction, yielding significantly more rapidly convergent correlation
+energies per atom with respect to the simulation cell size.</p>
+<p>The <a class="reference external" href="../algorithms/FiniteSizeCorrection.html">FiniteSizeCorrection</a> algorithm computes
+a finite-size correction for CCSD theory and requires a set of additional input files that are also
+provided by the <code class="docutils literal notranslate"><span class="pre">VASP</span></code> interface.
+Reading the corresponding input files and calling the
+<a class="reference external" href="../algorithms/FiniteSizeCorrection.html">FiniteSizeCorrection</a>
+algorithm is achieved using the following code block in <code class="docutils literal notranslate"><span class="pre">cc4s.in</span></code></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Read</span>
+<span class="w">  </span><span class="nt">in</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">fileName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;CoulombVertexSingularVectors.yaml&quot;</span>
+<span class="w">  </span><span class="nt">out</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">destination</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CoulombVertexSingularVectors</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Read</span>
+<span class="w">  </span><span class="nt">in</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">fileName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;GridVectors.yaml&quot;</span>
+<span class="w">  </span><span class="nt">out</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">destination</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GridVectors</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Read</span>
+<span class="w">  </span><span class="nt">in</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">fileName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;CoulombPotential.yaml&quot;</span>
+<span class="w">  </span><span class="nt">out</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">destination</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CoulombPotential</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FiniteSizeCorrection</span>
+<span class="w">  </span><span class="nt">in</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">slicedCoulombVertex</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CoulombVertex</span>
+<span class="w">    </span><span class="nt">amplitudes</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Amplitudes</span>
+<span class="w">    </span><span class="nt">coulombVertexSingularVectors</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CoulombVertexSingularVectors</span>
+<span class="w">    </span><span class="nt">coulombPotential</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CoulombPotential</span>
+<span class="w">    </span><span class="nt">gridVectors</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GridVectors</span>
+<span class="w">  </span><span class="nt">out</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">corrected</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Corrected</span>
+<span class="w">    </span><span class="nt">uncorrected</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Uncorrected</span>
+<span class="w">    </span><span class="nt">transitionStructureFactor</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SF</span>
+</pre></div>
+</div>
+<p>Appending the code block above to the <code class="docutils literal notranslate"><span class="pre">cc4s.in</span></code> file described in all previous sections and running <code class="docutils literal notranslate"><span class="pre">Cc4s</span></code>,
+yields the following additional standard output stream.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>step:<span class="w"> </span><span class="m">12</span>,<span class="w"> </span>Read
+Reading<span class="w"> </span>from<span class="w"> </span>binary<span class="w"> </span>file<span class="w"> </span>CoulombVertexSingularVectors.elements
+realtime<span class="w"> </span><span class="m">0</span>.015900868<span class="w"> </span>s
+--
+step:<span class="w"> </span><span class="m">13</span>,<span class="w"> </span>Read
+Reading<span class="w"> </span>from<span class="w"> </span>text<span class="w"> </span>file<span class="w"> </span>GridVectors.elements
+realtime<span class="w"> </span><span class="m">0</span>.003182427<span class="w"> </span>s
+--
+step:<span class="w"> </span><span class="m">14</span>,<span class="w"> </span>Read
+Reading<span class="w"> </span>from<span class="w"> </span>text<span class="w"> </span>file<span class="w"> </span>CoulombPotential.elements
+realtime<span class="w"> </span><span class="m">0</span>.002309552<span class="w"> </span>s
+--
+step:<span class="w"> </span><span class="m">15</span>,<span class="w"> </span>FiniteSizeCorrection
+Finite-size<span class="w"> </span>energy<span class="w"> </span>correction:<span class="w">    </span>-1.1152868081
+realtime<span class="w"> </span><span class="m">0</span>.363875546<span class="w"> </span>s
+--
+</pre></div>
+</div>
+<p>The finite-size correction can either be extracted
+directly from the standard output stream or the <code class="docutils literal notranslate"><span class="pre">cc4s.out.yaml</span></code> file, which contains additional information as well
+as the correction. The corresponding block of <code class="docutils literal notranslate"><span class="pre">cc4s.out.yaml</span></code> reads</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FiniteSizeCorrection</span>
+<span class="nt">out</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">energy</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">corrected</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">-26.560663044130632</span>
+<span class="w">    </span><span class="nt">correction</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">-1.1152868080903175</span>
+<span class="w">    </span><span class="nt">uncorrected</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">-25.445376236040314</span>
+<span class="w">    </span><span class="nt">unit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.03674932217686841</span>
+<span class="w">  </span><span class="nt">transitionStructureFactor</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0x2cb2f18</span>
+<span class="nt">realtime</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.363875546</span>
+</pre></div>
+</div>
+</section>
+<section id="final-energy">
+<h2><a class="toc-backref" href="#id16" role="doc-backlink"><strong>Final energy</strong></a><a class="headerlink" href="#final-energy" title="Link to this heading">¶</a></h2>
+<p>We now discuss how to combine all energy contributions from above to obtain the final estimate of the
+ground state energy in the thermodynamic and complete basis-set limit.
+The table below summarizes all computed ground state energy contributions for the present example.</p>
+<table class="docutils align-default" id="energy-output">
+<caption><span class="caption-text">Ground state energy summary for present example. All energies in eV.</span><a class="headerlink" href="#energy-output" title="Link to this table">¶</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Contribution</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Hartree–Fock</p></td>
+<td><p>-116.426066</p></td>
+</tr>
+<tr class="row-odd"><td><p>CCSD correlation</p></td>
+<td><p>-25.445625</p></td>
+</tr>
+<tr class="row-even"><td><ol class="upperalpha simple" start="20">
+<li><p>correlation</p></li>
+</ol>
+</td>
+<td><p>-0.822531</p></td>
+</tr>
+<tr class="row-odd"><td><p>CCSD BSIE energy correction</p></td>
+<td><p>-5.299802</p></td>
+</tr>
+<tr class="row-even"><td><p>CCSD finite-size energy correction</p></td>
+<td><p>-1.115287</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">CCSD(T)</span> <span class="pre">energy</span> <span class="pre">+</span> <span class="pre">corrections</span></code></p></td>
+<td><p>-149.109311</p></td>
+</tr>
+</tbody>
+</table>
+<p>Please note that the Hartree–Fock energy contribution was obtained using a preceeding <code class="docutils literal notranslate"><span class="pre">VASP</span></code> calculation. We recommend to
+converge the Hartree–Fock energy contribution to the thermodynamic limit separately using denser <span class="math notranslate nohighlight">\(k\)</span> -meshes.
+The final <code class="docutils literal notranslate"><span class="pre">CCSD(T)</span> <span class="pre">energy</span> <span class="pre">+</span> <span class="pre">corrections</span></code> value can be used to study all accessible physical properties of interest.</p>
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="../interfaces/vasp.html"
+       title="previous chapter">← Description of VASP interface to Cc4s</a>
+  </li>
+  <li class="next">
+    <a href="../what/what.html"
+       title="next chapter">About the code →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 1980, CC4S Developers.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 7.2.6 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.8.0.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>

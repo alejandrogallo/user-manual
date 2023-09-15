@@ -1,0 +1,93 @@
+=======================
+Cc4s User Documentation
+=======================
+
+
+.. toctree::
+   :maxdepth: 1
+   :glob:
+
+   gettingstarted/gettingstarted
+   algorithms/index
+   objects/index
+   interfaces/*
+   tutorials/*
+   what/*
+   performance/*
+   contact/contact
+   how-to-write
+
+1 What is Cc4s?
+---------------
+
+- `About the code <./what/what.html>`_
+
+2 How to get started?
+---------------------
+
+- `Download, compile and run tests <./gettingstarted/gettingstarted.html>`_
+
+3 How to run Cc4s calculations?
+-------------------------------
+
+- `Take a walk through a CCSD(T) calculation for a BN crystal <tutorials/Rbn_tutorial.html>`_
+
+4 Interfaces to Cc4s
+--------------------
+
+Interfaces are available for
+
+- `VASP <interfaces/vasp.html>`_
+
+- FHI-AIMS (under construction)
+
+5 Algorithms in Cc4s
+--------------------
+
+The most important algorithms include
+
+- `CoupledCluster <algorithms/CoupledCluster.html>`_
+
+- `PerturbativeTriples <algorithms/PerturbativeTriples.html>`_
+
+- `FiniteSizeCorrection <algorithms/FiniteSizeCorrection.html>`_
+
+- `BasisSetCorrection <algorithms/BasisSetCorrection.html>`_
+
+You can find a complete list of algorithms
+`here <algorithms/sitemap.html>`_.
+
+6 Important objects
+-------------------
+
+The most important objects used by algorithms include
+
+- `CoulombVertex <objects/CoulombVertex.html>`_
+
+- `CoulombIntegrals <objects/CoulombIntegrals.html>`_
+
+- `Amplitudes <objects/Amplitudes.html>`_
+
+You can find a complete list of objects
+`here <objects/sitemap.html>`_.
+
+7 Computational complexity
+--------------------------
+
+- `Performance and compute resources <./performance/performance.html>`_
+
+8 Contributors, Acknowledgements and Citation
+---------------------------------------------
+
+- `Acknowledgements and how to cite? <./acknowledgements/acknowledgements.html>`_
+
+9 Documentation guide
+---------------------
+
+If you are writing documentation for ``Cc4s``, read the
+`documentation writing manual <how-to-write.html>`_.
+
+10 Contact
+----------
+
+`Contacting the developers <./contact/contact.html>`_.

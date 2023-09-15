@@ -1,0 +1,89 @@
+====
+Read
+====
+
+
+.. contents::
+
+
+
+1 Brief description
+-------------------
+
+``Read`` reads a cc4s tensor or set of tensors.
+
+2 Algorithm call
+----------------
+
+A typical input file snippet to call the `Read <Read.html>`_
+algorithm is given below.
+
+.. code:: yaml
+
+    - name: Read
+      in:
+        fileName: "CoulombVertex.yaml"
+      out:
+        destination: CoulombVertex
+
+3 Algorithm input
+-----------------
+
+.. table::
+    :name: reader-input-table
+
+    +--------------+---------+
+    | Keyword      | Value   |
+    +==============+=========+
+    | ``fileName`` | `what`_ |
+    +--------------+---------+
+
+.. _what:
+
+3.1 what
+~~~~~~~~
+
+4 Algorithm output
+------------------
+
+.. table::
+    :name: read-output-table
+
+    +-----------------+---------+
+    | Keyword         | Value   |
+    +=================+=========+
+    | ``destination`` | `data`_ |
+    +-----------------+---------+
+
+.. _data:
+
+4.1 data
+~~~~~~~~
+
+4.2 Sample ``stdout``
+~~~~~~~~~~~~~~~~~~~~~
+
+The output of this algorithm reads
+
+.. code:: sh
+
+    step: 2, Read
+    Reading from binary file CoulombVertex.elements
+    realtime 0.292085915 s
+
+4.3 Sample ``yaml`` output
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: yaml
+
+    floatingPointOperations: 0
+    flops: 0
+    in:
+      fileName: CoulombVertex.yaml
+    name: Read
+    out:
+      destination: 0x24878e8
+    realtime: 0.292085915
+
+5 Literature
+------------

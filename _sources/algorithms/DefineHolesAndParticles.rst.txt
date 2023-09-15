@@ -1,0 +1,87 @@
+=======================
+DefineHolesAndParticles
+=======================
+
+
+.. contents::
+
+
+
+1 Brief description
+-------------------
+
+The algorithm takes a sorted vector of eigenenergies and splits it into a set of
+two tensors, according to the provided fermiEnergy.
+
+2 Algorithm call
+----------------
+
+A typical input file snippet to call the ``DefineHolesAndParticles`` algorithm is given below.
+
+.. code:: yaml
+
+    - name: DefineHolesAndParticles
+      in:
+        eigenEnergies: EigenEnergies
+      out:
+        slicedEigenEnergies: EigenEnergies
+
+3 Algorithm input
+-----------------
+
+.. table::
+    :name: defineholes-input-table
+
+    +-------------------+------------------+
+    | Keyword           | Value            |
+    +===================+==================+
+    | ``eigenEnergies`` | `eigenEnergies`_ |
+    +-------------------+------------------+
+
+.. _eigenEnergies:
+
+3.1 eigenEnergies
+~~~~~~~~~~~~~~~~~
+
+4 Algorithm output
+------------------
+
+.. table::
+    :name: defineholes-output-table
+
+    +-------------------------+-------------------------------------------------------------+
+    | Keyword                 | Value                                                       |
+    +=========================+=============================================================+
+    | ``slicedEigenEnergies`` | `SlicedEigenEnergies <../objects/SlicedEigenEnergies.html>`_ |
+    +-------------------------+-------------------------------------------------------------+
+
+4.1 Sample ``stdout``
+~~~~~~~~~~~~~~~~~~~~~
+
+The output of the algorithm provides the number of occupied and virtual states
+in the calculation.
+
+.. code:: sh
+
+    step: 3, DefineHolesAndParticles
+    number of holes     No: 4
+    number of particles Nv: 36
+    number of states    Np: 40
+    realtime 0.000832881 s
+
+5 Sample ``yaml`` output
+------------------------
+
+.. code:: yaml
+
+    floatingPointOperations: 0
+    flops: 0
+    in:
+      eigenEnergies: 0x246b298
+    name: DefineHolesAndParticles
+    out:
+      slicedEigenEnergies: 0x1668178
+    realtime: 0.001512765
+
+6 Literature
+------------

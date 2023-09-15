@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html  lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+      <title>CoulombVertex</title>
+    
+          <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../_static/theme.css " type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="../_static/theme-vendors.js"></script> -->
+      <script src="../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../genindex.html" />
+  <link rel="search" title="Search" href="../search.html" />
+  <link rel="next" title="CoulombVertexSingularVectors" href="CoulombVertexSingularVectors.html" />
+  <link rel="prev" title="CoulombPotential" href="CoulombPotential.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../index.html" class="home-link">
+    
+      <span class="site-name">CC4S</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Quick search</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Search" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#cc4s-user-documentation">cc4s user documentation</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../gettingstarted/gettingstarted.html" class="reference internal ">Getting Started</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../algorithms/index.html" class="reference internal ">Algorithms</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="index.html" class="reference internal ">Objects</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../interfaces/vasp.html" class="reference internal ">Description of VASP interface to Cc4s</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../tutorials/Rbn_tutorial.html" class="reference internal ">How to run Cc4s calculations?</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../what/what.html" class="reference internal ">About the code</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../performance/performance.html" class="reference internal ">Performance and compute resources</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../contact/contact.html" class="reference internal ">Contact</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../how-to-write.html" class="reference internal ">How To Write</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="index.html">Objects</a> &raquo;</li>
+    
+    <li>CoulombVertex</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="CoulombPotential.html"
+       title="previous chapter">← CoulombPotential</a>
+  </li>
+  <li class="next">
+    <a href="CoulombVertexSingularVectors.html"
+       title="next chapter">CoulombVertexSingularVectors →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <section id="coulombvertex">
+<h1><a class="toc-backref" href="#id1" role="doc-backlink">CoulombVertex</a><a class="headerlink" href="#coulombvertex" title="Link to this heading">¶</a></h1>
+<nav class="contents" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#coulombvertex" id="id1">CoulombVertex</a></p>
+<ul>
+<li><p><a class="reference internal" href="#brief-description" id="id2">1 Brief description</a></p></li>
+<li><p><a class="reference internal" href="#specification" id="id3">2 Specification</a></p></li>
+<li><p><a class="reference internal" href="#literature" id="id4">3 Literature</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<section id="brief-description">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">1 Brief description</a><a class="headerlink" href="#brief-description" title="Link to this heading">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">CoulombVertex</span></code> <span class="math notranslate nohighlight">\(\Gamma^q_{rF}\)</span>
+is a resolution-of-identiy decomposition of the
+electron repulsion integrals of the form</p>
+<div class="math notranslate nohighlight" id="equation-objects-coulombvertex-0">
+<span class="eqno">(1)<a class="headerlink" href="#equation-objects-coulombvertex-0" title="Link to this equation">¶</a></span>\[V^{pq}_{sr} = \sum_F {\Gamma^\ast}^{pF}_s \Gamma^q_{rF},\]</div>
+<p>where <span class="math notranslate nohighlight">\({\Gamma^\ast}^{pF}_s = \overline{\Gamma^s_{pF}}\)</span> denotes the
+conjugate transpose.
+For periodic systems it is computed from the Fourier transform of the
+co-density of an orbital pair <span class="math notranslate nohighlight">\({\psi^\ast}^q(\mathrm{r})\)</span> and
+<span class="math notranslate nohighlight">\(\psi_r(\mathrm{r})\)</span>, and the square-root of the Coulomb potential
+<span class="math notranslate nohighlight">\(\sqrt{4\pi/\mathrm{G}^2}\)</span>, as specified below.
+The index order of <span class="math notranslate nohighlight">\(\Gamma^q_{rF}\)</span> in a <code class="docutils literal notranslate"><span class="pre">Cc4s</span></code> tensor is <span class="math notranslate nohighlight">\((F,q,r)\)</span>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">CoulombVertex</span></code> needs to be provided by an interfaced electronic
+structure theory package
+and can be read into <code class="docutils literal notranslate"><span class="pre">Cc4s</span></code> using the <a class="reference external" href="../algorithms/Read.html">Read</a> algorithm.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Read</span>
+<span class="w">  </span><span class="nt">in</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">fileName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;CoulombVertex.yaml&quot;</span>
+<span class="w">  </span><span class="nt">out</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">tensor</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CoulombVertex</span>
+</pre></div>
+</div>
+</section>
+<section id="specification">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">2 Specification</a><a class="headerlink" href="#specification" title="Link to this heading">¶</a></h2>
+<p>For periodic systems the <code class="docutils literal notranslate"><span class="pre">CoulombVertex</span></code> <span class="math notranslate nohighlight">\(\Gamma^q_{rF}\)</span> is computed from
+the Fourier transform <span class="math notranslate nohighlight">\(\tilde\Gamma^q_{rG}\)</span> of the
+right vertex of the Coulomb interaction</p>
+<div class="math notranslate nohighlight" id="equation-objects-coulombvertex-1">
+<span class="eqno">(2)<a class="headerlink" href="#equation-objects-coulombvertex-1" title="Link to this equation">¶</a></span>\[\tilde\Gamma^q_{rG}
+  = \int_\Omega dr\, \sqrt{w_G} \sqrt{\frac{4\pi}{\mathbf{G}^2}}\,
+    e^{-i \mathbf{r}\cdot \mathbf{G}}\,
+    {\psi^\ast}^q(\mathbf{r})\, \psi_r(\mathbf{r}),\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mathbf{G}\)</span> denotes the momentum vector associated to the momentum
+index <span class="math notranslate nohighlight">\(G\)</span> and where the indices <span class="math notranslate nohighlight">\(q\)</span> and <span class="math notranslate nohighlight">\(r\)</span> refer to the outgoing
+and incoming states at the right interaction vertex, respectively.
+Note, that the square root of the numerical integration weight <span class="math notranslate nohighlight">\(w_G\)</span>
+and of the Coulomb kernel <span class="math notranslate nohighlight">\(4\pi/\mathbf{G}^2\)</span>
+are contained in the above definition, such that
+the desired resolution-of-identity factorization of of the
+electron repulsion integrals holds</p>
+<div class="math notranslate nohighlight" id="equation-objects-coulombvertex-2">
+<span class="eqno">(3)<a class="headerlink" href="#equation-objects-coulombvertex-2" title="Link to this equation">¶</a></span>\[V^{pq}_{sr} = \sum_G {\tilde\Gamma^\ast}^{pG}_s \tilde\Gamma^q_{rG}.\]</div>
+<p>To reduce the size of the employed <code class="docutils literal notranslate"><span class="pre">CoulombVertex</span></code> while minimizing the
+error of the above factorization, the
+singular value decomposition of the Fourier transformed
+Coulomb interaction vertex
+<span class="math notranslate nohighlight">\(\tilde\Gamma^q_{rG} = U^F_G \Sigma^F_F {W^\ast}^q_{rF}\)</span> is
+considered.
+The <code class="docutils literal notranslate"><span class="pre">CoulombVertex</span></code> used by <code class="docutils literal notranslate"><span class="pre">Cc4s</span></code> is finally defined using only
+the <span class="math notranslate nohighlight">\(N_\mathrm{F}\)</span> largest singular values <span class="math notranslate nohighlight">\(\Sigma^F_F\)</span> and their respective
+left singular vectors <span class="math notranslate nohighlight">\(U^F_G\)</span></p>
+<div class="math notranslate nohighlight" id="equation-objects-coulombvertex-3">
+<span class="eqno">(4)<a class="headerlink" href="#equation-objects-coulombvertex-3" title="Link to this equation">¶</a></span>\[\Gamma^q_{rF} = \sum_G {U^\ast}^G_F \tilde\Gamma^q_{qG}.\]</div>
+<p>The singular value index <span class="math notranslate nohighlight">\(F\)</span> is called <code class="docutils literal notranslate"><span class="pre">AuxiliaryField</span></code> index in <code class="docutils literal notranslate"><span class="pre">Cc4s</span></code>,
+as indicated by <code class="docutils literal notranslate"><span class="pre">type</span></code> field in the <code class="docutils literal notranslate"><span class="pre">dimensions</span></code> section of the
+<code class="docutils literal notranslate"><span class="pre">CoulombVertex</span></code> tensor specification.
+The coefficients <span class="math notranslate nohighlight">\(U_F^G\)</span> are needed by the
+<code class="docutils literal notranslate"><span class="pre">`FiniteSizeCorrection</span></code> &lt;../algorithms/FiniteSizeCorrection.html&gt;`_ algorithm
+and they are contained in the object
+<code class="docutils literal notranslate"><span class="pre">`CoulombVertexSingularVectors</span></code> &lt;CoulombVertexSingularVectors.html&gt;`_.
+For more details, see (Hummel, Felix and Tsatsoulis, Theodoros and Grüneis, Andreas, 2017).</p>
+<p>An example <code class="docutils literal notranslate"><span class="pre">CoulombVertex.yaml</span></code> file is given below</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100</span>
+<span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Tensor</span>
+<span class="nt">scalarType</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Complex64</span>
+<span class="nt">dimensions</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">length</span><span class="p">:</span><span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">356</span>
+<span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AuxiliaryField</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">length</span><span class="p">:</span><span class="w">     </span><span class="l l-Scalar l-Scalar-Plain">96</span>
+<span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">State</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">length</span><span class="p">:</span><span class="w">     </span><span class="l l-Scalar l-Scalar-Plain">96</span>
+<span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">State</span>
+<span class="nt">elements</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IeeeBinaryFile</span>
+<span class="nt">unit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.1917011272153577</span><span class="w">       </span><span class="c1"># = sqrt(Eh/eV)</span>
+<span class="nt">metaData</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">halfGrid</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+</pre></div>
+</div>
+</section>
+<section id="literature">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">3 Literature</a><a class="headerlink" href="#literature" title="Link to this heading">¶</a></h2>
+<p>Hummel, Felix and Tsatsoulis, Theodoros and Grüneis, Andreas (2017). <em>Low rank factorization of the Coulomb integrals for periodic coupled cluster theory</em>, The Journal of Chemical Physics.</p>
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="CoulombPotential.html"
+       title="previous chapter">← CoulombPotential</a>
+  </li>
+  <li class="next">
+    <a href="CoulombVertexSingularVectors.html"
+       title="next chapter">CoulombVertexSingularVectors →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 1980, CC4S Developers.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 7.2.6 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.8.0.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>

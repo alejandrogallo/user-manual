@@ -1,0 +1,102 @@
+=============
+SliceOperator
+=============
+
+
+.. contents::
+
+
+
+1 Brief description
+-------------------
+
+This algorithm splits all edges of an input tensor of type orbital and size :math:`N_p`
+in sizes of :math:`N_o` and :math:`N_v`. It uses ``slicedEigenEnergies`` to identify
+the number of holes :math:`N_o` and particles :math:`N_v`. The output tensor will be a set of
+:math:`2^n` tensors, where n is the number of edges with type orbital. For instance
+the Coulomb Vertex will be processed like
+:math:`\Gamma_p^p(G) \rightarrow \{ \Gamma_o^o(G), \Gamma_o^v(G), \Gamma_v^o(G), \Gamma_v^v(G)\}`.
+
+2 Algorithm call
+----------------
+
+A typical input file snippet to call the `SliceOperator <SliceOperator.html>`_
+algorithm is given below.
+
+.. code:: yaml
+
+    - name: SliceOperator
+      in:
+        slicedEigenEnergies: EigenEnergies
+        operator: CoulombVertex
+      out:
+        slicedOperator: CoulombVertex
+
+3 Algorithm input
+-----------------
+
+.. table::
+    :name: sliceop-input-table
+
+    +-------------------------+-------------------------------------------------------------+
+    | Keyword                 | Value                                                       |
+    +=========================+=============================================================+
+    | ``operator``            | `operator`_                                                 |
+    +-------------------------+-------------------------------------------------------------+
+    | ``slicedEigenEnergies`` | `SlicedEigenEnergies <../objects/SlicedEigenEnergies.html>`_ |
+    +-------------------------+-------------------------------------------------------------+
+
+.. _operator:
+
+3.1 operator
+~~~~~~~~~~~~
+
+This is a single tensor.
+
+4 Algorithm output
+------------------
+
+.. table::
+    :name: sliceop-output-table
+
+    +--------------------+-------------------+
+    | Keyword            | Value             |
+    +====================+===================+
+    | ``slicedOperator`` | `slicedOperator`_ |
+    +--------------------+-------------------+
+
+.. _slicedOperator:
+
+4.1 slicedOperator
+~~~~~~~~~~~~~~~~~~
+
+This is a set of tensors.
+
+4.2 Sample ``stdout``
+~~~~~~~~~~~~~~~~~~~~~
+
+The output of this algorithm reads
+
+.. code:: sh
+
+    step: 4, SliceOperator
+    Slicing CoulombVertex.elements into holes and particles.
+    realtime 0.000798066 s
+
+4.3 Sample ``yaml`` output
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: yaml
+
+    floatingPointOperations: 0
+    flops: 0
+    in:
+      operator: 0x24878e8
+      slicedEigenEnergies: 0x2487f38
+    name: SliceOperator
+    out:
+      slicedOperator: 0x24aee28
+    realtime: 0.002082513
+
+5 Literature
+------------

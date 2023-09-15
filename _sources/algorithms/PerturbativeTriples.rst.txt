@@ -1,0 +1,121 @@
+===================
+PerturbativeTriples
+===================
+
+
+.. contents::
+
+
+
+1 Brief description
+-------------------
+
+Evaluates the (T) contribution.
+
+2 Algorithm call
+----------------
+
+A typical input file snippet to call the ``PerturbativeTriples`` algorithm is given below.
+
+.. code:: yaml
+
+    - name: PerturbativeTriples
+      in:
+        coulombIntegrals: CoulombIntegrals
+        amplitudes: Amplitudes
+        slicedEigenEnergies: EigenEnergies
+        mp2PairEnergies: Mp2PairEnergies
+      out:
+        {}
+
+3 Algorithm input
+-----------------
+
+.. table:: Input keywords for PerturbativeTriples
+
+    +-------------------------+----------------------------------------------------------------------+
+    | Keyword                 | Value                                                                |
+    +=========================+======================================================================+
+    | ``amplitudes``          | `Singles and doubles amplitudes <../objects/Amplitudes.html>`_        |
+    +-------------------------+----------------------------------------------------------------------+
+    | ``coulombIntegrals``    | `Coulomb Integrals <../objects/CoulombIntegrals.html>`_               |
+    +-------------------------+----------------------------------------------------------------------+
+    | ``slicedEigenEnergies`` | `Sliced one-electron energies <../objects/SlicedEigenEnergies.html>`_ |
+    +-------------------------+----------------------------------------------------------------------+
+    | ``mp2PairEnergies``     | `MP2 pair energies matrix <../objects/Mp2PairEnergies.html>`_         |
+    +-------------------------+----------------------------------------------------------------------+
+
+4 Algorithm output
+------------------
+
+4.1 Sample ``stdout``
+~~~~~~~~~~~~~~~~~~~~~
+
+Below an example standard output stream is shown for a successful ``PerturbativeTriples`` algorithm run.
+
+.. code:: sh
+
+    step: 7, PerturbativeTriples
+    Progress(%)  time(s)   GFLOP/s      
+    1            0         4.187        
+    10           0         5.657        
+    20           0         5.789        
+    30           0         5.919        
+    40           0         5.916        
+    50           0         5.938        
+    60           0         5.913        
+    70           0         5.877        
+    80           0         5.850        
+    90           0         5.857        
+    100          0         5.845        
+    (T) correlation energy:      -0.822530510989498
+    realtime 2.592587863 s
+    --
+
+5 Sample ``yaml`` output
+------------------------
+
+Below an example ``yaml`` output stream is shown for a successful ``PerturbativeTriples`` algorithm run.
+
+.. code:: yaml
+
+    floatingPointOperations: 11703705600
+    flops: 729564426.2969619
+    in:
+      amplitudes: 0x24cd038
+      coulombIntegrals: 0x247f2b8
+      slicedEigenEnergies: 0x2487f38
+    name: PerturbativeTriples
+    out:
+      energy:
+        correlation: -0.82253051098949848
+        unit: 0.036749322175638782
+    realtime: 2.592587863
+
+6 Computational complexity
+--------------------------
+
+The computational cost is :math:`\mathcal{O}{(N_o^3 N_v^3(N_o+N_v))}` with :math:`N_o` and 
+:math:`N_v` being the number of occupied and virtual orbitals, respectively. The memory
+footprint is mainly determined by the storage of the PPPH-integral, which is of 
+size :math:`\mathcal{O}{N_o N_v^3}`.
+
+7 Theory
+--------
+
+The implemented expressions of (T) correspond to those from Ref. (Krishnan Raghavachari and Gary W. Trucks and John A. Pople and Martin Head-Gordon, 1989). For more details see Ref. (Bartlett, R.J. and Musiał, Monika, 2007) and references therin. 
+
+8 Reference implementation
+--------------------------
+
+In addition to the ``PerturbativeTriples`` algorithm, there is also a slower
+reference implementation called ``PerturbativeTriplesReference`` which
+is used in the same way as ``PerturbativeTriples``.
+To use it, you should just change the name ``PerturbativeTriples`` by ``PerturbativeTriplesReference``.
+
+9 Literature
+------------
+
+Bartlett, R.J. and Musiał, Monika (2007). *{Coupled-cluster theory in quantum chemistry}*, Rev. Mod. Phys..
+
+Krishnan Raghavachari and Gary W. Trucks and John A. Pople and Martin Head-Gordon (1989). *A fifth-order perturbation comparison of electron correlation theories*, Chemical Physics Letters.

@@ -1,0 +1,121 @@
+=============
+CoulombVertex
+=============
+
+
+.. contents::
+
+
+
+1 Brief description
+-------------------
+
+The ``CoulombVertex`` :math:`\Gamma^q_{rF}`
+is a resolution-of-identiy decomposition of the
+electron repulsion integrals of the form
+
+
+
+.. math::
+
+    V^{pq}_{sr} = \sum_F {\Gamma^\ast}^{pF}_s \Gamma^q_{rF},
+
+where :math:`{\Gamma^\ast}^{pF}_s = \overline{\Gamma^s_{pF}}` denotes the
+conjugate transpose.
+For periodic systems it is computed from the Fourier transform of the
+co-density of an orbital pair :math:`{\psi^\ast}^q(\mathrm{r})` and
+:math:`\psi_r(\mathrm{r})`, and the square-root of the Coulomb potential
+:math:`\sqrt{4\pi/\mathrm{G}^2}`, as specified below.
+The index order of :math:`\Gamma^q_{rF}` in a ``Cc4s`` tensor is :math:`(F,q,r)`.
+
+The ``CoulombVertex`` needs to be provided by an interfaced electronic
+structure theory package
+and can be read into ``Cc4s`` using the `Read <../algorithms/Read.html>`_ algorithm.
+
+.. code:: yaml
+
+    - name: Read
+      in:
+        fileName: "CoulombVertex.yaml"
+      out:
+        tensor: CoulombVertex
+
+2 Specification
+---------------
+
+For periodic systems the ``CoulombVertex`` :math:`\Gamma^q_{rF}` is computed from
+the Fourier transform :math:`\tilde\Gamma^q_{rG}` of the
+right vertex of the Coulomb interaction
+
+
+.. math::
+
+    \tilde\Gamma^q_{rG}
+      = \int_\Omega dr\, \sqrt{w_G} \sqrt{\frac{4\pi}{\mathbf{G}^2}}\,
+        e^{-i \mathbf{r}\cdot \mathbf{G}}\,
+        {\psi^\ast}^q(\mathbf{r})\, \psi_r(\mathbf{r}),
+
+
+where :math:`\mathbf{G}` denotes the momentum vector associated to the momentum
+index :math:`G` and where the indices :math:`q` and :math:`r` refer to the outgoing
+and incoming states at the right interaction vertex, respectively.
+Note, that the square root of the numerical integration weight :math:`w_G`
+and of the Coulomb kernel :math:`4\pi/\mathbf{G}^2`
+are contained in the above definition, such that
+the desired resolution-of-identity factorization of of the
+electron repulsion integrals holds
+
+
+.. math::
+
+    V^{pq}_{sr} = \sum_G {\tilde\Gamma^\ast}^{pG}_s \tilde\Gamma^q_{rG}.
+
+To reduce the size of the employed ``CoulombVertex`` while minimizing the
+error of the above factorization, the
+singular value decomposition of the Fourier transformed
+Coulomb interaction vertex
+:math:`\tilde\Gamma^q_{rG} = U^F_G \Sigma^F_F {W^\ast}^q_{rF}` is
+considered.
+The ``CoulombVertex`` used by ``Cc4s`` is finally defined using only
+the :math:`N_\mathrm{F}` largest singular values :math:`\Sigma^F_F` and their respective
+left singular vectors :math:`U^F_G`
+
+
+.. math::
+
+    \Gamma^q_{rF} = \sum_G {U^\ast}^G_F \tilde\Gamma^q_{qG}.
+
+
+The singular value index :math:`F` is called ``AuxiliaryField`` index in ``Cc4s``,
+as indicated by ``type`` field in the ``dimensions`` section of the
+``CoulombVertex`` tensor specification.
+The coefficients :math:`U_F^G` are needed by the
+```FiniteSizeCorrection`` <../algorithms/FiniteSizeCorrection.html>`_ algorithm
+and they are contained in the object
+```CoulombVertexSingularVectors`` <CoulombVertexSingularVectors.html>`_.
+For more details, see (Hummel, Felix and Tsatsoulis, Theodoros and Grüneis, Andreas, 2017).
+
+An example ``CoulombVertex.yaml`` file is given below
+
+.. code:: yaml
+
+    version: 100
+    type: Tensor
+    scalarType: Complex64
+    dimensions:
+    - length:    356
+      type: AuxiliaryField
+    - length:     96
+      type: State
+    - length:     96
+      type: State
+    elements:
+      type: IeeeBinaryFile
+    unit: 0.1917011272153577       # = sqrt(Eh/eV)
+    metaData:
+      halfGrid: 1
+
+3 Literature
+------------
+
+Hummel, Felix and Tsatsoulis, Theodoros and Grüneis, Andreas (2017). *Low rank factorization of the Coulomb integrals for periodic coupled cluster theory*, The Journal of Chemical Physics.

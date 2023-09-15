@@ -1,0 +1,28 @@
+============================
+CoulombVertexSingularVectors
+============================
+
+
+.. contents::
+
+
+
+1 Brief description
+-------------------
+
+The ``CoulombVertexSingularVectors`` object contains the transformation from the auxiliary-field basis to the
+plane-wave basis :math:`U_{G}^{F}` as input.
+This transformation matrix needs to be provided by the interfaced
+electronic structure code and should be read from an external file using the
+`Read <../algorithms/Read.html>`_ algorithm.
+
+.. code:: sh
+
+    - name: Read
+      in:
+        fileName: "CoulombVertexSingularVectors.yaml"
+      out:
+        tensor: CoulombVertexSingularVectors
+
+2 Literature
+------------

@@ -1,0 +1,122 @@
+==================
+BasisSetCorrection
+==================
+
+
+.. contents::
+
+
+
+1 Brief description
+-------------------
+
+This algorithm evaluates a correction to the basis-set-incompeteness error (BSIE) of CCSD correlation energies.
+
+2 Algorithm call
+----------------
+
+A typical input file snippet to call the ``BasisSetCorrection`` algorithm is given below.
+
+.. code:: yaml
+
+    - name: BasisSetCorrection
+      in:
+        slicedEigenEnergies: EigenEnergies
+        amplitudes: Amplitudes
+        coulombIntegrals: CoulombIntegrals
+        mp2PairEnergies: Mp2PairEnergies
+        deltaIntegralsHH: DeltaIntegralsHH
+        deltaIntegralsPPHH: DeltaIntegralsPPHH
+      out:
+        {}
+
+3 Algorithm input
+-----------------
+
+.. table:: Input keywords
+    :name: focalpoint-input-table
+
+    +-------------------------+----------------------------------------------------------------------+
+    | Keyword                 | Value                                                                |
+    +=========================+======================================================================+
+    | ``amplitudes``          | `Singles and doubles amplitudes <../objects/Amplitudes.html>`_        |
+    +-------------------------+----------------------------------------------------------------------+
+    | ``deltaIntegralsPPHH``  | `DeltaIntegrals <../objects/DeltaIntegrals.html>`_                    |
+    +-------------------------+----------------------------------------------------------------------+
+    | ``deltaIntegralsHH``    | `DeltaIntegrals <../objects/DeltaIntegrals.html>`_                    |
+    +-------------------------+----------------------------------------------------------------------+
+    | ``mp2PairEnergiese``    | `MP2 pair energies matrix <../objects/Mp2PairEnergies.html>`_         |
+    +-------------------------+----------------------------------------------------------------------+
+    | ``coulombIntegrals``    | `Coulomb Integrals <../objects/CoulombIntegrals.html>`_               |
+    +-------------------------+----------------------------------------------------------------------+
+    | ``slicedEigenEnergies`` | `Sliced one-electron energies <../objects/SlicedEigenEnergies.html>`_ |
+    +-------------------------+----------------------------------------------------------------------+
+
+4 Algorithm output
+------------------
+
+The output of the algorithm is the CCSD BSIE correction. This energy contains
+the 2nd-order energy correction and a pair-specific contribution that accounts for the BSIE of the particle-particle ladder term (see theory).
+
+4.1 Sample ``stdout``
+~~~~~~~~~~~~~~~~~~~~~
+
+Below an example standard output stream is shown for a successful run.
+
+.. code:: sh
+
+    step: 11, BasisSetCorrection
+    Ccsd-Bsie energy correction:      -5.2998024502
+    realtime 0.080797438 s
+    --
+
+5 Sample ``yaml`` output
+------------------------
+
+Below an example ``yaml`` output stream is shown for a successful run.
+
+.. code:: yaml
+
+    name: BasisSetCorrection
+    out:
+      energy:
+        correction: -5.2998024502064709
+        pplCorrection: 1.2013851788124801
+        secondOrderCorrection: -6.5011876290189505
+        uncorrectedCorrelation: -25.445624886202786
+        unit: 0.036749322175638782
+    realtime: 0.080797438
+
+6 Computational complexity
+--------------------------
+
+This algorithm is a post-processing algorithm. However, the 2nd-order
+energy is re-evaluated and other operations of the same computational
+complexity are performed. The memory footprint is also in the order of a 2nd-order
+energy calculation.
+
+7 Theory
+--------
+
+This algorithm evaluates a correction to the basis-set-incompleteness error (BSIE)
+of CCSD correlation energies as descibed in Ref. (Irmler, Andreas and Gallo, Alejandro and Grüneis, Andreas, 2021). The algorithm
+requires the converged CCSD amplitudes together with `:math:`\delta`-integrals <../objects/DeltaIntegrals.html>`_. Futhermore,
+a complete-basis-set-limit estimate of the `MP2 pair-correlation-energies <../objects/Mp2PairEnergies.html>`_ is needed.
+
+As discussed in  Ref. (Irmler, Andreas and Gallo, Alejandro and Grüneis, Andreas, 2021), the CCSD-BSIE in a finite basis-set
+calculation is primarily due to the 2nd-order term, and the so-called
+particle-particle ladder (ppl) term. 
+There exists a variety of algorithms which allow
+a reliable CBS estimate for the 2nd-order term at modest computational costs
+(compared to a the corresponding CCSD calculation for the same system). The
+missing ppl BSIE contribution is approximated using a pair-specific expression
+which requires the `MP2 pair-correlation-energies <../objects/Mp2PairEnergies.html>`_,
+CCSD amplitudes, as-well-as the `:math:`\delta`-integrals <../objects/DeltaIntegrals.html>`_.
+The implemented ppl-correction is defined by Eq.(31) in Ref. (Irmler, Andreas and Gallo, Alejandro and Grüneis, Andreas, 2021).
+The provided CCSD-BSIE energy correction is the sum of the 2nd-order energy
+correction and the ppl-correction-term.
+
+8 Literature
+------------
+
+Irmler, Andreas and Gallo, Alejandro and Grüneis, Andreas (2021). *Focal-point approach with pair-specific cusp correction for coupled-cluster theory*, The Journal of Chemical Physics.

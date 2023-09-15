@@ -1,0 +1,46 @@
+================
+CoulombIntegrals
+================
+
+
+.. contents::
+
+
+
+1 Brief description
+-------------------
+
+
+
+.. math::
+
+    V^{pq}_{sr} = \sum_{G} {\Gamma^\ast}^{pG}_s \Gamma^q_{rG}
+
+``CoulombIntegrals`` :math:`V^{pq}_{sr}` are computed from the
+`CoulombVertex <CoulombVertex.html>`_, which can
+be respresented in an arbitrary basis set depending on the employed interface
+(Hummel, Felix and Tsatsoulis, Theodoros and Grüneis, Andreas, 2017).
+
+``CoulombIntegrals`` are computed from the
+`CoulombVertex <CoulombVertex.html>`_ using the
+`VertexCoulombIntegrals <../algorithms/VertexCoulombIntegrals.html>`_ algorithm using;
+for example, the following yaml input file.
+
+.. code:: yaml
+
+    - name: VertexCoulombIntegrals
+      in:
+        slicedCoulombVertex: CoulombVertex
+      out:
+        coulombIntegrals: CoulombIntegrals
+
+We note that the `VertexCoulombIntegrals <../algorithms/VertexCoulombIntegrals.html>`_
+algorithm of ``Cc4s`` provides a recipe for the computation of a set of ``CoulombIntegrals``
+:math:`\{V^{ab}_{ij}, V^{ai}_{bj}, V^{ab}_{cd}  ... \}` .  The respective numerical evaluation of these
+integrals is performed only if the numerical values of the tensors are
+needed by an algorithm.
+
+2 Literature
+------------
+
+Hummel, Felix and Tsatsoulis, Theodoros and Grüneis, Andreas (2017). *Low rank factorization of the Coulomb integrals for periodic coupled cluster theory*, The Journal of Chemical Physics.

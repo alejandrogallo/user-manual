@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html  lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+      <title>FiniteSizeCorrection</title>
+    
+          <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../_static/theme.css " type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="../_static/theme-vendors.js"></script> -->
+      <script src="../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../genindex.html" />
+  <link rel="search" title="Search" href="../search.html" />
+  <link rel="next" title="PerturbativeTriples" href="PerturbativeTriples.html" />
+  <link rel="prev" title="DefineHolesAndParticles" href="DefineHolesAndParticles.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../index.html" class="home-link">
+    
+      <span class="site-name">CC4S</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Quick search</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Search" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#cc4s-user-documentation">cc4s user documentation</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../gettingstarted/gettingstarted.html" class="reference internal ">Getting Started</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="index.html" class="reference internal ">Algorithms</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../objects/index.html" class="reference internal ">Objects</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../interfaces/vasp.html" class="reference internal ">Description of VASP interface to Cc4s</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../tutorials/Rbn_tutorial.html" class="reference internal ">How to run Cc4s calculations?</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../what/what.html" class="reference internal ">About the code</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../performance/performance.html" class="reference internal ">Performance and compute resources</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../contact/contact.html" class="reference internal ">Contact</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../how-to-write.html" class="reference internal ">How To Write</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="index.html">Algorithms</a> &raquo;</li>
+    
+    <li>FiniteSizeCorrection</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="DefineHolesAndParticles.html"
+       title="previous chapter">← DefineHolesAndParticles</a>
+  </li>
+  <li class="next">
+    <a href="PerturbativeTriples.html"
+       title="next chapter">PerturbativeTriples →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <section id="finitesizecorrection">
+<h1><a class="toc-backref" href="#id2" role="doc-backlink">FiniteSizeCorrection</a><a class="headerlink" href="#finitesizecorrection" title="Link to this heading">¶</a></h1>
+<nav class="contents" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#finitesizecorrection" id="id2">FiniteSizeCorrection</a></p>
+<ul>
+<li><p><a class="reference internal" href="#brief-description" id="id3">1 Brief description</a></p></li>
+<li><p><a class="reference internal" href="#algorithm-call" id="id4">2 Algorithm call</a></p></li>
+<li><p><a class="reference internal" href="#algorithm-input" id="id5">3 Algorithm input</a></p>
+<ul>
+<li><p><a class="reference internal" href="#interpolationgridsize" id="id6">3.1 interpolationGridSize</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#algorithm-output" id="id7">4 Algorithm output</a></p>
+<ul>
+<li><p><a class="reference internal" href="#sample-stdout" id="id8">4.1 Sample <code class="docutils literal notranslate"><span class="pre">stdout</span></code></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#sample-yaml-output" id="id9">5 Sample <code class="docutils literal notranslate"><span class="pre">yaml</span></code> output</a></p></li>
+<li><p><a class="reference internal" href="#computational-complexity" id="id10">6 Computational complexity</a></p></li>
+<li><p><a class="reference internal" href="#theory" id="id11">7 Theory</a></p></li>
+<li><p><a class="reference internal" href="#literature" id="id12">8 Literature</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<section id="brief-description">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">1 Brief description</a><a class="headerlink" href="#brief-description" title="Link to this heading">¶</a></h2>
+<p>This algorithm calculates the electronic transition structure factor
+and performs a tricubic interpolaton to estimate a finite size correlation energy correction.</p>
+</section>
+<section id="algorithm-call">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">2 Algorithm call</a><a class="headerlink" href="#algorithm-call" title="Link to this heading">¶</a></h2>
+<p>A typical input file snippet to call the <code class="docutils literal notranslate"><span class="pre">FiniteSizeCorrection</span></code> algorithm is given below.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FiniteSizeCorrection</span>
+<span class="w">  </span><span class="nt">in</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">slicedCoulombVertex</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CoulombVertex</span>
+<span class="w">    </span><span class="nt">amplitudes</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Amplitudes</span>
+<span class="w">    </span><span class="nt">coulombVertexSingularVectors</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CoulombVertexSingularVectors</span>
+<span class="w">    </span><span class="nt">coulombPotential</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CoulombPotential</span>
+<span class="w">    </span><span class="nt">gridVectors</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GridVectors</span>
+<span class="w">  </span><span class="nt">out</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">transitionStructureFactor</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SF</span>
+</pre></div>
+</div>
+</section>
+<section id="algorithm-input">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">3 Algorithm input</a><a class="headerlink" href="#algorithm-input" title="Link to this heading">¶</a></h2>
+<section id="interpolationgridsize">
+<span id="id1"></span><h3><a class="toc-backref" href="#id6" role="doc-backlink">3.1 interpolationGridSize</a><a class="headerlink" href="#interpolationgridsize" title="Link to this heading">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">interpolationGridSize</span></code> keyword can be used to control the density of the mesh used to interpolate the
+electronic transition structure factor in each spatial direction.
+A value of <span class="math notranslate nohighlight">\(N\)</span> for the <code class="docutils literal notranslate"><span class="pre">interpolationGridSize</span></code> means that <span class="math notranslate nohighlight">\(2 N\)</span> sampling points are used to sample the interpolated structure factor in each direction
+between neighbouring <a class="reference external" href="../objects/GridVectors.html">Grid Vectors</a>.</p>
+</section>
+</section>
+<section id="algorithm-output">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">4 Algorithm output</a><a class="headerlink" href="#algorithm-output" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default" id="ccsd-output-table">
+<caption><span class="caption-text">Output keywords for CoupledCluster</span><a class="headerlink" href="#ccsd-output-table" title="Link to this table">¶</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Keyword</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">transitionStructureFactor</span></code></p></td>
+<td><p>Transition Structure factor</p></td>
+</tr>
+</tbody>
+</table>
+<p>The output of the <code class="docutils literal notranslate"><span class="pre">FiniteSizeCorrection</span></code> algorithm includes transition structure factor <span class="math notranslate nohighlight">\(S(G)\)</span> and
+an estimate of the finitie size error correction to the correlation energy. The finite size error is estimated using a tricubic interpolation
+algorithm of the electronic transition structure factor.</p>
+<section id="sample-stdout">
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">4.1 Sample <code class="docutils literal notranslate"><span class="pre">stdout</span></code></a><a class="headerlink" href="#sample-stdout" title="Link to this heading">¶</a></h3>
+<p>Below an example standard output stream is shown for a successful <code class="docutils literal notranslate"><span class="pre">FiniteSizeCorrection</span></code> algorithm run.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>step:<span class="w"> </span><span class="m">15</span>,<span class="w"> </span>FiniteSizeCorrection
+Finite-size<span class="w"> </span>energy<span class="w"> </span>correction:<span class="w">    </span>-1.1152868081
+realtime<span class="w"> </span><span class="m">0</span>.373321931<span class="w"> </span>s
+--
+</pre></div>
+</div>
+</section>
+</section>
+<section id="sample-yaml-output">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">5 Sample <code class="docutils literal notranslate"><span class="pre">yaml</span></code> output</a><a class="headerlink" href="#sample-yaml-output" title="Link to this heading">¶</a></h2>
+<p>Below an example <code class="docutils literal notranslate"><span class="pre">yaml</span></code> output stream is shown for a successful <code class="docutils literal notranslate"><span class="pre">FiniteSizeCorrection</span></code> algorithm run.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">floatingPointOperations</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">49641291048</span>
+<span class="nt">flops</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">38600052331.414169</span>
+<span class="nt">in</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">amplitudes</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0x24cd038</span>
+<span class="w">  </span><span class="nt">coulombPotential</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0x2487fa8</span>
+<span class="w">  </span><span class="nt">coulombVertexSingularVectors</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0x248b168</span>
+<span class="w">  </span><span class="nt">gridVectors</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0x2474ce8</span>
+<span class="w">  </span><span class="nt">interpolationGridSize</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20</span>
+<span class="w">  </span><span class="nt">slicedCoulombVertex</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0x24aee28</span>
+<span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FiniteSizeCorrection</span>
+<span class="nt">out</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">energy</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">corrected</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">-26.560663044130632</span>
+<span class="w">    </span><span class="nt">correction</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">-1.1152868080903175</span>
+<span class="w">    </span><span class="nt">uncorrected</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">-25.445376236040314</span>
+<span class="w">    </span><span class="nt">unit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.03674932217686841</span>
+<span class="w">  </span><span class="nt">transitionStructureFactor</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0x2bb8ff8</span>
+<span class="nt">realtime</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.373321931</span>
+</pre></div>
+</div>
+</section>
+<section id="computational-complexity">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">6 Computational complexity</a><a class="headerlink" href="#computational-complexity" title="Link to this heading">¶</a></h2>
+<p>No considerable memory footprints or computational cost bottle necks are expected for this algorithm compared to preceding Coupled Cluster theory calculations.</p>
+</section>
+<section id="theory">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">7 Theory</a><a class="headerlink" href="#theory" title="Link to this heading">¶</a></h2>
+<p>The methods employed in this algorithm are discussed in Refs. (Liao, Ke and Grüneis, Andreas, 2016) and (Gruber, Thomas and Liao, Ke and Tsatsoulis, Theodoros and Hummel, Felix and Gr{\”u}neis, Andreas, 2018).
+We employ a tricubic interpolation technique to reduce
+quadrature errors in the numerical expression of the electronic correlation energy: <span class="math notranslate nohighlight">\(\sum_{ G}S({ G}){\tilde{v}}({ G})\)</span>.
+In particular, the quadrature errors around <span class="math notranslate nohighlight">\({G}=0\)</span> are large and result in significant finite-size errors for small simulation cells.
+In order to obtain a more accurate estimate of the correlation energy in the thermodynamic limit,
+we proceed as follows.
+We introduce additional sampling points at an arbitrarily dense
+grid, which we choose to be <span class="math notranslate nohighlight">\(2N\times 2N \times 2N\)</span> times denser than the original one.
+The interpolated transition structure factor and the analytic expression of the Coulomb kernel can be used
+to calculate the correlation energy with the usual expression given above.
+The difference between the correlation energies computed with the interpolated and non-interpolated structure factor
+yields an estimate of the finite correction to the electronic correlation energy that is returned by this algorithm.
+We find that <span class="math notranslate nohighlight">\(N=20\)</span> yields well converged correlation energies for sufficiently large unit cells.
+However, we recommend to check convergence with respect to this parameter for each system separetely.</p>
+</section>
+<section id="literature">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">8 Literature</a><a class="headerlink" href="#literature" title="Link to this heading">¶</a></h2>
+<p>Gruber, Thomas and Liao, Ke and Tsatsoulis, Theodoros and Hummel, Felix and Gr{\”u}neis, Andreas (2018). <em>Applying the coupled-cluster ansatz to solids and surfaces in the thermodynamic limit</em>, Physical Review X.</p>
+<p>Liao, Ke and Grüneis, Andreas (2016). <em>Communication: Finite size correction in periodic coupled cluster theory calculations of solids</em>, The Journal of Chemical Physics.</p>
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="DefineHolesAndParticles.html"
+       title="previous chapter">← DefineHolesAndParticles</a>
+  </li>
+  <li class="next">
+    <a href="PerturbativeTriples.html"
+       title="next chapter">PerturbativeTriples →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 1980, CC4S Developers.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 7.2.6 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.8.0.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,57 @@
+===========================================
+Acknowledgements, Contributors and Citation
+===========================================
+
+
+.. contents::
+
+
+
+Acknowledgements
+----------------
+
+The development of the CC4S software package was supported by the European Research Council (ERC) under the European Unions Horizon 2020 research and innovation program (Grant Agreement No 715594).
+
+Andreas Grüneis and Andreas Irmler acknowledge support from the European Union’s Horizon 2020 research and innovation program under Grant Agreement No. 951786 (The NOMAD CoE). 
+
+Contributors
+------------
+
+The following authors have contributed to developing the methods and code implemented in the ``Cc4s`` software package.
+
+- Felix Hummel
+
+- Andreas Irmler
+
+- Alejandro Gallo
+
+- Ke Liao
+
+- Theodoros Tsatsoulis
+
+- Tobias Schäfer
+
+- Andreas Grüneis
+
+Citation
+--------
+
+A paper containing more inforamtion about the implemented algorithms will be published soon.
+For the time being we recommend referring to following articles if appropriate
+
+- Auxiliary-field representation: (Hummel, Felix and Tsatsoulis, Theodoros and Grüneis, Andreas, 2017)
+
+- Finite-size error corrections: (Liao, Ke and Grüneis, Andreas, 2016) (Gruber, Thomas and Liao, Ke and Tsatsoulis, Theodoros and Hummel, Felix and Gr{\\"u}neis, Andreas, 2018)
+
+- Basis-set error corrections: (Irmler, Andreas and Gallo, Alejandro and Grüneis, Andreas, 2021)
+
+Literature
+----------
+
+Gruber, Thomas and Liao, Ke and Tsatsoulis, Theodoros and Hummel, Felix and Gr{\\"u}neis, Andreas (2018). *Applying the coupled-cluster ansatz to solids and surfaces in the thermodynamic limit*, Physical Review X.
+
+Hummel, Felix and Tsatsoulis, Theodoros and Grüneis, Andreas (2017). *Low rank factorization of the Coulomb integrals for periodic coupled cluster theory*, The Journal of Chemical Physics.
+
+Irmler, Andreas and Gallo, Alejandro and Grüneis, Andreas (2021). *Focal-point approach with pair-specific cusp correction for coupled-cluster theory*, The Journal of Chemical Physics.
+
+Liao, Ke and Grüneis, Andreas (2016). *Communication: Finite size correction in periodic coupled cluster theory calculations of solids*, The Journal of Chemical Physics.

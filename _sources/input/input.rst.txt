@@ -1,0 +1,15 @@
+=============
+Input to CC4S
+=============
+
+
+.. contents::
+
+
+
+1 YAML input file
+-----------------
+
+The CC4S program is controlled using YAML input files.
+
+A simple example input file looks as follows:
