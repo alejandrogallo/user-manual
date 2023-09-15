@@ -48,10 +48,10 @@ This aglorithm can be executed employing the following  =cc4s.in= YAML input whi
 
 The above call to the [[id:Read][Read]] algorithm reads the
 *CoulombVertex.yaml* file that contains all meta-information associated with the
-[[id:CoulombVertex][=CoulombVertex=]] tensor in a human-readable format.
+[[id:CoulombVertex][CoulombVertex]] tensor in a human-readable format.
 =Cc4s= will read all numerical data belonging to
-the corresponding [[id:CoulombVertex][=CoulombVertex=]] tensor from the *CoulombVertex.elements* binary file stored on disk.
-The output of [[id:Read][Read]] algorithm is the [[id:CoulombVertex][=CoulombVertex=]] tensor object, which can
+the corresponding [[id:CoulombVertex][CoulombVertex]] tensor from the *CoulombVertex.elements* binary file stored on disk.
+The output of [[id:Read][Read]] algorithm is the [[id:CoulombVertex][CoulombVertex]] tensor object, which can
 be used as input for all subsequent =Cc4s= algorithms.
 
 In addition, we use =Cc4s= to read the *EigenEnergies.yaml* and
@@ -65,7 +65,7 @@ In addition, we use =Cc4s= to read the *EigenEnergies.yaml* and
 #+end_src
 
 In the following step we include two further algorithm calls that are necessary
-to process the [[id:CoulombVertex][=CoulombVertex=]] and [[id:EigenEnergies][EigenEnergies]]
+to process the [[id:CoulombVertex][CoulombVertex]] and [[id:EigenEnergies][EigenEnergies]]
 tensors in =Cc4s= and prepare them for coupled-cluster calculations. To this end the =cc4s.in= file calls the
 [[id:DefineHolesAndParticles][DefineHolesAndParticles]] and
 [[id:SliceOperator][SliceOperator]] algorithms as described below
