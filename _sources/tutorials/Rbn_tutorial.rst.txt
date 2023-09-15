@@ -101,7 +101,7 @@ tensors in ``Cc4s`` and prepare them for coupled-cluster calculations. To this e
         slicedOperator: CoulombVertex
 
 Note that the above algorithms overwrite the original tensors stored in
-```CoulombVertex`` <../objects/CoulombVertex.html>`_ and `EigenEnergies <../objects/EigenEnergies.html>`_,
+``CoulombVertex`` and `EigenEnergies <../objects/EigenEnergies.html>`_,
 turning them into objects corresponding to sets of tensors with partitioned orbital indices, respectively.
 In particular, all state indices have been partitioned to refer to particle or hole states; for example,
 :math:`\epsilon_q \rightarrow \{\epsilon_a, \epsilon_i\}`.
