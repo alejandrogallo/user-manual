@@ -62,10 +62,10 @@ This aglorithm can be executed employing the following  ``cc4s.in`` YAML input w
 
 The above call to the `Read <../algorithms/Read.html>`_ algorithm reads the
 **CoulombVertex.yaml** file that contains all meta-information associated with the
-```CoulombVertex`` <../objects/CoulombVertex.html>`_ tensor in a human-readable format.
+`CoulombVertex <../objects/CoulombVertex.html>`_ tensor in a human-readable format.
 ``Cc4s`` will read all numerical data belonging to
-the corresponding ```CoulombVertex`` <../objects/CoulombVertex.html>`_ tensor from the **CoulombVertex.elements** binary file stored on disk.
-The output of `Read <../algorithms/Read.html>`_ algorithm is the ```CoulombVertex`` <../objects/CoulombVertex.html>`_ tensor object, which can
+the corresponding `CoulombVertex <../objects/CoulombVertex.html>`_ tensor from the **CoulombVertex.elements** binary file stored on disk.
+The output of `Read <../algorithms/Read.html>`_ algorithm is the `CoulombVertex <../objects/CoulombVertex.html>`_ tensor object, which can
 be used as input for all subsequent ``Cc4s`` algorithms.
 
 In addition, we use ``Cc4s`` to read the **EigenEnergies.yaml** and
@@ -80,7 +80,7 @@ In addition, we use ``Cc4s`` to read the **EigenEnergies.yaml** and
         destination: EigenEnergies
 
 In the following step we include two further algorithm calls that are necessary
-to process the ```CoulombVertex`` <../objects/CoulombVertex.html>`_ and `EigenEnergies <../objects/EigenEnergies.html>`_
+to process the `CoulombVertex <../objects/CoulombVertex.html>`_ and `EigenEnergies <../objects/EigenEnergies.html>`_
 tensors in ``Cc4s`` and prepare them for coupled-cluster calculations. To this end the ``cc4s.in`` file calls the
 `DefineHolesAndParticles <../algorithms/DefineHolesAndParticles.html>`_ and
 `SliceOperator <../algorithms/SliceOperator.html>`_ algorithms as described below

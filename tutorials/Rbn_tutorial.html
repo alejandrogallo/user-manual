@@ -201,17 +201,17 @@
           <div class="content" role="main" v-pre>
             
   <section id="how-to-run-cc4s-calculations">
-<h1><a class="toc-backref" href="#id11" role="doc-backlink">How to run Cc4s calculations?</a><a class="headerlink" href="#how-to-run-cc4s-calculations" title="Link to this heading">¶</a></h1>
+<h1><a class="toc-backref" href="#id15" role="doc-backlink">How to run Cc4s calculations?</a><a class="headerlink" href="#how-to-run-cc4s-calculations" title="Link to this heading">¶</a></h1>
 <nav class="contents" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#how-to-run-cc4s-calculations" id="id11">How to run Cc4s calculations?</a></p>
+<li><p><a class="reference internal" href="#how-to-run-cc4s-calculations" id="id15">How to run Cc4s calculations?</a></p>
 <ul>
-<li><p><a class="reference internal" href="#step-1-coupled-cluster-singles-and-doubles-theory-calculations" id="id12"><strong>Step 1</strong>: Coupled cluster singles and doubles theory calculations</a></p></li>
-<li><p><a class="reference internal" href="#step-2-perturbative-triples-calculations" id="id13"><strong>Step 2</strong>: Perturbative triples calculations</a></p></li>
-<li><p><a class="reference internal" href="#step-3-basis-set-incompleteness-error-correction" id="id14"><strong>Step 3</strong>: Basis-set incompleteness error correction</a></p></li>
-<li><p><a class="reference internal" href="#step-4-finite-size-correction" id="id15"><strong>Step 4</strong>: Finite-size correction</a></p></li>
-<li><p><a class="reference internal" href="#final-energy" id="id16"><strong>Final energy</strong></a></p></li>
+<li><p><a class="reference internal" href="#step-1-coupled-cluster-singles-and-doubles-theory-calculations" id="id16"><strong>Step 1</strong>: Coupled cluster singles and doubles theory calculations</a></p></li>
+<li><p><a class="reference internal" href="#step-2-perturbative-triples-calculations" id="id17"><strong>Step 2</strong>: Perturbative triples calculations</a></p></li>
+<li><p><a class="reference internal" href="#step-3-basis-set-incompleteness-error-correction" id="id18"><strong>Step 3</strong>: Basis-set incompleteness error correction</a></p></li>
+<li><p><a class="reference internal" href="#step-4-finite-size-correction" id="id19"><strong>Step 4</strong>: Finite-size correction</a></p></li>
+<li><p><a class="reference internal" href="#final-energy" id="id20"><strong>Final energy</strong></a></p></li>
 </ul>
 </li>
 </ul>
@@ -246,7 +246,7 @@ CCSD(T) calculations, you might as well download the complete <code class="docut
 are located in the same directory.
 The <code class="docutils literal notranslate"><span class="pre">cc4s.in</span></code> YAML input file is described in the following section in detail.</p>
 <section id="step-1-coupled-cluster-singles-and-doubles-theory-calculations">
-<h2><a class="toc-backref" href="#id12" role="doc-backlink"><strong>Step 1</strong>: Coupled cluster singles and doubles theory calculations</a><a class="headerlink" href="#step-1-coupled-cluster-singles-and-doubles-theory-calculations" title="Link to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id16" role="doc-backlink"><strong>Step 1</strong>: Coupled cluster singles and doubles theory calculations</a><a class="headerlink" href="#step-1-coupled-cluster-singles-and-doubles-theory-calculations" title="Link to this heading">¶</a></h2>
 <p>We start this tutorial by taking the first steps in <code class="docutils literal notranslate"><span class="pre">Cc4s</span></code> needed to compute the CCSD correlation energy.
 For this purpose essential data files have to be read from disk using the <code class="docutils literal notranslate"><span class="pre">Read</span></code> algorithm.
 This aglorithm can be executed employing the following  <code class="docutils literal notranslate"><span class="pre">cc4s.in</span></code> YAML input which controls <code class="docutils literal notranslate"><span class="pre">Cc4s</span></code></p>
@@ -259,10 +259,10 @@ This aglorithm can be executed employing the following  <code class="docutils li
 </div>
 <p>The above call to the <a class="reference external" href="../algorithms/Read.html">Read</a> algorithm reads the
 <strong>CoulombVertex.yaml</strong> file that contains all meta-information associated with the
-<code class="docutils literal notranslate"><span class="pre">`CoulombVertex</span></code> &lt;../objects/CoulombVertex.html&gt;`_ tensor in a human-readable format.
+<a class="reference external" href="../objects/CoulombVertex.html">CoulombVertex</a> tensor in a human-readable format.
 <code class="docutils literal notranslate"><span class="pre">Cc4s</span></code> will read all numerical data belonging to
-the corresponding <code class="docutils literal notranslate"><span class="pre">`CoulombVertex</span></code> &lt;../objects/CoulombVertex.html&gt;`_ tensor from the <strong>CoulombVertex.elements</strong> binary file stored on disk.
-The output of <a class="reference external" href="../algorithms/Read.html">Read</a> algorithm is the <code class="docutils literal notranslate"><span class="pre">`CoulombVertex</span></code> &lt;../objects/CoulombVertex.html&gt;`_ tensor object, which can
+the corresponding <a class="reference external" href="../objects/CoulombVertex.html">CoulombVertex</a> tensor from the <strong>CoulombVertex.elements</strong> binary file stored on disk.
+The output of <a class="reference external" href="../algorithms/Read.html">Read</a> algorithm is the <a class="reference external" href="../objects/CoulombVertex.html">CoulombVertex</a> tensor object, which can
 be used as input for all subsequent <code class="docutils literal notranslate"><span class="pre">Cc4s</span></code> algorithms.</p>
 <p>In addition, we use <code class="docutils literal notranslate"><span class="pre">Cc4s</span></code> to read the <strong>EigenEnergies.yaml</strong> and
 <strong>EigenEnergies.elements</strong> files by including the following <a class="reference external" href="../algorithms/Read.html">Read</a> call in <code class="docutils literal notranslate"><span class="pre">cc4s.in</span></code></p>
@@ -274,7 +274,7 @@ be used as input for all subsequent <code class="docutils literal notranslate"><
 </pre></div>
 </div>
 <p>In the following step we include two further algorithm calls that are necessary
-to process the <code class="docutils literal notranslate"><span class="pre">`CoulombVertex</span></code> &lt;../objects/CoulombVertex.html&gt;`_ and <a class="reference external" href="../objects/EigenEnergies.html">EigenEnergies</a>
+to process the <a class="reference external" href="../objects/CoulombVertex.html">CoulombVertex</a> and <a class="reference external" href="../objects/EigenEnergies.html">EigenEnergies</a>
 tensors in <code class="docutils literal notranslate"><span class="pre">Cc4s</span></code> and prepare them for coupled-cluster calculations. To this end the <code class="docutils literal notranslate"><span class="pre">cc4s.in</span></code> file calls the
 <a class="reference external" href="../algorithms/DefineHolesAndParticles.html">DefineHolesAndParticles</a> and
 <a class="reference external" href="../algorithms/SliceOperator.html">SliceOperator</a> algorithms as described below</p>
@@ -420,7 +420,7 @@ as the correlation energy. The corresponding block of <code class="docutils lite
 input files and always correspond to eV in the case of input files generated by <code class="docutils literal notranslate"><span class="pre">VASP</span></code>.</p>
 </section>
 <section id="step-2-perturbative-triples-calculations">
-<h2><a class="toc-backref" href="#id13" role="doc-backlink"><strong>Step 2</strong>: Perturbative triples calculations</a><a class="headerlink" href="#step-2-perturbative-triples-calculations" title="Link to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id17" role="doc-backlink"><strong>Step 2</strong>: Perturbative triples calculations</a><a class="headerlink" href="#step-2-perturbative-triples-calculations" title="Link to this heading">¶</a></h2>
 <p>We now proceed with the CCSD(T) energy calculation and seek to compute the (T) contribution,
 which has to be added to the CCSD correlation energy contribution estimated in the
 previous section.</p>
@@ -471,7 +471,7 @@ as the correlation energy contribution. The corresponding block of <code class="
 </div>
 </section>
 <section id="step-3-basis-set-incompleteness-error-correction">
-<h2><a class="toc-backref" href="#id14" role="doc-backlink"><strong>Step 3</strong>: Basis-set incompleteness error correction</a><a class="headerlink" href="#step-3-basis-set-incompleteness-error-correction" title="Link to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id18" role="doc-backlink"><strong>Step 3</strong>: Basis-set incompleteness error correction</a><a class="headerlink" href="#step-3-basis-set-incompleteness-error-correction" title="Link to this heading">¶</a></h2>
 <p>We note that in the present case, the CCSD correlation energy is computed using a set of truncated
 approximate natural orbitals. Increasing this basis set size yields correlation energies that
 converge only slowly to the complete basis set limit. <code class="docutils literal notranslate"><span class="pre">Cc4s</span></code> includes an algorithm that can compute
@@ -548,7 +548,7 @@ as the correction. The corresponding block of <code class="docutils literal notr
 </div>
 </section>
 <section id="step-4-finite-size-correction">
-<h2><a class="toc-backref" href="#id15" role="doc-backlink"><strong>Step 4</strong>: Finite-size correction</a><a class="headerlink" href="#step-4-finite-size-correction" title="Link to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id19" role="doc-backlink"><strong>Step 4</strong>: Finite-size correction</a><a class="headerlink" href="#step-4-finite-size-correction" title="Link to this heading">¶</a></h2>
 <p>In the present example the CCSD correlation energy is computed for a finite periodic simulation cell.
 Increasing the size of the employed periodic simulation cell
 yields correlation energies per atom that converge only slowly to the thermodynamic limit.
@@ -628,7 +628,7 @@ as the correction. The corresponding block of <code class="docutils literal notr
 </div>
 </section>
 <section id="final-energy">
-<h2><a class="toc-backref" href="#id16" role="doc-backlink"><strong>Final energy</strong></a><a class="headerlink" href="#final-energy" title="Link to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id20" role="doc-backlink"><strong>Final energy</strong></a><a class="headerlink" href="#final-energy" title="Link to this heading">¶</a></h2>
 <p>We now discuss how to combine all energy contributions from above to obtain the final estimate of the
 ground state energy in the thermodynamic and complete basis-set limit.
 The table below summarizes all computed ground state energy contributions for the present example.</p>
