@@ -64,13 +64,7 @@
               :ensure t)
 
 (use-package! citeproc :defer t :ensure t)
-(use-package! org-ref
-              :defer t
-              :ensure t
-              :config
-              (setq bibtex-completion-bibliography
-                    (list (format "%s/%s" cc4s-root-directory "group.bib")))
-              (cc4s-log "Bib files: %s" bibtex-completion-bibliography))
+
 
 (use-package! yaml-mode
               :defer t
@@ -86,7 +80,6 @@
 (require 'org)
 (require 'ox-html)
 (require 'ox-rst)
-(require 'org-ref)
 (require 'org-id)
 
 (cc4s-log "loading theme..")
