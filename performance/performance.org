@@ -39,7 +39,7 @@ In a closed-shell calculation the
 number of occupied orbitals $N_o$ is half the number of valence electrons
 $N_\text{elec}$.  When using the [[id:BasisSetCorrection][basis-set
 correction]] typically 8-16 virtual orbitals per occupied orbital are needed to
-obtain converged results (see Ref. cite:&FocalPointAppIrmler2021).  Further
+obtain converged results (see Ref. [cite:@FocalPointAppIrmler2021]).  Further
 input parameter is the number of field variables of the vertex $N_\text{F}$. It
 has been shown that for converged results this number can be chosen as small
 as 2-3 times $N_v$.
@@ -167,5 +167,5 @@ was kept almost constant at a value of around 3.5.
 
 
 * Literature
-bibliography:../group.bib
+#+print_bibliography:
 

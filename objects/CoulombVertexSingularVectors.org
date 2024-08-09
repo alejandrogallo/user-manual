@@ -21,6 +21,6 @@ electronic structure code and should be read from an external file using the
 #+end_src
 
 * Literature
-bibliography:../group.bib
+#+print_bibliography:
 
 

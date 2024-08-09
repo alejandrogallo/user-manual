@@ -124,7 +124,7 @@ NBANDS   = $nbands
 LSFACTOR = .TRUE.
 #+end_src
 
-For larger systems, the low-scaling algorithm [[cite:&Schafer2016]] might be faster and less memory consuming.
+For larger systems, the low-scaling algorithm [cite:@Schafer2016] might be faster and less memory consuming.
 
 #+name: mp2_2-incar
 #+begin_src sh
@@ -160,7 +160,8 @@ At the end of this =VASP= calculation the following input files needed by =Cc4s=
 
 The convergence of the electronic correlation energy is very slow when using canonical Hartree--Fock orbitals.
 Approximate natural orbitals allow for achieving a more rapid correlation energy convergence to the complete basis set limit.
-Here, we compute these natural orbitals as described below and using Eq.2 from Ref.[[cite:&grueneis2011natural]].
+Here, we compute these natural orbitals as described below and using
+Eq.2 from Ref. [cite:@grueneis2011natural].
 However, alternative approaches such as =ALGO=RPANO= exist in =VASP=.
 Make sure to employ the =WAVECAR= file containing all orbitals (=WAVECAR.HFV=).
 
@@ -246,6 +247,6 @@ This step produces the following input files needed by =Cc4s=
 
 * Literature
 #+OPTIONS: num:nil
-bibliography:../group.bib
+#+print_bibliography:
 
 

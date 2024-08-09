@@ -102,7 +102,7 @@ No considerable memory footprints or computational cost bottle necks are expecte
 
 * Theory
 
-The methods employed in this algorithm are discussed in Refs. cite:&liao2016communication and cite:&gruber2018applying .
+The methods employed in this algorithm are discussed in Refs. [cite:@liao2016communication] and [cite:@gruber2018applying].
 We employ a tricubic interpolation technique to reduce
 quadrature errors in the numerical expression of the electronic correlation energy: $\sum_{ G}S({ G}){\tilde{v}}({ G})$.
 In particular, the quadrature errors around ${G}=0$ are large and result in significant finite-size errors for small simulation cells.
@@ -118,6 +118,6 @@ We find that $N=20$ yields well converged correlation energies for sufficiently 
 However, we recommend to check convergence with respect to this parameter for each system separetely.
 
 * Literature
-bibliography:../group.bib
+#+print_bibliography:
 
 

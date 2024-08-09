@@ -67,6 +67,6 @@ realtime: 0.001512765
 #+end_src
 
 * Literature
-bibliography:../group.bib
+#+print_bibliography:
 
 

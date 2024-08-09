@@ -16,6 +16,6 @@ This partitioning is done by the
 [[id:DefineHolesAndParticles][DefineHolesAndParticles]] algorithm.
 
 * Literature
-bibliography:../group.bib
+#+print_bibliography:
 
 

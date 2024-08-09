@@ -19,4 +19,4 @@ and OpenMP based parallelization.
 
 In general terms, =cc4s= takes as input a reference wavefunction
 together with a description of the Coulomb integrals.
-Currently, interfaces are available for the codes [[https://vasp.at][=vasp=]] and [[https://fhi-aims.org/][=fhi-aims=]].
+Currently, interfaces are available for the codes [[https://vasp.at][VASP]] and [[https://fhi-aims.org/][FHI-AIMS]].

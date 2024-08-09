@@ -86,7 +86,7 @@ footprint is mainly determined by the storage of the PPPH-integral, which is of
 size $\mathcal{O}{N_o N_v^3}$.
 * Theory
 
-The implemented expressions of (T) correspond to those from Ref. [[cite:&RAGHAVACHARI1989479]]. For more details see Ref. [[cite:&Bartlett2007-cm]] and references therin. 
+The implemented expressions of (T) correspond to those from Ref. [cite:@RAGHAVACHARI1989479]. For more details see Ref. [cite:@Bartlett2007-cm] and references therin. 
 
 * Reference implementation
 
@@ -96,4 +96,4 @@ is used in the same way as =PerturbativeTriples=.
 To use it, you should just change the name =PerturbativeTriples= by =PerturbativeTriplesReference=.
 
 * Literature
-bibliography:../group.bib
+#+print_bibliography:

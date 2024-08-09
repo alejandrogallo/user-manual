@@ -12,7 +12,7 @@ $$ V^{pq}_{sr} = \sum_{G} {\Gamma^\ast}^{pG}_s \Gamma^q_{rG} $$
 =CoulombIntegrals= $V^{pq}_{sr}$ are computed from the
 [[id:CoulombVertex][CoulombVertex]], which can
 be respresented in an arbitrary basis set depending on the employed interface
-cite:&hummel2017low.
+[cite:@hummel2017low].
 
 =CoulombIntegrals= are computed from the
 [[id:CoulombVertex][CoulombVertex]] using the
@@ -34,6 +34,6 @@ needed by an algorithm.
 
 
 * Literature
-bibliography:../group.bib
+#+print_bibliography:
 
 

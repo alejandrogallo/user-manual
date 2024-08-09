@@ -80,11 +80,11 @@ energy calculation.
 * Theory
 
 This algorithm evaluates a correction to the basis-set-incompleteness error (BSIE)
-of CCSD correlation energies as descibed in Ref. cite:&FocalPointAppIrmler2021. The algorithm
+of CCSD correlation energies as descibed in Ref. [cite:@FocalPointAppIrmler2021]. The algorithm
 requires the converged CCSD amplitudes together with [[id:DeltaIntegrals][\delta-integrals]]. Futhermore,
 a complete-basis-set-limit estimate of the [[id:Mp2PairEnergies][MP2 pair-correlation-energies]] is needed.
 
-As discussed in  Ref. cite:&FocalPointAppIrmler2021, the CCSD-BSIE in a finite basis-set
+As discussed in  Ref. [cite:@FocalPointAppIrmler2021], the CCSD-BSIE in a finite basis-set
 calculation is primarily due to the 2nd-order term, and the so-called
 particle-particle ladder (ppl) term. 
 There exists a variety of algorithms which allow
@@ -93,12 +93,12 @@ a reliable CBS estimate for the 2nd-order term at modest computational costs
 missing ppl BSIE contribution is approximated using a pair-specific expression
 which requires the [[id:Mp2PairEnergies][MP2 pair-correlation-energies]],
 CCSD amplitudes, as-well-as the [[id:DeltaIntegrals][\delta-integrals]].
-The implemented ppl-correction is defined by Eq.(31) in Ref. cite:&FocalPointAppIrmler2021 .
+The implemented ppl-correction is defined by Eq.(31) in Ref. [cite:@FocalPointAppIrmler2021].
 The provided CCSD-BSIE energy correction is the sum of the 2nd-order energy
 correction and the ppl-correction-term.
 
 
 * Literature
-bibliography:../group.bib
+#+print_bibliography:
 
 
