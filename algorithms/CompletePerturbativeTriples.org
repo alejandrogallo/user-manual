@@ -1,0 +1,29 @@
+:PROPERTIES:
+:ID: CompletePerturbativeTriples
+:END:
+#+title: CompletePerturbativeTriples
+# #+OPTIONS: toc:nil
+
+* Brief description
+Evaluates the (cT) contribution.
+* TODO Algorithm call
+
+
+* TODO Algorithm input
+* Algorithm output
+
+
+* Sample =yaml= output
+
+* Computational complexity
+
+The computational cost is $\mathcal{O}{(N_o^3 N_v^3(N_o+N_v))}$ with $N_o$ and 
+$N_v$ being the number of occupied and virtual orbitals, respectively. The memory
+footprint is mainly determined by the storage of the PPPH-integral, which is of 
+size $\mathcal{O}{N_o N_v^3}$.
+* Theory
+
+The implemented expressions of (cT) correspond to those from Ref. [cite:@PhysRevLett.131.186401].
+
+* Literature
+#+print_bibliography:
