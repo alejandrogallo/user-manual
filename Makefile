@@ -37,6 +37,7 @@ build/index.html: $(SPHINX) rst
 
 rst: $(RSTFILES)
 %.rst: %.org
+	@echo "[RST] " $< "    =>     " $@
 	$(EMACS_SITE) $< -f org-rst-export-to-rst
 	sed -i "s/\.rst/.html/g" $@
 	sed -i "s/\.org/.html/g" $@
@@ -46,11 +47,12 @@ tangle: $(TANGLING_FILES_CACHE)
 refresh:
 	$(EMACS) --load config/site.el $(INDEX) -f package-refresh-contents
 
-clean:
-	rm -r $(PYENV) $(BUILD_DIR) $(ID_LOCATION_FILE) .emacs/org-timestamps*
+clean: clean-emacs
+	rm -vr $(PYENV) $(BUILD_DIR) $(ID_LOCATION_FILE) .emacs/org-timestamps* \
+		**/*.rst
 
 clean-emacs:
-	rm -r .emacs
+	rm -vr .emacs
 
 clean-all: clean clean-emacs
 
