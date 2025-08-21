@@ -9,7 +9,7 @@ PORT = 8888
 EMACS_BIN ?= emacs
 EMACS = $(EMACS_BIN) -Q --batch
 INDEX = index.org
-ORGFILES = $(shell find . -name '*.org' | grep -v '.emacs')
+ORGFILES = $(shell find . -name '*.org' -prune -o -path "*.git*" -prune -o -path "./env" | grep -v '.emacs')
 RSTFILES = $(patsubst %.org,%.rst,$(ORGFILES))
 ID_LOCATION_FILE = id-locations
 EMACS_SITE = $(EMACS) --load config/site.el
@@ -29,6 +29,9 @@ $(SPHINX):
 	virtualenv $(PYENV)
 	$(PYENV)/bin/pip install sphinx sphinx-press-theme
 
+org:
+	echo $(ORGFILES)
+
 build/index.html: $(SPHINX) rst
 	$(SPHINX) -b html . $(BUILD_DIR)
 
@@ -44,7 +47,7 @@ refresh:
 	$(EMACS) --load config/site.el $(INDEX) -f package-refresh-contents
 
 clean:
-	rm -r $(BUILD_DIR) $(ID_LOCATION_FILE) .emacs/org-timestamps*
+	rm -r $(PYENV) $(BUILD_DIR) $(ID_LOCATION_FILE) .emacs/org-timestamps*
 
 clean-emacs:
 	rm -r .emacs
@@ -65,4 +68,4 @@ vim:
 deploy: user-manual
 	rsync --recursive --itemize-changes --delete $(BUILD_DIR) $(PATHSVR)
 
-.PHONY: init serve tangle refresh clean clean-emacs clean-all force vim
+.PHONY: init serve tangle refresh clean clean-emacs clean-all force vim org
